@@ -100,10 +100,18 @@
         
         .carousel-controls {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             margin-top: 10px;
+        }
+        
+        .controls-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
         }
         
         .swiper-button-next,
@@ -198,9 +206,11 @@
         </div>
         
         <div class="carousel-controls">
-            <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
+            <div class="controls-buttons">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
     </div>
     
