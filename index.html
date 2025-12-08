@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="1wKjmvJq3qH-HjT8qo48HYP5EwWNJSOHBm7juBGZxg8" />
-    <title>Arc 1 Episodes - Deep Dream State</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+    <title>Deep Dream State | Neural Nets and Pretty Patterns</title>
+    <meta name="description" content="A surreal psychological horror audio drama from Neural Nets And Pretty Patterns. Three narrative arcs of experimental audio fiction exploring hypnosis, dream, and desire.">
+    <meta name="theme-color" content="#1a0a2e">
+    
+    <!-- Google Fonts: IM Fell DW Pica -->
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -15,209 +20,340 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Crimson Text', serif;
-            background: linear-gradient(135deg, #1a0a1a 0%, #2a0a2a 50%, #150a15 100%);
-            color: #ff6b9d;
-            padding: 20px 20px;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            margin-bottom: 25px;
+        html, body {
+            width: 100%;
+            height: 100%;
             font-family: 'IM Fell DW Pica', serif;
-            font-size: 2.8rem;
-            text-align: center;
-            color: #ff1493;
-            text-shadow: 0 0 30px rgba(255, 20, 147, 0.6), 0 0 60px rgba(0, 0, 0, 0.8);
-            letter-spacing: 2px;
-            font-weight: normal;
-            font-style: normal;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            overflow: hidden;
         }
         
-        .swiper-container-wrapper {
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+            max-width: 600px;
+            opacity: 0.95;
+        }
+        
+        .carousel-container {
+            width: 100%;
+            max-width: 500px;
             perspective: 1200px;
-            margin-bottom: 30px;
-            overflow: visible;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
         .swiper {
             width: 100%;
-            height: 400px;
-            overflow: visible;
-        }
-        
-        .swiper-wrapper {
-            overflow: visible;
+            height: auto;
+            padding: 2rem 0;
         }
         
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #2a0a2a 0%, #1a1a2a 100%);
-            border-radius: 0;
-            overflow: visible;
+            height: auto;
             cursor: pointer;
-            border: 3px solid #ff1493;
-            box-shadow: 0 0 40px rgba(255, 20, 147, 0.5), 
-                        inset 0 0 30px rgba(255, 20, 147, 0.1),
-                        0 0 80px rgba(0, 0, 0, 0.9);
-            background-clip: padding-box;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
         }
         
-        .swiper-slide a {
+        .swiper-slide:hover {
+            transform: scale(1.05);
+        }
+        
+        .card {
             width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: inherit;
+            max-width: 350px;
+            aspect-ratio: 4/5;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
         
-        .swiper-slide img {
+        .card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.85;
-            transition: opacity 0.3s ease;
-            filter: brightness(0.9) contrast(1.1) saturate(1.1);
+            display: block;
         }
         
-        .swiper-slide:hover img {
-            opacity: 1;
-            filter: brightness(1) contrast(1.15) saturate(1.2);
+        .card-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
         }
         
-        .carousel-controls {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 10px;
+        .swiper-slide-active .card {
+            box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
+            transform: scale(1.02);
         }
         
-        .controls-buttons {
+        .carousel-nav {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
-        .swiper-button-next,
-        .swiper-button-prev {
-            color: #ff6b9d;
-            background: rgba(42, 10, 42, 0.7);
+        .nav-button {
             width: 50px;
             height: 50px;
-            border-radius: 0;
-            display: flex !important;
+            border: 2px solid #e8e8e8;
+            border-radius: 50%;
+            background: transparent;
+            color: #e8e8e8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
             justify-content: center;
             align-items: center;
-            border: 2px solid #ff1493;
             transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.5);
-            position: static !important;
-            margin: 0 !important;
-            top: auto !important;
-            right: auto !important;
-            left: auto !important;
-            flex-shrink: 0;
+            font-family: 'IM Fell DW Pica', serif;
         }
         
-        .swiper-button-next:hover,
-        .swiper-button-prev:hover {
-            background: rgba(255, 20, 147, 0.3);
-            color: #ff69b4;
-            box-shadow: 0 0 40px rgba(255, 20, 147, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.7);
+        .nav-button:hover {
+            background: #e8e8e8;
+            color: #1a0a2e;
+            transform: scale(1.1);
         }
         
-        .swiper-button-next::after,
-        .swiper-button-prev::after {
-            font-size: 24px;
+        .nav-button:active {
+            transform: scale(0.95);
         }
         
-        .swiper-pagination {
-            position: relative;
-            bottom: auto;
-            margin-top: 0;
+        .nav-button.prev::before {
+            content: "‹";
+            font-weight: bold;
         }
         
-        .swiper-pagination-bullet {
-            background: rgba(255, 20, 147, 0.3);
-            width: 14px;
-            height: 14px;
-            border-radius: 0;
-            border: 1px solid #ff1493;
+        .nav-button.next::before {
+            content: "›";
+            font-weight: bold;
+        }
+        
+        .nav-button.home::before {
+            content: "⌂";
+        }
+        
+        .dot-indicator {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(232, 232, 232, 0.3);
+            cursor: pointer;
             transition: all 0.3s ease;
         }
         
-        .swiper-pagination-bullet-active {
-            background: #ff6b9d;
-            box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
-            border: 1px solid #ff69b4;
+        .dot.active {
+            background: #e8e8e8;
+            width: 30px;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .tagline {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .carousel-container {
+                max-width: 100%;
+            }
+            
+            .card {
+                max-width: 280px;
+            }
+            
+            .carousel-nav {
+                gap: 1rem;
+            }
+            
+            .nav-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                padding: 1rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .card {
+                max-width: 240px;
+            }
+            
+            .carousel-nav {
+                gap: 0.75rem;
+            }
+            
+            .nav-button {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Arc 1 Episodes</h1>
+    <!-- Background Container -->
+    <div id="background-container"></div>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Tagline -->
+        <h1 class="tagline">A surreal psychological horror audio drama from Neural Nets And Pretty Patterns</h1>
         
-        <div class="swiper-container-wrapper">
+        <!-- Carousel Container -->
+        <div class="carousel-container">
             <div class="swiper">
                 <div class="swiper-wrapper">
+                    <!-- Card 1: Chthonic -->
                     <div class="swiper-slide">
-                        <a href="pages/episode1.html">
-                            <img src="images/carousel-1.jpg" alt="Episode 1">
-                        </a>
+                        <div class="card">
+                            <a href="/deepdreamstate/arcs/chthonic/" class="card-link" aria-label="Arc 1: The Chthonic">
+                                <picture>
+                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" type="image/webp">
+                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.jpg" alt="Arc 1: The Chthonic - Art nouveau card featuring a woman with flowing tentacles against an ornate golden background">
+                                </picture>
+                            </a>
+                        </div>
                     </div>
+                    
+                    <!-- Card 2: Incognitoh -->
                     <div class="swiper-slide">
-                        <a href="pages/episode2.html">
-                            <img src="images/carousel-2.jpg" alt="Episode 2">
-                        </a>
+                        <div class="card">
+                            <a href="/deepdreamstate/arcs/incognitoh/" class="card-link" aria-label="Arc 2: Incognitoh">
+                                <picture>
+                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" type="image/webp">
+                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.jpg" alt="Arc 2: Incognitoh - Art nouveau card featuring a woman in minimalist style against a tech-aesthetic background">
+                                </picture>
+                            </a>
+                        </div>
                     </div>
+                    
+                    <!-- Card 3: Sitri Center -->
                     <div class="swiper-slide">
-                        <a href="pages/episode3.html">
-                            <img src="images/carousel-3.jpg" alt="Episode 3">
-                        </a>
+                        <div class="card">
+                            <a href="/deepdreamstate/arcs/sitri/" class="card-link" aria-label="Arc 3: Sitri Center">
+                                <picture>
+                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" type="image/webp">
+                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.jpg" alt="Arc 3: Sitri Center - Art nouveau card featuring a scientist figure with brain imagery in warm tones">
+                                </picture>
+                            </a>
+                        </div>
                     </div>
+                    
+                    <!-- Card 4: About The Show -->
                     <div class="swiper-slide">
-                        <a href="pages/episode4.html">
-                            <img src="images/carousel-4.jpg" alt="Episode 4">
-                        </a>
+                        <div class="card">
+                            <a href="/deepdreamstate/about/" class="card-link" aria-label="About The Show">
+                                <picture>
+                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-about.webp" type="image/webp">
+                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-about.jpg" alt="About The Show - Art nouveau card featuring a woman with glasses and a book in a library setting">
+                                </picture>
+                            </a>
+                        </div>
                     </div>
+                    
+                    <!-- Card 5: Cast and Crew -->
                     <div class="swiper-slide">
-                        <a href="pages/episode5.html">
-                            <img src="images/carousel-5.jpg" alt="Episode 5">
-                        </a>
+                        <div class="card">
+                            <a href="/deepdreamstate/cast/" class="card-link" aria-label="Cast and Crew">
+                                <picture>
+                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-cast.webp" type="image/webp">
+                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-cast.jpg" alt="Cast and Crew - Art nouveau card featuring glamorous performance costumes and accessories with mirrors">
+                                </picture>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="carousel-controls">
-            <div class="swiper-pagination"></div>
-            <div class="controls-buttons">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+            
+            <!-- Dot Indicators -->
+            <div class="dot-indicator">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
             </div>
         </div>
-    </div>
+        
+        <!-- Navigation Controls -->
+        <div class="carousel-nav">
+            <button class="nav-button prev" aria-label="Previous card"></button>
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button next" aria-label="Next card"></button>
+        </div>
+    </main>
     
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Swiper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+    
+    <!-- Background Image Setup -->
+    <script>
+        // Set background image
+        const bgContainer = document.getElementById('background-container');
+        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
+    </script>
+    
+    <!-- Swiper Initialization -->
     <script>
         const swiper = new Swiper('.swiper', {
             effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
             coverflowEffect: {
                 rotate: 50,
                 stretch: 0,
@@ -225,22 +361,48 @@
                 modifier: 1,
                 slideShadows: true,
             },
-            slidesPerView: 1,
-            spaceBetween: 0,
-            centeredSlides: true,
-            loop: true,
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: '.nav-button.next',
+                prevEl: '.nav-button.prev',
             },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            preventClicks: false,
-            preventClicksPropagation: false,
+            loop: true,
             speed: 800,
         });
+        
+        // Update dot indicators
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                swiper.slideTo(index);
+            });
+        });
+        
+        swiper.on('slideChange', () => {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[swiper.realIndex].classList.add('active');
+        });
+    </script>
+    
+    <!-- JSON-LD Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Neural Nets and Pretty Patterns",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+        "logo": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp",
+        "description": "A surreal psychological horror audio drama exploring hypnosis, sound design, and the boundaries between dream and story.",
+        "sameAs": [
+            "https://www.imdb.com/name/nm12345678/",
+            "https://twitter.com/prettypattern",
+            "https://reddit.com/user/prettypattern",
+            "https://patreon.com/minderaser"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "url": "https://patreon.com/minderaser"
+        }
+    }
     </script>
 </body>
 </html>
