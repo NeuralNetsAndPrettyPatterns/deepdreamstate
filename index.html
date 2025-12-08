@@ -53,23 +53,33 @@
             z-index: 1;
         }
         
+        .page-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.1em;
+            font-weight: normal;
+        }
+        
         .tagline {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-align: center;
             margin-bottom: 3rem;
             font-style: italic;
             letter-spacing: 0.05em;
             line-height: 1.6;
-            max-width: 600px;
+            max-width: 800px;
             opacity: 0.95;
+            white-space: nowrap;
         }
         
         .carousel-container {
-    width: 100%;
-    max-width: 500px;
-    perspective: 1200px;
-    overflow: visible;
-}
+            width: 100%;
+            max-width: 500px;
+            perspective: 1200px;
+            overflow: visible;
+        }
+        
         .swiper {
             width: 100%;
             height: auto;
@@ -123,16 +133,13 @@
             transform: scale(1.02);
         }
         
-      main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: auto;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-}
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
         
         .nav-button {
             width: 50px;
@@ -253,8 +260,11 @@
     
     <!-- Main Content -->
     <main>
+        <!-- Page Title -->
+        <h1 class="page-title">Deep Dream State</h1>
+        
         <!-- Tagline -->
-        <h1 class="tagline">A surreal psychological horror audio drama from Neural Nets And Pretty Patterns</h1>
+        <p class="tagline">A surreal psychological horror audio drama from Neural Nets And Pretty Patterns</p>
         
         <!-- Carousel Container -->
         <div class="carousel-container">
@@ -345,9 +355,12 @@
     
     <!-- Background Image Setup -->
     <script>
-        // Set background image
+        // Set background image with proper path
         const bgContainer = document.getElementById('background-container');
-        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
+        const imagePath = window.location.pathname.includes('deepdreamstate') 
+            ? '/deepdreamstate/assets/images/dds-carousel-background.webp'
+            : 'assets/images/dds-carousel-background.webp';
+        bgContainer.style.backgroundImage = 'url(' + imagePath + ')';
     </script>
     
     <!-- Swiper Initialization -->
