@@ -355,12 +355,9 @@
     
     <!-- Background Image Setup -->
     <script>
-        // Set background image with proper path
+        // Set background image
         const bgContainer = document.getElementById('background-container');
-        const imagePath = window.location.pathname.includes('deepdreamstate') 
-            ? '/deepdreamstate/assets/images/dds-carousel-background.webp'
-            : 'assets/images/dds-carousel-background.webp';
-        bgContainer.style.backgroundImage = 'url(' + imagePath + ')';
+        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
     </script>
     
     <!-- Swiper Initialization -->
