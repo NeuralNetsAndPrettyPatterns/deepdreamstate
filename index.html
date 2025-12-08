@@ -47,7 +47,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            min-height: auto;
             padding: 2rem;
             position: relative;
             z-index: 1;
@@ -65,11 +65,11 @@
         }
         
         .carousel-container {
-            width: 100%;
-            max-width: 500px;
-            perspective: 1200px;
-        }
-        
+    width: 100%;
+    max-width: 500px;
+    perspective: 1200px;
+    overflow: visible;
+}
         .swiper {
             width: 100%;
             height: auto;
@@ -123,13 +123,16 @@
             transform: scale(1.02);
         }
         
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+      main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
         
         .nav-button {
             width: 50px;
