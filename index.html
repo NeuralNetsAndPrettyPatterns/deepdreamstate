@@ -10,9 +10,6 @@
     <!-- Google Fonts: IM Fell DW Pica -->
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
     
-    <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css">
-    
     <style>
         * {
             margin: 0;
@@ -26,7 +23,7 @@
             font-family: 'IM Fell DW Pica', serif;
             background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
             color: #e8e8e8;
-            overflow: hidden;
+            overflow-x: hidden;
         }
         
         #background-container {
@@ -73,43 +70,29 @@
             white-space: nowrap;
         }
         
-        .carousel-container {
-            width: 100%;
-            max-width: 500px;
-            perspective: 1200px;
-            overflow: visible;
-        }
-        
-        .swiper {
-            width: 100%;
-            height: auto;
-            padding: 2rem 0;
-        }
-        
-        .swiper-slide {
+        .carousel-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: auto;
-            cursor: pointer;
-            transform-style: preserve-3d;
-            transition: transform 0.3s ease;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
         
-        .swiper-slide:hover {
-            transform: scale(1.05);
+        .carousel-container {
+            width: 100%;
+            max-width: 350px;
         }
         
         .card {
             width: 100%;
-            max-width: 350px;
             aspect-ratio: 4/5;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-            transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
+            transition: opacity 0.6s ease, box-shadow 0.3s ease;
         }
         
         .card img {
@@ -126,19 +109,28 @@
             width: 100%;
             height: 100%;
             text-decoration: none;
+            z-index: 2;
         }
         
-        .swiper-slide-active .card {
+        .card:hover {
             box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
-            transform: scale(1.02);
         }
         
-        .carousel-nav {
+        .card.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .card.visible {
+            opacity: 1;
+        }
+        
+        .nav-controls {
             display: flex;
+            flex-direction: column;
+            gap: 1rem;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
         }
         
         .nav-button {
@@ -170,11 +162,13 @@
         .nav-button.prev::before {
             content: "‹";
             font-weight: bold;
+            font-size: 2rem;
         }
         
         .nav-button.next::before {
             content: "›";
             font-weight: bold;
+            font-size: 2rem;
         }
         
         .nav-button.home::before {
@@ -185,7 +179,7 @@
             display: flex;
             gap: 0.5rem;
             justify-content: center;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
         .dot {
@@ -204,21 +198,21 @@
         }
         
         @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1rem;
                 margin-bottom: 2rem;
             }
             
-            .carousel-container {
-                max-width: 100%;
-            }
-            
-            .card {
-                max-width: 280px;
-            }
-            
-            .carousel-nav {
+            .carousel-wrapper {
                 gap: 1rem;
+            }
+            
+            .carousel-container {
+                max-width: 280px;
             }
             
             .nav-button {
@@ -233,23 +227,28 @@
                 padding: 1rem;
             }
             
+            .page-title {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+            
             .tagline {
-                font-size: 1rem;
+                font-size: 0.9rem;
                 margin-bottom: 1.5rem;
             }
             
-            .card {
+            .carousel-container {
                 max-width: 240px;
-            }
-            
-            .carousel-nav {
-                gap: 0.75rem;
             }
             
             .nav-button {
                 width: 35px;
                 height: 35px;
                 font-size: 1rem;
+            }
+            
+            .nav-controls {
+                gap: 0.75rem;
             }
         }
     </style>
@@ -266,92 +265,81 @@
         <!-- Tagline -->
         <p class="tagline">A surreal psychological horror audio drama from Neural Nets And Pretty Patterns</p>
         
-        <!-- Carousel Container -->
-        <div class="carousel-container">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <!-- Card 1: Chthonic -->
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <a href="/deepdreamstate/arcs/chthonic/" class="card-link" aria-label="Arc 1: The Chthonic">
-                                <picture>
-                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" type="image/webp">
-                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.jpg" alt="Arc 1: The Chthonic - Art nouveau card featuring a woman with flowing tentacles against an ornate golden background">
-                                </picture>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Card 2: Incognitoh -->
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <a href="/deepdreamstate/arcs/incognitoh/" class="card-link" aria-label="Arc 2: Incognitoh">
-                                <picture>
-                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" type="image/webp">
-                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.jpg" alt="Arc 2: Incognitoh - Art nouveau card featuring a woman in minimalist style against a tech-aesthetic background">
-                                </picture>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Card 3: Sitri Center -->
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <a href="/deepdreamstate/arcs/sitri/" class="card-link" aria-label="Arc 3: Sitri Center">
-                                <picture>
-                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" type="image/webp">
-                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.jpg" alt="Arc 3: Sitri Center - Art nouveau card featuring a scientist figure with brain imagery in warm tones">
-                                </picture>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Card 4: About The Show -->
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <a href="/deepdreamstate/about/" class="card-link" aria-label="About The Show">
-                                <picture>
-                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-about.webp" type="image/webp">
-                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-about.jpg" alt="About The Show - Art nouveau card featuring a woman with glasses and a book in a library setting">
-                                </picture>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Card 5: Cast and Crew -->
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <a href="/deepdreamstate/cast/" class="card-link" aria-label="Cast and Crew">
-                                <picture>
-                                    <source srcset="/deepdreamstate/assets/images/dds-carousel-card-cast.webp" type="image/webp">
-                                    <img src="/deepdreamstate/assets/images/dds-carousel-card-cast.jpg" alt="Cast and Crew - Art nouveau card featuring glamorous performance costumes and accessories with mirrors">
-                                </picture>
-                            </a>
-                        </div>
-                    </div>
+        <!-- Carousel Wrapper with Controls -->
+        <div class="carousel-wrapper">
+            <!-- Navigation Controls (Left Side) -->
+            <div class="nav-controls">
+                <button class="nav-button prev" aria-label="Previous card"></button>
+                <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+                <button class="nav-button next" aria-label="Next card"></button>
+            </div>
+            
+            <!-- Carousel Container -->
+            <div class="carousel-container">
+                <!-- Card 1: Chthonic -->
+                <div class="card visible" data-index="0">
+                    <a href="/deepdreamstate/arcs/chthonic/" class="card-link" aria-label="Arc 1: The Chthonic">
+                        <picture>
+                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" type="image/webp">
+                            <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.jpg" alt="Arc 1: The Chthonic - Art nouveau card featuring a woman with flowing tentacles against an ornate golden background">
+                        </picture>
+                    </a>
+                </div>
+                
+                <!-- Card 2: Incognitoh -->
+                <div class="card hidden" data-index="1">
+                    <a href="/deepdreamstate/arcs/incognitoh/" class="card-link" aria-label="Arc 2: Incognitoh">
+                        <picture>
+                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" type="image/webp">
+                            <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.jpg" alt="Arc 2: Incognitoh - Art nouveau card featuring a woman in minimalist style against a tech-aesthetic background">
+                        </picture>
+                    </a>
+                </div>
+                
+                <!-- Card 3: Sitri Center -->
+                <div class="card hidden" data-index="2">
+                    <a href="/deepdreamstate/arcs/sitri/" class="card-link" aria-label="Arc 3: Sitri Center">
+                        <picture>
+                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" type="image/webp">
+                            <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.jpg" alt="Arc 3: Sitri Center - Art nouveau card featuring a scientist figure with brain imagery in warm tones">
+                        </picture>
+                    </a>
+                </div>
+                
+                <!-- Card 4: About The Show -->
+                <div class="card hidden" data-index="3">
+                    <a href="/deepdreamstate/about/" class="card-link" aria-label="About The Show">
+                        <picture>
+                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-about.webp" type="image/webp">
+                            <img src="/deepdreamstate/assets/images/dds-carousel-card-about.jpg" alt="About The Show - Art nouveau card featuring a woman with glasses and a book in a library setting">
+                        </picture>
+                    </a>
+                </div>
+                
+                <!-- Card 5: Cast and Crew -->
+                <div class="card hidden" data-index="4">
+                    <a href="/deepdreamstate/cast/" class="card-link" aria-label="Cast and Crew">
+                        <picture>
+                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-cast.webp" type="image/webp">
+                            <img src="/deepdreamstate/assets/images/dds-carousel-card-cast.jpg" alt="Cast and Crew - Art nouveau card featuring glamorous performance costumes and accessories with mirrors">
+                        </picture>
+                    </a>
                 </div>
             </div>
             
-            <!-- Dot Indicators -->
-            <div class="dot-indicator">
-                <div class="dot active" data-index="0"></div>
-                <div class="dot" data-index="1"></div>
-                <div class="dot" data-index="2"></div>
-                <div class="dot" data-index="3"></div>
-                <div class="dot" data-index="4"></div>
-            </div>
+            <!-- Placeholder for right side balance (empty) -->
+            <div style="width: 80px;"></div>
         </div>
         
-        <!-- Navigation Controls -->
-        <div class="carousel-nav">
-            <button class="nav-button prev" aria-label="Previous card"></button>
-            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
-            <button class="nav-button next" aria-label="Next card"></button>
+        <!-- Dot Indicators -->
+        <div class="dot-indicator">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+            <div class="dot" data-index="4"></div>
         </div>
     </main>
-    
-    <!-- Swiper.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
     
     <!-- Background Image Setup -->
     <script>
@@ -360,40 +348,54 @@
         bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
     </script>
     
-    <!-- Swiper Initialization -->
+    <!-- Carousel Logic: Dissolve Fade -->
     <script>
-        const swiper = new Swiper('.swiper', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            navigation: {
-                nextEl: '.nav-button.next',
-                prevEl: '.nav-button.prev',
-            },
-            loop: true,
-            speed: 800,
+        const cards = document.querySelectorAll('.card');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.nav-button.prev');
+        const nextBtn = document.querySelector('.nav-button.next');
+        let currentIndex = 0;
+        
+        function showCard(index) {
+            // Hide all cards
+            cards.forEach(card => {
+                card.classList.remove('visible');
+                card.classList.add('hidden');
+            });
+            
+            // Deactivate all dots
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current card
+            cards[index].classList.remove('hidden');
+            cards[index].classList.add('visible');
+            
+            // Activate current dot
+            dots[index].classList.add('active');
+            
+            currentIndex = index;
+        }
+        
+        // Navigation button handlers
+        prevBtn.addEventListener('click', () => {
+            const newIndex = (currentIndex - 1 + cards.length) % cards.length;
+            showCard(newIndex);
         });
         
-        // Update dot indicators
-        const dots = document.querySelectorAll('.dot');
+        nextBtn.addEventListener('click', () => {
+            const newIndex = (currentIndex + 1) % cards.length;
+            showCard(newIndex);
+        });
+        
+        // Dot click handlers
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                swiper.slideTo(index);
+                showCard(index);
             });
         });
         
-        swiper.on('slideChange', () => {
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[swiper.realIndex].classList.add('active');
-        });
+        // Initialize
+        showCard(0);
     </script>
     
     <!-- JSON-LD Structured Data: Organization -->
