@@ -188,15 +188,25 @@
             border-radius: 5px;
         }
         
-        .info-section {
+        .info-wrapper {
             margin-top: 2rem;
             text-align: center;
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .info-section {
+            position: absolute;
             opacity: 0;
             transition: opacity 0.6s ease;
+            pointer-events: none;
         }
         
         .info-section.visible {
             opacity: 1;
+            pointer-events: auto;
         }
         
         .info-title {
@@ -268,7 +278,7 @@
     <div id="background-container"></div>
     
     <main>
-        <h1 class="page-title">The Chthonic Arc!</h1>
+        <h1 class="page-title">The Chthonic Arc</h1>
         
         <p class="tagline">A luxury cruise with a wedding party sails into an older ceremony. Nine episodes.</p>
         
@@ -373,49 +383,51 @@
                 <div class="dot" data-index="8"></div>
             </div>
             
-            <div class="info-section visible" data-index="0">
-                <h2 class="info-title">Maiden Voyage</h2>
-                <p class="info-text">First descent. First sensations. The Chthonic welcomes its guests.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="1">
-                <h2 class="info-title">Cringetide</h2>
-                <p class="info-text">Debt, leverage, and the archaeology of something that refuses explanation.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="2">
-                <h2 class="info-title">Veil</h2>
-                <p class="info-text">Deep sites. Whale songs. The threshold between discovery and captivity.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="3">
-                <h2 class="info-title">Asunder</h2>
-                <p class="info-text">The ceremony. The binding. The moment everything changes.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="4">
-                <h2 class="info-title">Shower</h2>
-                <p class="info-text">Pink fog. Fragmented minds. The comfort of forgetting.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="5">
-                <h2 class="info-title">Garter</h2>
-                <p class="info-text">Knowledge as trap. Liberation as entrapment. Selene reveals.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="6">
-                <h2 class="info-title">Tessellated</h2>
-                <p class="info-text">The cracks in control. The depths call. Non-human recognition.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="7">
-                <h2 class="info-title">Undergloom</h2>
-                <p class="info-text">Naditu. Integration. The temptation of willing surrender.</p>
-            </div>
-            
-            <div class="info-section hidden" data-index="8">
-                <h2 class="info-title">Spiralstorm</h2>
-                <p class="info-text">The final ritual. The ship breaks. What emerges descends.</p>
+            <div class="info-wrapper">
+                <div class="info-section visible" data-index="0">
+                    <h2 class="info-title">Maiden Voyage</h2>
+                    <p class="info-text">First descent. First sensations. The Chthonic welcomes its guests.</p>
+                </div>
+                
+                <div class="info-section" data-index="1">
+                    <h2 class="info-title">Cringetide</h2>
+                    <p class="info-text">Debt, leverage, and the archaeology of something that refuses explanation.</p>
+                </div>
+                
+                <div class="info-section" data-index="2">
+                    <h2 class="info-title">Veil</h2>
+                    <p class="info-text">Deep sites. Whale songs. The threshold between discovery and captivity.</p>
+                </div>
+                
+                <div class="info-section" data-index="3">
+                    <h2 class="info-title">Asunder</h2>
+                    <p class="info-text">The ceremony. The binding. The moment everything changes.</p>
+                </div>
+                
+                <div class="info-section" data-index="4">
+                    <h2 class="info-title">Shower</h2>
+                    <p class="info-text">Pink fog. Fragmented minds. The comfort of forgetting.</p>
+                </div>
+                
+                <div class="info-section" data-index="5">
+                    <h2 class="info-title">Garter</h2>
+                    <p class="info-text">Knowledge as trap. Liberation as entrapment. Selene reveals.</p>
+                </div>
+                
+                <div class="info-section" data-index="6">
+                    <h2 class="info-title">Tessellated</h2>
+                    <p class="info-text">The cracks in control. The depths call. Non-human recognition.</p>
+                </div>
+                
+                <div class="info-section" data-index="7">
+                    <h2 class="info-title">Undergloom</h2>
+                    <p class="info-text">Naditu. Integration. The temptation of willing surrender.</p>
+                </div>
+                
+                <div class="info-section" data-index="8">
+                    <h2 class="info-title">Spiralstorm</h2>
+                    <p class="info-text">The final ritual. The ship breaks. What emerges descends.</p>
+                </div>
             </div>
         </div>
     </main>
@@ -441,7 +453,6 @@
             
             infos.forEach(info => {
                 info.classList.remove('visible');
-                info.classList.add('hidden');
             });
             
             dots.forEach(dot => dot.classList.remove('active'));
@@ -449,7 +460,6 @@
             cards[index].classList.remove('hidden');
             cards[index].classList.add('visible');
             
-            infos[index].classList.remove('hidden');
             infos[index].classList.add('visible');
             
             dots[index].classList.add('active');
