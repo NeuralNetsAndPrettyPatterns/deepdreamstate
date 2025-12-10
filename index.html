@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Dream State | Neural Nets and Pretty Patterns</title>
-    <meta name="description" content="A surreal psychological horror audio drama from Neural Nets And Pretty Patterns. Three narrative arcs of experimental audio fiction exploring hypnosis, dream, and desire.">
+    <title>E1: Maiden Voyage | Deep Dream State - The Chthonic Arc</title>
+    <meta name="description" content="Deep Dream State S1E1: Maiden Voyage - The luxury cruise ship Chthonic welcomes its first passengers.">
     <meta name="theme-color" content="#1a0a2e">
     
     <!-- Google Fonts: IM Fell DW Pica -->
@@ -19,7 +19,6 @@
         
         html, body {
             width: 100%;
-            height: 100%;
             font-family: 'IM Fell DW Pica', serif;
             background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
             color: #e8e8e8;
@@ -38,70 +37,53 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+
         
         main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: auto;
-            padding: 2rem;
             position: relative;
             z-index: 1;
-            overflow: visible;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
         }
-        
-        .page-title {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             letter-spacing: 0.1em;
             font-weight: normal;
         }
         
-        .tagline {
-            font-size: 1.3rem;
+        .episode-number {
+            font-size: 0.95rem;
             text-align: center;
-            margin-bottom: 3rem;
-            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.8;
             letter-spacing: 0.05em;
-            line-height: 1.6;
-            max-width: 800px;
-            opacity: 0.95;
-            white-space: nowrap;
-        }
-        
-        .carousel-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 400px;
-            overflow: visible;
         }
         
         .nav-buttons {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            width: 100%;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: nowrap;
         }
         
         .nav-button {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border: 2px solid #e8e8e8;
             border-radius: 50%;
             background: transparent;
             color: #e8e8e8;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: all 0.3s ease;
             font-family: 'IM Fell DW Pica', serif;
+            flex-shrink: 0;
         }
         
         .nav-button:hover {
@@ -126,289 +108,346 @@
             font-size: 2rem;
         }
         
+        .nav-button.home::before {
+            content: "⌂";
+            font-size: 1.5rem;
+        }
+        
+        .nav-button.arc::before {
+            content: "⛵";
+            font-size: 1.5rem;
+        }
+        
+        .nav-button.patreon::before {
+            content: "💰";
+            font-size: 1.5rem;
+        }
+        
         .carousel-container {
             width: 100%;
-            max-width: 350px;
-            flex-shrink: 0;
+            max-width: 400px;
+            margin: 2rem auto;
         }
         
         .card {
             width: 100%;
-            aspect-ratio: 4/5;
+            aspect-ratio: 1;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-            transition: opacity 0.6s ease;
             display: block;
-            z-index: 1;
         }
         
-      .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-        
-        .card-link {
-            position: relative;
-            display: block;
+        .card img {
             width: 100%;
             height: 100%;
-            text-decoration: none;
-        }
-        
-        .card:hover {
-            box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
-        }
-        
-        .card.hidden {
-            display: none;
-        }
-        
-        .card.visible {
+            object-fit: cover;
             display: block;
         }
         
-        .dot-indicator {
+        .epigraph {
+            text-align: center;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            border-bottom: 1px solid rgba(232, 232, 232, 0.2);
+            padding: 1.5rem 0;
+        }
+        
+        .epigraph-attribution {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            opacity: 0.7;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1.5rem;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+        
+        .content-section {
+            margin: 2rem 0;
+            line-height: 1.9;
+        }
+        
+        .content-section p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .support-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .support-section a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            padding: 0.3rem 0;
+            transition: border-color 0.3s;
+        }
+        
+        .support-section a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .cast-item {
+            padding: 1rem;
+            border-left: 2px solid rgba(232, 232, 232, 0.2);
+            padding-left: 1.5rem;
+        }
+        
+        .cast-item strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        
+        .cast-item em {
+            display: block;
+            font-style: italic;
+            opacity: 0.8;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cast-item a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            transition: border-color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .cast-item a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .links-section {
+            margin: 2rem 0;
+        }
+        
+        .links-section p {
+            margin: 0.8rem 0;
+        }
+        
+        .links-section a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            padding: 0.3rem 0;
+            transition: border-color 0.3s;
+        }
+        
+        .links-section a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .footer-nav {
             display: flex;
-            gap: 0.5rem;
             justify-content: center;
-            margin-top: 1.5rem;
-        }
-        
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(232, 232, 232, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dot.active {
-            background: #e8e8e8;
-            width: 30px;
-            border-radius: 5px;
+            gap: 0.5rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            flex-wrap: nowrap;
         }
         
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
+            main {
+                padding: 2rem 1rem;
             }
             
-            .tagline {
-                font-size: 1rem;
-                margin-bottom: 2rem;
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            .carousel-container {
+                max-width: 320px;
+            }
+            
+            .cast-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                padding: 1.5rem 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.1rem;
             }
             
             .carousel-container {
                 max-width: 280px;
             }
             
-            .nav-button {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            
             .nav-buttons {
-                gap: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            main {
-                padding: 1rem;
-            }
-            
-            .page-title {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-            
-            .tagline {
-                font-size: 0.9rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .carousel-container {
-                max-width: 240px;
+                gap: 0.3rem;
             }
             
             .nav-button {
-                width: 35px;
-                height: 35px;
+                width: 38px;
+                height: 38px;
                 font-size: 1rem;
-            }
-            
-            .nav-buttons {
-                gap: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Container -->
     <div id="background-container"></div>
     
-    <!-- Main Content -->
     <main>
-        <!-- Page Title -->
-        <h1 class="page-title">Deep Dream State</h1>
+        <h1 class="page-title">Maiden Voyage</h1>
+        <p class="episode-number">The Chthonic Arc | Episode 1</p>
         
-        <!-- Tagline -->
-        <p class="tagline">A surreal psychological horror audio drama from Neural Nets And Pretty Patterns</p>
+        <div class="nav-buttons">
+            <button class="nav-button prev" aria-label="Previous episode" onclick="window.history.back()"></button>
+            <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-2-cringetide/'"></button>
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'"></button>
+        </div>
         
-        <!-- Carousel Section -->
-        <div class="carousel-section">
-            <!-- Navigation Buttons (Above) -->
-            <div class="nav-buttons">
-                <button class="nav-button prev" aria-label="Previous card"></button>
-                <button class="nav-button next" aria-label="Next card"></button>
+        <div class="carousel-container">
+            <div class="card">
+                <img src="/deepdreamstate/assets/images/episodes/dds-cth-episode-1.webp" alt="Episode 1: Maiden Voyage">
+            </div>
+        </div>
+        
+        <div class="epigraph">
+            <p>"This is the forbidden truth: the world is not external to us; we participate in it. We form it at every moment."</p>
+            <div class="epigraph-attribution">Joyce Carol Oates</div>
+        </div>
+        
+        <h2>Summary</h2>
+        <div class="content-section">
+            <p>A luxury cruise ship called the Chthonic welcomes its first passengers, a bachelorette party led by bride Emma. The ship's staff, particularly the charismatic cruise director Olivia and Captain William, orchestrate an immersive experience designed to make guests "feel" something transcendent. But beneath the marketed wellness offerings and games of chance, there's an undercurrent of control: the staff move with ritualistic precision, guests report strange sensations, and the ship itself seems to pulse with an older, darker purpose.</p>
+            
+            <p>As the bachelorette party settles in, they encounter the ship's carefully curated activities: massages, gambling, and nightly gatherings around a ceremonial bell. Emma senses something off in the dynamic, while her friends dismiss the strange architecture and staff behavior as avant-garde immersion theater. Meanwhile, crew members like Mairead (the spa manager) and Fion (the chief engineer) navigate their own precarious positions, bound by debt and survival to the corporate machine that runs the vessel. Selene, the purser, seems to know more than she reveals.</p>
+            
+            <p>The episode culminates as crew members begin deliberately steering specific passengers toward the upper decks and restricted areas, setting in motion events that will reshape the cruise. Emma's skepticism wavers when she encounters crew talking in coded language about "offerings" and "binding." The first hint emerges that this cruise is not merely entertainment but part of something far older: a convergence of ancient ritual and modern exploitation.</p>
+        </div>
+        
+        <div class="support-section">
+            <h2>Support the Show</h2>
+            <p><a href="https://www.patreon.com/minderaser">Join us on Patreon for exclusive content and early access</a></p>
+        </div>
+        
+        <h2>Cast</h2>
+        <div class="cast-grid">
+            <div class="cast-item">
+                <strong>Olivia</strong>
+                <em>Cruise Director</em>
+                <a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a>
             </div>
             
-            <!-- Carousel Container with Single Card Display -->
-            <div class="carousel-container">
-                <!-- Card 1: Chthonic -->
-                <div class="card visible" data-index="0">
-                    <a href="/deepdreamstate/arcs/chthonic/" class="card-link" aria-label="Arc 1: The Chthonic">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.jpg" alt="Arc 1: The Chthonic - Art nouveau card featuring a woman with flowing tentacles against an ornate golden background">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 2: Incognitoh -->
-                <div class="card hidden" data-index="1">
-                    <a href="/deepdreamstate/arcs/incognitoh/" class="card-link" aria-label="Arc 2: Incognitoh">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.jpg" alt="Arc 2: Incognitoh - Art nouveau card featuring a woman in minimalist style against a tech-aesthetic background">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 3: Sitri Center -->
-                <div class="card hidden" data-index="2">
-                    <a href="/deepdreamstate/arcs/sitri/" class="card-link" aria-label="Arc 3: Sitri Center">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.jpg" alt="Arc 3: Sitri Center - Art nouveau card featuring a scientist figure with brain imagery in warm tones">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 4: About The Show -->
-                <div class="card hidden" data-index="3">
-                    <a href="/deepdreamstate/about/" class="card-link" aria-label="About The Show">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-about.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-about.jpg" alt="About The Show - Art nouveau card featuring a woman with glasses and a book in a library setting">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 5: Cast and Crew -->
-                <div class="card hidden" data-index="4">
-                    <a href="/deepdreamstate/cast/" class="card-link" aria-label="Cast and Crew">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-cast.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-cast.jpg" alt="Cast and Crew - Art nouveau card featuring glamorous performance costumes and accessories with mirrors">
-                        </picture>
-                    </a>
-                </div>
+            <div class="cast-item">
+                <strong>Captain William</strong>
+                <em>Ship Captain</em>
+                <a href="https://www.imdb.com/name/nm17755189/">Neural Nets And Pretty Patterns</a>
             </div>
             
-            <!-- Dot Indicators -->
-            <div class="dot-indicator">
-                <div class="dot active" data-index="0"></div>
-                <div class="dot" data-index="1"></div>
-                <div class="dot" data-index="2"></div>
-                <div class="dot" data-index="3"></div>
-                <div class="dot" data-index="4"></div>
+            <div class="cast-item">
+                <strong>Mairead</strong>
+                <em>Spa Manager</em>
+                <a href="https://www.imdb.com/name/nm17796355/">Bun Li</a>
             </div>
+            
+            <div class="cast-item">
+                <strong>Fion</strong>
+                <em>Chief Engineer</em>
+                <a href="https://www.imdb.com/name/nm17764360/">Jade</a>
+            </div>
+            
+            <div class="cast-item">
+                <strong>Emma</strong>
+                <em>The Bride</em>
+                <a href="https://www.imdb.com/name/nm17760876">Dizzy Dollie</a>
+            </div>
+            
+            <div class="cast-item">
+                <strong>Selene</strong>
+                <em>Chief Purser</em>
+                <a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a>
+            </div>
+        </div>
+        
+        <h2>Audio and Script</h2>
+        <div class="links-section">
+            <p><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Listen on Blubrry</a></p>
+            <p><a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5?si=cPqbveeqTyuV3Tj1CZCJcg">Listen on Spotify</a></p>
+            <p><a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606">Listen on Apple Podcasts</a></p>
+            <p><a href="https://www.smashwords.com/books/view/1902802">Read the Script</a></p>
+            <p><a href="https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88">BookBrainz</a></p>
+            <p><a href="https://openlibrary.org/books/OL60638705M/The_Chthonic">Open Library</a></p>
+        </div>
+        
+        <h2>More</h2>
+        <div class="links-section">
+            <p><a href="https://www.theend.fyi/shows/deep-dream-state">The End</a></p>
+            <p><a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a></p>
+            <p><a href="https://isni.org/isni/0000000528776254">Creator ISNI</a></p>
+        </div>
+        
+        <div class="footer-nav">
+            <button class="nav-button prev" aria-label="Previous episode" onclick="window.history.back()"></button>
+            <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-2-cringetide/'"></button>
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'"></button>
         </div>
     </main>
     
-    <!-- Background Image Setup -->
     <script>
-        // Set background image
         const bgContainer = document.getElementById('background-container');
-        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
+        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-cth-background.webp)';
     </script>
     
-    <!-- Carousel Logic: Dissolve Fade -->
-    <script>
-        const cards = document.querySelectorAll('.card');
-        const dots = document.querySelectorAll('.dot');
-        const prevBtn = document.querySelector('.nav-button.prev');
-        const nextBtn = document.querySelector('.nav-button.next');
-        let currentIndex = 0;
-        
-        function showCard(index) {
-            // Hide all cards
-            cards.forEach(card => {
-                card.classList.remove('visible');
-                card.classList.add('hidden');
-            });
-            
-            // Deactivate all dots
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            // Show current card
-            cards[index].classList.remove('hidden');
-            cards[index].classList.add('visible');
-            
-            // Activate current dot
-            dots[index].classList.add('active');
-            
-            currentIndex = index;
-        }
-        
-        // Navigation button handlers
-        prevBtn.addEventListener('click', () => {
-            const newIndex = (currentIndex - 1 + cards.length) % cards.length;
-            showCard(newIndex);
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            const newIndex = (currentIndex + 1) % cards.length;
-            showCard(newIndex);
-        });
-        
-        // Dot click handlers
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showCard(index);
-            });
-        });
-        
-        // Initialize
-        showCard(0);
-    </script>
-    
-    <!-- JSON-LD Structured Data: Organization -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Neural Nets and Pretty Patterns",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-        "logo": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp",
-        "description": "A surreal psychological horror audio drama exploring hypnosis, sound design, and the boundaries between dream and story.",
-        "sameAs": [
-            "https://www.imdb.com/name/nm12345678/",
-            "https://twitter.com/prettypattern",
-            "https://reddit.com/user/prettypattern",
-            "https://patreon.com/minderaser"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "url": "https://patreon.com/minderaser"
-        }
+        "@type": "PodcastEpisode",
+        "name": "Maiden Voyage",
+        "episodeNumber": 1,
+        "description": "The luxury cruise ship Chthonic welcomes its first passengers.",
+        "podcastSeries": {
+            "@type": "PodcastSeries",
+            "name": "Deep Dream State: The Chthonic Arc"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Neural Nets And Pretty Patterns"
+        },
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/"
     }
     </script>
 </body>
