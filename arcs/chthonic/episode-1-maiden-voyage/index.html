@@ -37,14 +37,7 @@
             background-position: center;
             background-repeat: no-repeat;
         }
-        
-        main {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
+
         
         .page-title {
             font-size: 2.5rem;
@@ -68,9 +61,22 @@
             gap: 0.5rem;
             margin-bottom: 2rem;
             flex-wrap: nowrap;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 1rem 0;
         }
         
-        .nav-button {
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 3rem;
+        }
             width: 45px;
             height: 45px;
             border: 2px solid #e8e8e8;
@@ -116,6 +122,11 @@
         
         .nav-button.arc::before {
             content: "⛵";
+            font-size: 1.5rem;
+        }
+        
+        .nav-button.patreon::before {
+            content: "💰";
             font-size: 1.5rem;
         }
         
@@ -323,13 +334,14 @@
     
     <main>
         <h1 class="page-title">Maiden Voyage</h1>
-        <p class="episode-number">The Chthonic Arc | Episode 1!</p>
+        <p class="episode-number">The Chthonic Arc | Episode 1</p>
         
         <div class="nav-buttons">
             <button class="nav-button prev" aria-label="Previous episode" onclick="window.history.back()"></button>
             <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-2-cringetide/'"></button>
             <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
             <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'"></button>
         </div>
         
         <div class="carousel-container">
@@ -418,6 +430,7 @@
             <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-2-cringetide/'"></button>
             <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
             <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'"></button>
         </div>
     </main>
     
