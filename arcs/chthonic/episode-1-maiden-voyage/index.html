@@ -96,8 +96,13 @@
             transform: scale(0.95);
         }
         
-        .nav-button.home::before {
-            content: "⌂";
+        .nav-button.patreon::before {
+            content: "♥";
+            font-size: 1.5rem;
+        }
+        
+        .nav-button.arc::before {
+            content: "⛵";
             font-size: 1.5rem;
         }
         
@@ -170,11 +175,12 @@
             text-align: justify;
         }
         
-        .links-section {
+        .support-section {
+            text-align: center;
             margin: 2rem 0;
         }
         
-        .links-section a {
+        .support-section a {
             color: #e8e8e8;
             text-decoration: none;
             border-bottom: 1px solid rgba(232, 232, 232, 0.3);
@@ -182,16 +188,18 @@
             transition: border-color 0.3s;
         }
         
-        .links-section a:hover {
+        .support-section a:hover {
             border-bottom-color: #e8e8e8;
         }
         
-        .cast-section {
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
             margin: 2rem 0;
         }
         
         .cast-item {
-            margin: 1.5rem 0;
             padding: 1rem;
             border-left: 2px solid rgba(232, 232, 232, 0.2);
             padding-left: 1.5rem;
@@ -207,6 +215,7 @@
             font-style: italic;
             opacity: 0.8;
             font-size: 0.95rem;
+            margin-bottom: 0.5rem;
         }
         
         .cast-item a {
@@ -214,9 +223,30 @@
             text-decoration: none;
             border-bottom: 1px solid rgba(232, 232, 232, 0.3);
             transition: border-color 0.3s;
+            font-size: 0.9rem;
         }
         
         .cast-item a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .links-section {
+            margin: 2rem 0;
+        }
+        
+        .links-section p {
+            margin: 0.8rem 0;
+        }
+        
+        .links-section a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            padding: 0.3rem 0;
+            transition: border-color 0.3s;
+        }
+        
+        .links-section a:hover {
             border-bottom-color: #e8e8e8;
         }
         
@@ -245,6 +275,10 @@
             
             .carousel-container {
                 max-width: 320px;
+            }
+            
+            .cast-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -275,11 +309,15 @@
     <div id="background-container"></div>
     
     <main>
-        <h1 class="page-title">Maiden Voyage</h1>
+        <div class="nav-buttons">
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'"></button>
+            <h1 class="page-title" style="flex: 1; margin: 0;">Maiden Voyage</h1>
+            <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'"></button>
+        </div>
+        
         <p class="episode-number">The Chthonic Arc | Episode 1</p>
         
         <div class="nav-buttons">
-            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
             <button class="nav-button prev" aria-label="Previous episode" onclick="window.history.back()"></button>
             <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-2-cringetide/'"></button>
         </div>
@@ -292,70 +330,84 @@
         
         <div class="epigraph">
             <p>"This is the forbidden truth: the world is not external to us; we participate in it. We form it at every moment."</p>
-            <div class="epigraph-attribution">— Joyce Carol Oates</div>
+            <div class="epigraph-attribution">Joyce Carol Oates</div>
         </div>
         
         <h2>Summary</h2>
         <div class="content-section">
-            <p>A luxury cruise ship called the Chthonic welcomes its first passengers—a bachelorette party led by bride Emma. The ship's staff, particularly the charismatic cruise director Olivia and Captain William, orchestrate an immersive experience designed to make guests "feel" something transcendent. But beneath the marketed wellness offerings and games of chance, there's an undercurrent of control: the staff move with ritualistic precision, guests report strange sensations, and the ship itself seems to pulse with an older, darker purpose.</p>
+            <p>A luxury cruise ship called the Chthonic welcomes its first passengers, a bachelorette party led by bride Emma. The ship's staff, particularly the charismatic cruise director Olivia and Captain William, orchestrate an immersive experience designed to make guests "feel" something transcendent. But beneath the marketed wellness offerings and games of chance, there's an undercurrent of control: the staff move with ritualistic precision, guests report strange sensations, and the ship itself seems to pulse with an older, darker purpose.</p>
             
-            <p>As the bachelorette party settles in, they encounter the ship's carefully curated activities—massages, gambling, and nightly gatherings around a ceremonial bell. Emma senses something off in the dynamic, while her friends dismiss the strange architecture and staff behavior as avant-garde immersion theater. Meanwhile, crew members like Mairead (the spa manager) and Fion (the chief engineer) navigate their own precarious positions, bound by debt and survival to the corporate machine that runs the vessel. Selene, the purser, seems to know more than she reveals.</p>
+            <p>As the bachelorette party settles in, they encounter the ship's carefully curated activities: massages, gambling, and nightly gatherings around a ceremonial bell. Emma senses something off in the dynamic, while her friends dismiss the strange architecture and staff behavior as avant-garde immersion theater. Meanwhile, crew members like Mairead (the spa manager) and Fion (the chief engineer) navigate their own precarious positions, bound by debt and survival to the corporate machine that runs the vessel. Selene, the purser, seems to know more than she reveals.</p>
             
-            <p>The episode culminates as crew members begin deliberately steering specific passengers toward the upper decks and restricted areas, setting in motion events that will reshape the cruise. Emma's skepticism wavers when she encounters crew talking in coded language about "offerings" and "binding." The first hint emerges that this cruise is not merely entertainment but part of something far older—a convergence of ancient ritual and modern exploitation.</p>
+            <p>The episode culminates as crew members begin deliberately steering specific passengers toward the upper decks and restricted areas, setting in motion events that will reshape the cruise. Emma's skepticism wavers when she encounters crew talking in coded language about "offerings" and "binding." The first hint emerges that this cruise is not merely entertainment but part of something far older: a convergence of ancient ritual and modern exploitation.</p>
+        </div>
+        
+        <div class="support-section">
+            <h2>Support the Show</h2>
+            <p><a href="https://www.patreon.com/minderaser">Join us on Patreon for exclusive content and early access</a></p>
         </div>
         
         <h2>Cast</h2>
-        <div class="cast-section">
+        <div class="cast-grid">
             <div class="cast-item">
                 <strong>Olivia</strong>
                 <em>Cruise Director</em>
-                <a href="/deepdreamstate/cast/bliss-blank/">Bliss Blank</a>
+                <a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a>
             </div>
             
             <div class="cast-item">
                 <strong>Captain William</strong>
                 <em>Ship Captain</em>
-                <a href="/deepdreamstate/cast/neural-nets-and-pretty-patterns/">Neural Nets And Pretty Patterns</a>
+                <a href="https://www.imdb.com/name/nm17755189/">Neural Nets And Pretty Patterns</a>
             </div>
             
             <div class="cast-item">
                 <strong>Mairead</strong>
                 <em>Spa Manager</em>
-                <a href="/deepdreamstate/cast/bun-li/">Bun Li</a>
+                <a href="https://www.imdb.com/name/nm17796355/">Bun Li</a>
             </div>
             
             <div class="cast-item">
                 <strong>Fion</strong>
                 <em>Chief Engineer</em>
-                <a href="/deepdreamstate/cast/jade/">Jade</a>
+                <a href="https://www.imdb.com/name/nm17764360/">Jade</a>
             </div>
             
             <div class="cast-item">
                 <strong>Emma</strong>
                 <em>The Bride</em>
-                <a href="/deepdreamstate/cast/pipp/">Pipp</a>
+                <a href="https://www.imdb.com/name/nm17760876">Dizzy Dollie</a>
             </div>
             
             <div class="cast-item">
                 <strong>Selene</strong>
                 <em>Chief Purser</em>
-                <a href="/deepdreamstate/cast/syndi-rella/">Syndi_Rella</a>
+                <a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a>
             </div>
         </div>
         
-        <h2>Audio & Script</h2>
+        <h2>Audio and Script</h2>
         <div class="links-section">
-            <p><a href="https://deepdreamstate.blubrry.net/">Listen on Blubrry</a></p>
-            <p><a href="https://open.spotify.com/">Listen on Spotify</a></p>
-            <p><a href="https://podcasts.apple.com/">Listen on Apple Podcasts</a></p>
-            <p><a href="https://www.smashwords.com/">Read Script on Smashwords</a></p>
-            <p><a href="https://bookbrainz.org/">BookBrainz Entry</a></p>
+            <p><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Listen on Blubrry</a></p>
+            <p><a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5?si=cPqbveeqTyuV3Tj1CZCJcg">Listen on Spotify</a></p>
+            <p><a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606">Listen on Apple Podcasts</a></p>
+            <p><a href="https://www.smashwords.com/books/view/1902802">Read the Script</a></p>
+            <p><a href="https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88">BookBrainz</a></p>
+            <p><a href="https://openlibrary.org/books/OL60638705M/The_Chthonic">Open Library</a></p>
+        </div>
+        
+        <h2>More</h2>
+        <div class="links-section">
+            <p><a href="https://www.theend.fyi/shows/deep-dream-state">The End</a></p>
+            <p><a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a></p>
+            <p><a href="https://isni.org/isni/0000000528776254">Creator ISNI</a></p>
         </div>
         
         <div class="footer-nav">
-            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'"></button>
             <button class="nav-button prev" aria-label="Previous episode" onclick="window.history.back()"></button>
             <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-2-cringetide/'"></button>
+            <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'"></button>
         </div>
     </main>
     
