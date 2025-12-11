@@ -197,21 +197,29 @@
             border-bottom-color: #e8e8e8;
         }
         
-        .cast-list {
+        .cast-table {
+            width: 100%;
             margin: 2rem 0;
-            text-align: left;
-            display: inline-block;
-            line-height: 1.8;
+            border-collapse: collapse;
         }
         
-        .cast-list a {
+        .cast-table tr {
+            border-bottom: 1px solid rgba(232, 232, 232, 0.1);
+        }
+        
+        .cast-table td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+        
+        .cast-table a {
             color: #e8e8e8;
             text-decoration: none;
             border-bottom: 1px solid rgba(232, 232, 232, 0.3);
             transition: border-color 0.3s;
         }
         
-        .cast-list a:hover {
+        .cast-table a:hover {
             border-bottom-color: #e8e8e8;
         }
         
@@ -260,6 +268,11 @@
                 max-width: 320px;
             }
             
+            .cast-table td {
+                padding: 0.6rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            
             .nav-button {
                 width: 40px;
                 height: 40px;
@@ -282,6 +295,11 @@
             
             .carousel-container {
                 max-width: 280px;
+            }
+            
+            .cast-table td {
+                padding: 0.5rem 0.3rem;
+                font-size: 0.85rem;
             }
             
             .nav-buttons {
@@ -337,8 +355,6 @@
             <p>A luxury cruise ship called the Chthonic welcomes its first passengers, a bachelorette party led by bride Emma. The ship's staff, particularly the charismatic cruise director Olivia and Captain William, orchestrate an immersive experience designed to make guests "feel" something transcendent. But beneath the marketed wellness offerings and games of chance, there's an undercurrent of control: the staff move with ritualistic precision, guests report strange sensations, and the ship itself seems to pulse with an older, darker purpose.</p>
             
             <p>As the bachelorette party settles in, they encounter the ship's carefully curated activities: massages, gambling, and nightly gatherings around a ceremonial bell. Emma senses something off in the dynamic, while her friends dismiss the strange architecture and staff behavior as avant-garde immersion theater. Meanwhile, crew members like Mairead (the spa manager) and Fion (the chief engineer) navigate their own precarious positions, bound by debt and survival to the corporate machine that runs the vessel. Selene, the purser, seems to know more than she reveals.</p>
-            
-            <p>The episode culminates as crew members begin deliberately steering specific passengers toward the upper decks and restricted areas, setting in motion events that will reshape the cruise. Emma's skepticism wavers when she encounters crew talking in coded language about "offerings" and "binding." The first hint emerges that this cruise is not merely entertainment but part of something far older: a convergence of ancient ritual and modern exploitation.</p>
         </div>
         
         <div class="support-section">
@@ -346,29 +362,70 @@
             <p><a href="https://www.patreon.com/minderaser">Join us on Patreon for exclusive content and early access</a></p>
         </div>
         
-        <h2>Cast</h2>
-        <div class="cast-list">
-            Olivia: <a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a> | Cruise Director | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17754818/">IMDb</a><br>
-            Captain William: <a href="https://www.imdb.com/name/nm17755189/">Neural Nets And Pretty Patterns</a> | Ship Captain | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17755189/">IMDb</a><br>
-            Mairead: <a href="https://www.imdb.com/name/nm17796355/">Bun Li</a> | Spa Manager | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17796355/">IMDb</a><br>
-            Fion: <a href="https://www.imdb.com/name/nm17764360/">Jade</a> | Chief Engineer | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17764360/">IMDb</a><br>
-            Emma: <a href="https://www.imdb.com/name/nm17760876">Dizzy Dollie</a> | The Bride | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17760876">IMDb</a><br>
-            Selene: <a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a> | Chief Purser | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17765752/">IMDb</a>
-        </div>
+        <h2>Meet The Cast</h2>
+        <table class="cast-table">
+            <tr>
+                <td>Olivia</td>
+                <td><a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a></td>
+                <td>Cruise Director</td>
+                <td><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17754818/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Captain William</td>
+                <td><a href="https://www.imdb.com/name/nm17755189/">Neural Nets And Pretty Patterns</a></td>
+                <td>Ship Captain</td>
+                <td><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17755189/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Mairead</td>
+                <td><a href="https://www.imdb.com/name/nm17796355/">Bun Li</a></td>
+                <td>Spa Manager</td>
+                <td><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17796355/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Fion</td>
+                <td><a href="https://www.imdb.com/name/nm17764360/">Jade</a></td>
+                <td>Chief Engineer</td>
+                <td><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17764360/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Emma</td>
+                <td><a href="https://www.imdb.com/name/nm17760876">Dizzy Dollie</a></td>
+                <td>The Bride</td>
+                <td><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17760876">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Selene</td>
+                <td><a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a></td>
+                <td>Chief Purser</td>
+                <td><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17765752/">IMDb</a></td>
+            </tr>
+        </table>
         
-        <h2>Audio</h2>
+        <h2>Hear The Audio</h2>
         <div class="links-section">
             <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5?si=cPqbveeqTyuV3Tj1CZCJcg">Spotify</a> | <a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606">Apple Podcasts</a>
         </div>
         
-        <h2>Script</h2>
+        <h2>Read The Scripts</h2>
         <div class="links-section">
             <a href="https://www.smashwords.com/books/view/1902802">Read the Script Book</a> | <a href="https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88">BookBrainz</a> | <a href="https://openlibrary.org/books/OL60638705M/The_Chthonic">Open Library</a>
         </div>
         
-        <h2>More</h2>
+        <h2>Find Out More</h2>
         <div class="links-section">
             <a href="https://www.theend.fyi/shows/deep-dream-state">The End</a> | <a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a> | <a href="https://isni.org/isni/0000000528776254">Creator ISNI</a>
+        </div>
+        
+        <h2>Full Synopsis (Spoilers)</h2>
+        <div class="content-section">
+            <p>The episode culminates as crew members begin deliberately steering specific passengers toward the upper decks and restricted areas, setting in motion events that will reshape the cruise. Emma's skepticism wavers when she encounters crew talking in coded language about "offerings" and "binding." The first hint emerges that this cruise is not merely entertainment but part of something far older: a convergence of ancient ritual and modern exploitation. What began as a luxury getaway reveals itself as something far more sinister, with each guest becoming a participant in a ceremony none of them fully understand.</p>
         </div>
         
         <div class="footer-nav">
