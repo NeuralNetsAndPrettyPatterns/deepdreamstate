@@ -20,7 +20,6 @@
         
         html, body {
             width: 100%;
-            height: 100%;
             font-family: 'IM Fell DW Pica', serif;
             background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
             color: #e8e8e8;
@@ -41,68 +40,53 @@
         }
         
         main {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: auto;
-            padding: 2rem;
             position: relative;
             z-index: 1;
-            overflow: visible;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            text-align: center;
         }
         
         .page-title {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             letter-spacing: 0.1em;
             font-weight: normal;
         }
         
-        .tagline {
-            font-size: 1.3rem;
+        .episode-number {
+            font-size: 0.95rem;
             text-align: center;
-            margin-bottom: 3rem;
-            font-style: italic;
+            margin-bottom: 2rem;
+            opacity: 0.8;
             letter-spacing: 0.05em;
-            line-height: 1.6;
-            max-width: 800px;
-            opacity: 0.95;
-            white-space: nowrap;
-        }
-        
-        .carousel-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 400px;
-            overflow: visible;
         }
         
         .nav-buttons {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            width: 100%;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: nowrap;
         }
         
         .nav-button {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border: 2px solid #e8e8e8;
             border-radius: 50%;
             background: transparent;
             color: #e8e8e8;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: all 0.3s ease;
             font-family: 'IM Fell DW Pica', serif;
+            flex-shrink: 0;
         }
         
         .nav-button:hover {
@@ -113,6 +97,11 @@
         
         .nav-button:active {
             transform: scale(0.95);
+        }
+        
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
         }
         
         .nav-button.prev::before {
@@ -127,41 +116,38 @@
             font-size: 2rem;
         }
         
+        .nav-button.home::before {
+            content: "⌂";
+            font-size: 1.5rem;
+        }
+        
         .carousel-container {
             width: 100%;
-            max-width: 350px;
-            flex-shrink: 0;
+            max-width: 400px;
+            margin: 2rem auto;
         }
         
         .card {
             width: 100%;
-            aspect-ratio: 4/5;
+            aspect-ratio: 1;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-            transition: opacity 0.6s ease;
             display: block;
-            z-index: 1;
+            cursor: pointer;
+            transition: all 0.6s ease;
         }
         
-      .card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-}
-        
-        .card-link {
-            position: relative;
-            display: block;
+        .card img {
             width: 100%;
             height: 100%;
-            text-decoration: none;
+            object-fit: cover;
+            display: block;
         }
         
         .card:hover {
             box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
+            transform: translateY(-5px);
         }
         
         .card.hidden {
@@ -194,154 +180,129 @@
             border-radius: 5px;
         }
         
+        .footer-credit {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
         @media (max-width: 768px) {
-            .page-title {
-                font-size: 2.5rem;
+            main {
+                padding: 2rem 1rem;
             }
             
-            .tagline {
-                font-size: 1rem;
-                margin-bottom: 2rem;
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .carousel-container {
+                max-width: 320px;
+            }
+            
+            .nav-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                padding: 1.5rem 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
             }
             
             .carousel-container {
                 max-width: 280px;
             }
             
-            .nav-button {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            
             .nav-buttons {
-                gap: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            main {
-                padding: 1rem;
-            }
-            
-            .page-title {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-            
-            .tagline {
-                font-size: 0.9rem;
-                margin-bottom: 1.5rem;
-            }
-            
-            .carousel-container {
-                max-width: 240px;
+                gap: 0.3rem;
             }
             
             .nav-button {
-                width: 35px;
-                height: 35px;
+                width: 38px;
+                height: 38px;
                 font-size: 1rem;
-            }
-            
-            .nav-buttons {
-                gap: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Container -->
     <div id="background-container"></div>
     
-    <!-- Main Content -->
     <main>
-        <!-- Page Title -->
         <h1 class="page-title">Deep Dream State</h1>
+        <p class="episode-number" id="subtitle"></p>
         
-        <!-- Tagline -->
-        <p class="tagline">A surreal psychological horror audio drama from Neural Nets And Pretty Patterns</p>
+        <div class="nav-buttons">
+            <button class="nav-button prev" aria-label="Previous card"></button>
+            <button class="nav-button next" aria-label="Next card"></button>
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
+                    <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                </svg>
+            </button>
+        </div>
         
-        <!-- Carousel Section -->
-        <div class="carousel-section">
-            <!-- Navigation Buttons (Above) -->
-            <div class="nav-buttons">
-                <button class="nav-button prev" aria-label="Previous card"></button>
-                <button class="nav-button next" aria-label="Next card"></button>
+        <div class="carousel-container">
+            <div class="card visible" data-index="0">
+                <a href="/deepdreamstate/arcs/chthonic/" style="display: block; width: 100%; height: 100%;">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" alt="Arc 1: The Chthonic">
+                </a>
             </div>
             
-            <!-- Carousel Container with Single Card Display -->
-            <div class="carousel-container">
-                <!-- Card 1: Chthonic -->
-                <div class="card visible" data-index="0">
-                    <a href="/deepdreamstate/arcs/chthonic/" class="card-link" aria-label="Arc 1: The Chthonic">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.jpg" alt="Arc 1: The Chthonic - Art nouveau card featuring a woman with flowing tentacles against an ornate golden background">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 2: Incognitoh -->
-                <div class="card hidden" data-index="1">
-                    <a href="/deepdreamstate/arcs/incognitoh/" class="card-link" aria-label="Arc 2: Incognitoh">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.jpg" alt="Arc 2: Incognitoh - Art nouveau card featuring a woman in minimalist style against a tech-aesthetic background">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 3: Sitri Center -->
-                <div class="card hidden" data-index="2">
-                    <a href="/deepdreamstate/arcs/sitri/" class="card-link" aria-label="Arc 3: Sitri Center">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.jpg" alt="Arc 3: Sitri Center - Art nouveau card featuring a scientist figure with brain imagery in warm tones">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 4: About The Show -->
-                <div class="card hidden" data-index="3">
-                    <a href="/deepdreamstate/about/" class="card-link" aria-label="About The Show">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-about.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-about.jpg" alt="About The Show - Art nouveau card featuring a woman with glasses and a book in a library setting">
-                        </picture>
-                    </a>
-                </div>
-                
-                <!-- Card 5: Cast and Crew -->
-                <div class="card hidden" data-index="4">
-                    <a href="/deepdreamstate/cast/" class="card-link" aria-label="Cast and Crew">
-                        <picture>
-                            <source srcset="/deepdreamstate/assets/images/dds-carousel-card-cast.webp" type="image/webp">
-                            <img src="/deepdreamstate/assets/images/dds-carousel-card-cast.jpg" alt="Cast and Crew - Art nouveau card featuring glamorous performance costumes and accessories with mirrors">
-                        </picture>
-                    </a>
-                </div>
+            <div class="card hidden" data-index="1">
+                <a href="/deepdreamstate/arcs/incognitoh/" style="display: block; width: 100%; height: 100%;">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" alt="Arc 2: Incognitoh">
+                </a>
             </div>
             
-            <!-- Dot Indicators -->
-            <div class="dot-indicator">
-                <div class="dot active" data-index="0"></div>
-                <div class="dot" data-index="1"></div>
-                <div class="dot" data-index="2"></div>
-                <div class="dot" data-index="3"></div>
-                <div class="dot" data-index="4"></div>
+            <div class="card hidden" data-index="2">
+                <a href="/deepdreamstate/arcs/sitri/" style="display: block; width: 100%; height: 100%;">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" alt="Arc 3: Sitri Center">
+                </a>
             </div>
+            
+            <div class="card hidden" data-index="3">
+                <a href="/deepdreamstate/about/" style="display: block; width: 100%; height: 100%;">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-about.webp" alt="About The Show">
+                </a>
+            </div>
+            
+            <div class="card hidden" data-index="4">
+                <a href="/deepdreamstate/cast/" style="display: block; width: 100%; height: 100%;">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-cast.webp" alt="Cast and Crew">
+                </a>
+            </div>
+        </div>
+        
+        <div class="dot-indicator">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+            <div class="dot" data-index="4"></div>
+        </div>
+        
+        <div class="footer-credit">
+            A surreal psychological horror audio drama from Neural Nets And Pretty Patterns
         </div>
     </main>
     
-    <!-- Background Image Setup -->
     <script>
-        // Set background image
         const bgContainer = document.getElementById('background-container');
         bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
     </script>
     
-    <!-- Carousel Logic: Dissolve Fade -->
     <script>
         const cards = document.querySelectorAll('.card');
         const dots = document.querySelectorAll('.dot');
@@ -349,27 +310,32 @@
         const nextBtn = document.querySelector('.nav-button.next');
         let currentIndex = 0;
         
+        const cardData = [
+            { title: "Chthonic Arc", subtitle: "Deeper into the eldritch cruise." },
+            { title: "Incognitoh Arc", subtitle: "Deeper into the surreality show." },
+            { title: "Sitri Arc", subtitle: "Deeper into engineered dreams." },
+            { title: "About", subtitle: "Deeper in the show." },
+            { title: "Cast", subtitle: "Deeper into the cast." }
+        ];
+        
         function showCard(index) {
-            // Hide all cards
             cards.forEach(card => {
                 card.classList.remove('visible');
                 card.classList.add('hidden');
             });
             
-            // Deactivate all dots
             dots.forEach(dot => dot.classList.remove('active'));
             
-            // Show current card
             cards[index].classList.remove('hidden');
             cards[index].classList.add('visible');
             
-            // Activate current dot
             dots[index].classList.add('active');
+            
+            document.getElementById('subtitle').textContent = cardData[index].subtitle;
             
             currentIndex = index;
         }
         
-        // Navigation button handlers
         prevBtn.addEventListener('click', () => {
             const newIndex = (currentIndex - 1 + cards.length) % cards.length;
             showCard(newIndex);
@@ -380,18 +346,15 @@
             showCard(newIndex);
         });
         
-        // Dot click handlers
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 showCard(index);
             });
         });
         
-        // Initialize
         showCard(0);
     </script>
     
-    <!-- JSON-LD Structured Data: Organization -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
