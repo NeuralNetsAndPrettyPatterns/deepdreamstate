@@ -45,7 +45,7 @@
             z-index: 1;
             max-width: 900px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 3rem 1.5rem;
             text-align: center;
         }
         
@@ -197,57 +197,35 @@
             border-bottom-color: #e8e8e8;
         }
         
-        .cast-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+        .cast-list {
             margin: 2rem 0;
+            text-align: left;
+            display: inline-block;
+            line-height: 1.8;
         }
         
-        .cast-item {
-            padding: 1rem;
-            border-left: 2px solid rgba(232, 232, 232, 0.2);
-            padding-left: 1.5rem;
-        }
-        
-        .cast-item strong {
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-        
-        .cast-item em {
-            display: block;
-            font-style: italic;
-            opacity: 0.8;
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cast-item a {
+        .cast-list a {
             color: #e8e8e8;
             text-decoration: none;
             border-bottom: 1px solid rgba(232, 232, 232, 0.3);
             transition: border-color 0.3s;
-            font-size: 0.9rem;
         }
         
-        .cast-item a:hover {
+        .cast-list a:hover {
             border-bottom-color: #e8e8e8;
         }
         
         .links-section {
             margin: 2rem 0;
-        }
-        
-        .links-section p {
-            margin: 0.8rem 0;
+            text-align: left;
+            display: inline-block;
+            line-height: 1.8;
         }
         
         .links-section a {
             color: #e8e8e8;
             text-decoration: none;
             border-bottom: 1px solid rgba(232, 232, 232, 0.3);
-            padding: 0.3rem 0;
             transition: border-color 0.3s;
         }
         
@@ -280,10 +258,6 @@
             
             .carousel-container {
                 max-width: 320px;
-            }
-            
-            .cast-grid {
-                grid-template-columns: 1fr;
             }
             
             .nav-button {
@@ -355,7 +329,7 @@
         
         <div class="epigraph">
             <p>"This is the forbidden truth: the world is not external to us; we participate in it. We form it at every moment."</p>
-            <div class="epigraph-attribution">Joyce Carol Oates?</div>
+            <div class="epigraph-attribution">Joyce Carol Oates</div>
         </div>
         
         <h2>Summary</h2>
@@ -373,59 +347,28 @@
         </div>
         
         <h2>Cast</h2>
-        <div class="cast-grid">
-            <div class="cast-item">
-                <strong>Olivia</strong>
-                <em>Cruise Director</em>
-                <a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a>
-            </div>
-            
-            <div class="cast-item">
-                <strong>Captain William</strong>
-                <em>Ship Captain</em>
-                <a href="https://www.imdb.com/name/nm17755189/">Neural Nets And Pretty Patterns</a>
-            </div>
-            
-            <div class="cast-item">
-                <strong>Mairead</strong>
-                <em>Spa Manager</em>
-                <a href="https://www.imdb.com/name/nm17796355/">Bun Li</a>
-            </div>
-            
-            <div class="cast-item">
-                <strong>Fion</strong>
-                <em>Chief Engineer</em>
-                <a href="https://www.imdb.com/name/nm17764360/">Jade</a>
-            </div>
-            
-            <div class="cast-item">
-                <strong>Emma</strong>
-                <em>The Bride</em>
-                <a href="https://www.imdb.com/name/nm17760876">Dizzy Dollie</a>
-            </div>
-            
-            <div class="cast-item">
-                <strong>Selene</strong>
-                <em>Chief Purser</em>
-                <a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a>
-            </div>
+        <div class="cast-list">
+            Olivia: <a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a> | Cruise Director | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17754818/">IMDb</a><br>
+            Captain William: <a href="https://www.imdb.com/name/nm17755189/">Neural Nets And Pretty Patterns</a> | Ship Captain | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17755189/">IMDb</a><br>
+            Mairead: <a href="https://www.imdb.com/name/nm17796355/">Bun Li</a> | Spa Manager | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17796355/">IMDb</a><br>
+            Fion: <a href="https://www.imdb.com/name/nm17764360/">Jade</a> | Chief Engineer | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17764360/">IMDb</a><br>
+            Emma: <a href="https://www.imdb.com/name/nm17760876">Dizzy Dollie</a> | The Bride | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17760876">IMDb</a><br>
+            Selene: <a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a> | Chief Purser | <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://www.imdb.com/name/nm17765752/">IMDb</a>
         </div>
         
-        <h2>Audio and Script</h2>
+        <h2>Audio</h2>
         <div class="links-section">
-            <p><a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Listen on Blubrry</a></p>
-            <p><a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5?si=cPqbveeqTyuV3Tj1CZCJcg">Listen on Spotify</a></p>
-            <p><a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606">Listen on Apple Podcasts</a></p>
-            <p><a href="https://www.smashwords.com/books/view/1902802">Read the Script</a></p>
-            <p><a href="https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88">BookBrainz</a></p>
-            <p><a href="https://openlibrary.org/books/OL60638705M/The_Chthonic">Open Library</a></p>
+            <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/">Show Page</a> | <a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5?si=cPqbveeqTyuV3Tj1CZCJcg">Spotify</a> | <a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606">Apple Podcasts</a>
+        </div>
+        
+        <h2>Script</h2>
+        <div class="links-section">
+            <a href="https://www.smashwords.com/books/view/1902802">Read the Script Book</a> | <a href="https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88">BookBrainz</a> | <a href="https://openlibrary.org/books/OL60638705M/The_Chthonic">Open Library</a>
         </div>
         
         <h2>More</h2>
         <div class="links-section">
-            <p><a href="https://www.theend.fyi/shows/deep-dream-state">The End</a></p>
-            <p><a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a></p>
-            <p><a href="https://isni.org/isni/0000000528776254">Creator ISNI</a></p>
+            <a href="https://www.theend.fyi/shows/deep-dream-state">The End</a> | <a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a> | <a href="https://isni.org/isni/0000000528776254">Creator ISNI</a>
         </div>
         
         <div class="footer-nav">
