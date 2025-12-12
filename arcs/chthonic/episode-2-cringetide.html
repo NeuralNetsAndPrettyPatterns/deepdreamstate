@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E2: Cringetide | Deep Dream State</title>
+    <title>Cringetide | Deep Dream State</title>
     <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateiconpurple.svg">
-    <meta name="description" content="Episode 2: Cringetide - Debt, leverage, and the archaeology of something that refuses explanation.">
+    <meta name="description" content="Deep Dream State: Cringetide - Debt, leverage, and the archaeology of something that refuses explanation.">
     <meta name="theme-color" content="#1a0a2e">
     
     <!-- Google Fonts: IM Fell DW Pica -->
@@ -128,11 +128,6 @@
             margin: 2rem auto;
         }
         
-        .card-link {
-            display: block;
-            text-decoration: none;
-        }
-        
         .card {
             width: 100%;
             aspect-ratio: 1;
@@ -140,7 +135,7 @@
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
             display: block;
-            cursor: pointer;
+            cursor: default;
             transition: all 0.6s ease;
         }
         
@@ -151,39 +146,114 @@
             display: block;
         }
         
-        .card:hover {
+        .card.persistent-glow {
+            box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
+        }
+        
+        .card.persistent-glow:hover {
             box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
             transform: translateY(-5px);
         }
         
-        .card.hidden {
-            display: none;
+        .epigraph {
+            text-align: center;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            border-bottom: 1px solid rgba(232, 232, 232, 0.2);
+            padding: 1.5rem 0;
         }
         
-        .card.visible {
-            display: block;
+        .epigraph-attribution {
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            opacity: 0.7;
         }
         
-        .dot-indicator {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-top: 1.5rem;
+        h2 {
+            font-size: 1.6rem;
+            margin: 2.5rem 0 1.5rem;
+            text-align: center;
+            letter-spacing: 0.05em;
         }
         
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(232, 232, 232, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .content-section {
+            margin: 2rem 0;
+            line-height: 1.9;
         }
         
-        .dot.active {
-            background: #e8e8e8;
-            width: 30px;
-            border-radius: 5px;
+        .content-section p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .support-section {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .support-section a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            padding: 0.3rem 0;
+            transition: border-color 0.3s;
+        }
+        
+        .support-section a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .cast-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+        }
+        
+        .cast-table tr {
+            border-bottom: 1px solid rgba(232, 232, 232, 0.1);
+        }
+        
+        .cast-table td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+        
+        .cast-table a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            transition: border-color 0.3s;
+        }
+        
+        .cast-table a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .links-section {
+            margin: 1rem 0;
+            text-align: left;
+            display: inline-block;
+            line-height: 1.8;
+        }
+        
+        .links-section a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            transition: border-color 0.3s;
+        }
+        
+        .links-section a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .section-divider {
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            margin: 3rem 0;
         }
         
         .footer-nav {
@@ -196,80 +266,6 @@
             flex-wrap: nowrap;
         }
         
-        .section-divider {
-            border-top: 1px solid rgba(232, 232, 232, 0.2);
-            margin: 3rem 0;
-        }
-        
-        .summary, .synopsis, .epigraph {
-            text-align: left;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-        
-        .epigraph {
-            font-style: italic;
-            opacity: 0.9;
-            margin-bottom: 3rem;
-        }
-        
-        .epigraph-attribution {
-            font-style: italic;
-            font-size: 0.9rem;
-            text-align: right;
-            margin-top: 0.5rem;
-            opacity: 0.7;
-        }
-        
-        .summary {
-            margin-bottom: 2rem;
-        }
-        
-        .synopsis p {
-            margin-bottom: 1rem;
-        }
-        
-        .cast-table {
-            width: 100%;
-            max-width: 700px;
-            margin: 2rem auto;
-            text-align: left;
-        }
-        
-        .cast-table tr {
-            border-bottom: none;
-            padding: 0.75rem 0;
-        }
-        
-        .cast-table td {
-            padding: 0.75rem 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .cast-table a {
-            color: #e8e8e8;
-            text-decoration: underline;
-        }
-        
-        .cast-table a:hover {
-            color: #cccccc;
-        }
-        
-        .section-heading {
-            font-size: 1.3rem;
-            margin: 2rem 0 1rem 0;
-            text-align: center;
-        }
-        
-        .links-section {
-            margin: 1rem 0;
-            text-align: left;
-            display: inline-block;
-            line-height: 1.8;
-        }
-        
         @media (max-width: 768px) {
             main {
                 padding: 2rem 1rem;
@@ -279,8 +275,17 @@
                 font-size: 2rem;
             }
             
+            h2 {
+                font-size: 1.3rem;
+            }
+            
             .carousel-container {
                 max-width: 320px;
+            }
+            
+            .cast-table td {
+                padding: 0.6rem 0.5rem;
+                font-size: 0.9rem;
             }
             
             .nav-button {
@@ -299,8 +304,17 @@
                 font-size: 1.5rem;
             }
             
+            h2 {
+                font-size: 1.1rem;
+            }
+            
             .carousel-container {
                 max-width: 280px;
+            }
+            
+            .cast-table td {
+                padding: 0.5rem 0.3rem;
+                font-size: 0.85rem;
             }
             
             .nav-buttons {
@@ -319,12 +333,12 @@
     <div id="background-container"></div>
     
     <main>
-        <h1 class="page-title">Chthonic E2: Cringetide</h1>
-        <p class="episode-number">Debt, leverage, and the archaeology of something that refuses explanation.</p>
+        <h1 class="page-title">Cringetide</h1>
+        <p class="episode-number">The Chthonic Arc | Episode 2</p>
         
         <div class="nav-buttons">
-            <button class="nav-button prev" aria-label="Previous episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/'"></button>
-            <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-3-veil/'"></button>
+            <button class="nav-button prev" aria-label="Previous episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage.html'"></button>
+            <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-3-veil.html'"></button>
             <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
             <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'">
                 <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -347,41 +361,123 @@
         </div>
         
         <div class="carousel-container">
-            <a href="#" class="card-link" onclick="return false;">
-                <div class="card">
-                    <img src="/deepdreamstate/assets/images/episodes/dds-cth-episode-2.webp" alt="Episode 2: Cringetide">
-                </div>
-            </a>
+            <div class="card persistent-glow">
+                <img src="/deepdreamstate/assets/images/episodes/dds-cth-episode-2.webp" alt="Episode 2: Cringetide">
+            </div>
         </div>
-        
-        <div class="dot-indicator">
-            <div class="dot active" data-index="0"></div>
-            <div class="dot" data-index="1"></div>
-            <div class="dot" data-index="2"></div>
-            <div class="dot" data-index="3"></div>
-            <div class="dot" data-index="4"></div>
-            <div class="dot" data-index="5"></div>
-            <div class="dot" data-index="6"></div>
-            <div class="dot" data-index="7"></div>
-            <div class="dot" data-index="8"></div>
-        </div>
-        
-        <div class="section-divider"></div>
         
         <div class="epigraph">
-            "The discovery of the good taste of bad taste can be very liberating."
+            <p>"The discovery of the good taste of bad taste can be very liberating."</p>
             <div class="epigraph-attribution">Susan Sontag</div>
         </div>
         
-        <h2 class="section-heading">Summary</h2>
-        <div class="summary">
+        <h2>Summary</h2>
+        <div class="content-section">
             <p>Tensions rise aboard the Chthonic as Mairead's gambling debts come to light. Desperate to settle what she owes to wealthy guest Alistair, the Spa Manager finds herself and her girlfriend Fion trapped between mounting financial pressure and the leverage being wielded by those who know her secrets. When Alistair and his girlfriend Holly arrive at the spa with a proposal, it becomes clear that there are other ways to settle accounts, and that the crew's vulnerability makes them easy targets for manipulation.</p>
         </div>
         
         <div class="section-divider"></div>
         
-        <h2 class="section-heading">Full Synopsis (Spoilers)</h2>
-        <div class="synopsis">
+        <div class="support-section">
+            <h2>Support the Show</h2>
+            <p><a href="https://www.patreon.com/minderaser">Join us on Patreon for exclusive content and early access</a></p>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Meet The Cast</h2>
+        <table class="cast-table">
+            <tr>
+                <td>Alistair</td>
+                <td><a href="https://deepdreamstate.blubrry.net/jericho-caine/">Jericho Caine</a></td>
+                <td>CEO of Neuroplex</td>
+                <td><a href="https://deepdreamstate.blubrry.net/jericho-caine/">Jericho Caine Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17778008/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Fion</td>
+                <td><a href="https://deepdreamstate.blubrry.net/jade-wolf/">Jade Wolf</a></td>
+                <td>Chief Engineer</td>
+                <td><a href="https://deepdreamstate.blubrry.net/jade-wolf/">Jade Wolf Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17764360/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Holly</td>
+                <td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/">Dizzy Dollie</a></td>
+                <td>His Girlfriend</td>
+                <td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/">Dizzy Dollie Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17760876/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Mairead</td>
+                <td><a href="https://deepdreamstate.blubrry.net/bun-li/">Bun Li</a></td>
+                <td>Spa Manager</td>
+                <td><a href="https://deepdreamstate.blubrry.net/bun-li/">Bun Li Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17796355/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Nika</td>
+                <td><a href="https://deepdreamstate.blubrry.net/echo/">Echo</a></td>
+                <td>Ship Maid</td>
+                <td><a href="https://deepdreamstate.blubrry.net/echo/">Echo Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17822435/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Olivia</td>
+                <td><a href="https://deepdreamstate.blubrry.net/blissblank/">Bliss Blank</a></td>
+                <td>Cruise Director</td>
+                <td><a href="https://deepdreamstate.blubrry.net/blissblank/">Bliss Blank Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17754818/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Selene</td>
+                <td><a href="https://deepdreamstate.blubrry.net/syndi-rella/">Syndi Rella</a></td>
+                <td>Chief Purser</td>
+                <td><a href="https://deepdreamstate.blubrry.net/syndi-rella/">Syndi Rella Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17765752/">IMDb</a></td>
+            </tr>
+            <tr>
+                <td>William</td>
+                <td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/">Neural Nets</a></td>
+                <td>Ship Captain</td>
+                <td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/">Neural Nets Show Page</a></td>
+                <td><a href="https://www.imdb.com/name/nm17755189/">IMDb</a></td>
+            </tr>
+        </table>
+        
+        <div class="section-divider"></div>
+        
+        <div class="support-section">
+            <h2>Consent Declaration</h2>
+            <p>Deep Dream State is a surreal audio drama written and produced by Neural Nets and Pretty Patterns. The series merges lucid dreaming, hypnosis, and transformation into psychological fiction exploring the boundaries of control, identity, and desire.</p>
+            <p>All performances are works of fiction and take place within a consensual creative context.</p>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Hear The Audio</h2>
+        <div class="links-section">
+            <a href="https://deepdreamstate.blubrry.net/e2-cringetide/">Show Page</a> | <a href="https://open.spotify.com/show/5VVhwaymeOKbV9RG7Gre98">Spotify</a> | <a href="https://podcasts.apple.com/us/podcast/deep-dream-state/id1822405042">Apple Podcasts</a>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Read The Scripts</h2>
+        <div class="links-section">
+            <a href="https://www.smashwords.com/books/view/1902802">Smashwords</a> | <a href="https://www.bookbrainz.org/">BookBrainz</a> | <a href="https://openlibrary.org/">OpenLibrary</a>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Find Out More</h2>
+        <div class="links-section">
+            <a href="https://www.theend.fyi/shows/deep-dream-state">The End</a> | <a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a> | <a href="https://isni.org/isni/0000000528776254">Creator ISNI</a>
+        </div>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Full Synopsis (Spoilers)</h2>
+        <div class="content-section">
             <p>Fion confronts Mairead about her gambling addiction and the debts she has accumulated, particularly to Alistair, the wealthy CEO of Neuroplex. The argument reveals the precarious state of their relationship and the constant cycle of loss and false promises to change that defines their dynamic. When Alistair and Holly arrive for a scheduled appointment at the spa, they bring with them an implicit threat: there are ways to settle the debt that don't involve money.</p>
             
             <p>Nika, the observant ship's maid, notices the power dynamics at play and begins to piece together the leverage being used against Mairead and Fion. She sees an opportunity to position herself as indispensable, offering her own skills and observations as a solution to the mounting problems. The lines between help and complicity blur as Nika becomes entangled in the adults' arrangements.</p>
@@ -391,95 +487,9 @@
             <p>By the episode's end, the spa becomes a site of negotiation where bodies, favors, and secrets are the only currency that matters. The episode establishes the economic desperation that will drive the crew's choices throughout the arc, showing how financial precarity transforms relationships and creates power imbalances that no amount of rationalization can justify.</p>
         </div>
         
-        <div class="section-divider"></div>
-        
-        <h2 class="section-heading">Meet The Cast</h2>
-        <table class="cast-table">
-            <tr>
-                <td><strong>Character</strong></td>
-                <td><strong>Actor</strong></td>
-                <td><strong>Role</strong></td>
-                <td><strong>Show Page</strong></td>
-                <td><strong>IMDb</strong></td>
-            </tr>
-            <tr>
-                <td>Olivia</td>
-                <td><a href="https://deepdreamstate.blubrry.net/blissblank/">Bliss Blank</a></td>
-                <td>Cruise Director</td>
-                <td><a href="https://deepdreamstate.blubrry.net/blissblank/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17754818/">IMDb</a></td>
-            </tr>
-            <tr>
-                <td>William</td>
-                <td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/">Neural Nets</a></td>
-                <td>Ship Captain</td>
-                <td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17755189/">IMDb</a></td>
-            </tr>
-            <tr>
-                <td>Nika</td>
-                <td><a href="https://deepdreamstate.blubrry.net/echo/">Echo</a></td>
-                <td>Ship Maid</td>
-                <td><a href="https://deepdreamstate.blubrry.net/echo/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17822435/">IMDb</a></td>
-            </tr>
-            <tr>
-                <td>Selene</td>
-                <td><a href="https://deepdreamstate.blubrry.net/syndi-rella/">Syndi_Rella</a></td>
-                <td>Chief Purser</td>
-                <td><a href="https://deepdreamstate.blubrry.net/syndi-rella/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17765752/">IMDb</a></td>
-            </tr>
-            <tr>
-                <td>Mairead</td>
-                <td><a href="https://deepdreamstate.blubrry.net/bun-li/">Bun-li</a></td>
-                <td>Spa Manager</td>
-                <td><a href="https://deepdreamstate.blubrry.net/bun-li/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17796355/">IMDb</a></td>
-            </tr>
-            <tr>
-                <td>Fion</td>
-                <td><a href="https://deepdreamstate.blubrry.net/jade-wolf/">Jade</a></td>
-                <td>Chief Engineer</td>
-                <td><a href="https://deepdreamstate.blubrry.net/jade-wolf/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17764360/">IMDb</a></td>
-            </tr>
-            <tr>
-                <td>Alistair</td>
-                <td><a href="https://deepdreamstate.blubrry.net/jericho-caine/">Jericho Caine</a></td>
-                <td>CEO of Neuroplex</td>
-                <td><a href="https://deepdreamstate.blubrry.net/jericho-caine/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17778008/">IMDb</a></td>
-            </tr>
-            <tr>
-                <td>Holly</td>
-                <td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/">Dizzy Dollie</a></td>
-                <td>His Girlfriend</td>
-                <td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/">Link</a></td>
-                <td><a href="https://www.imdb.com/name/nm17760876/">IMDb</a></td>
-            </tr>
-        </table>
-        
-        <div class="section-divider"></div>
-        
-        <h2 class="section-heading">Hear The Audio</h2>
-        <div class="links-section">
-            <a href="https://open.spotify.com/show/5VVhwaymeOKbV9RG7Gre98">Spotify</a> | <a href="https://podcasts.apple.com/us/podcast/deep-dream-state/id1822405042">Apple Podcasts</a> | <a href="https://deepdreamstate.blubrry.net/e2-cringetide/">Show Page</a>
-        </div>
-        
-        <h2 class="section-heading">Read The Scripts</h2>
-        <div class="links-section">
-            <a href="https://www.smashwords.com/books/view/1766808">Smashwords</a> | <a href="https://www.bookbrainz.org/">BookBrainz</a> | <a href="https://openlibrary.org/">OpenLibrary</a> | ISBN: 9798232820039
-        </div>
-        
-        <h2 class="section-heading">Find Out More</h2>
-        <div class="links-section">
-            <a href="https://isni.org/isni/0000000528776254">Creator ISNI</a> | <a href="https://www.imdb.com/title/tt14857528/">IMDb</a> | <a href="https://audiodramadirectory.com/">Audio Drama Directory</a>
-        </div>
-        
         <div class="footer-nav">
-            <button class="nav-button prev" aria-label="Previous episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/'"></button>
-            <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-3-veil/'"></button>
+            <button class="nav-button prev" aria-label="Previous episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage.html'"></button>
+            <button class="nav-button next" aria-label="Next episode" onclick="window.location.href='/deepdreamstate/arcs/chthonic/episode-3-veil.html'"></button>
             <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
             <button class="nav-button arc" aria-label="Arc Hub" onclick="window.location.href='/deepdreamstate/arcs/chthonic/'">
                 <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -505,6 +515,25 @@
     <script>
         const bgContainer = document.getElementById('background-container');
         bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-cth-background.webp)';
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "PodcastEpisode",
+        "name": "Cringetide",
+        "episodeNumber": 2,
+        "description": "Debt, leverage, and the archaeology of something that refuses explanation.",
+        "podcastSeries": {
+            "@type": "PodcastSeries",
+            "name": "Deep Dream State: The Chthonic Arc"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Neural Nets And Pretty Patterns"
+        },
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/episode-2-cringetide.html"
+    }
     </script>
 </body>
 </html>
