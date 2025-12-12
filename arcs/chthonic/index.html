@@ -246,8 +246,8 @@
     <div id="background-container"></div>
     
     <main>
-        <h1 class="page-title" id="episode-title">Chthonic E1: Maiden Voyage</h1>
-        <p class="episode-number" id="episode-subtitle">First descent. First sensations. The Chthonic welcomes its guests.</p>
+        <h1 class="page-title">Chthonic Map</h1>
+        <p class="episode-number" id="episode-subtitle">E1: Maiden Voyage. First descent. First sensations. The Chthonic welcomes its guests.</p>
         
         <div class="nav-buttons">
             <button class="nav-button prev" aria-label="Previous episode"></button>
@@ -274,7 +274,7 @@
         </div>
         
         <div class="carousel-container">
-            <a href="index.html" class="card-link">
+            <a href="episode-1-maiden-voyage.html" class="card-link">
                 <div class="card visible" data-index="0">
                     <img src="/deepdreamstate/assets/images/episodes/dds-cth-episode-1.webp" alt="Episode 1: Maiden Voyage">
                 </div>
@@ -354,8 +354,8 @@
     <script>
         const episodes = [
             { title: "Maiden Voyage", number: "1", logline: "First descent. First sensations. The Chthonic welcomes its guests." },
-            { title: "Cringetide", number: "2", logline: "Debt, leverage, and the archaeology of something that refuses explanation." },
-            { title: "Veil", number: "3", logline: "Deep sites. Whale songs. The threshold between discovery and captivity." },
+            { title: "Cringetide", number: "2", logline: "To cringe is human; to lean in, Dagonic." },
+            { title: "Veil", number: "3", logline: "Discovery or captivity. Your choice is behind the veil." },
             { title: "Asunder", number: "4", logline: "The ceremony. The binding. The moment everything changes." },
             { title: "Shower", number: "5", logline: "Pink fog. Fragmented minds. The comfort of forgetting." },
             { title: "Garter", number: "6", logline: "Knowledge as trap. Liberation as entrapment. Selene reveals." },
@@ -383,8 +383,7 @@
             
             dots[index].classList.add('active');
             
-            document.getElementById('episode-title').textContent = `Chthonic E${episodes[index].number}: ${episodes[index].title}`;
-            document.getElementById('episode-subtitle').textContent = episodes[index].logline;
+            document.getElementById('episode-subtitle').textContent = `E${episodes[index].number}: ${episodes[index].title}. ${episodes[index].logline}`;
             
             currentIndex = index;
         }
