@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bliss Blank | Deep Dream State Cast</title>
+    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateiconpink.svg">
+    <meta name="description" content="Bliss Blank - co-director, performer, and creative force behind Deep Dream State.">
+    <meta name="theme-color" content="#1a0a2e">
+    
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            font-family: 'IM Fell DW Pica', serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            overflow-x: hidden;
+        }
+        
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            font-weight: normal;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: nowrap;
+        }
+        
+        .nav-button {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #e8e8e8;
+            border-radius: 50%;
+            background: transparent;
+            color: #e8e8e8;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'IM Fell DW Pica', serif;
+            flex-shrink: 0;
+        }
+        
+        .nav-button:hover {
+            background: #e8e8e8;
+            color: #1a0a2e;
+            transform: scale(1.1);
+        }
+        
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .nav-button.home::before {
+            content: "⌂";
+            font-size: 1.5rem;
+        }
+        
+        p {
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        em {
+            font-style: italic;
+        }
+        
+        strong {
+            font-weight: normal;
+            text-decoration: underline;
+            letter-spacing: 0.05em;
+        }
+        
+        .roles-section {
+            margin: 2rem 0;
+        }
+        
+        .roles-section strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .links-section {
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            border-bottom: 1px solid rgba(232, 232, 232, 0.2);
+        }
+        
+        .links-section strong {
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .links-section a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            transition: border-color 0.3s;
+            margin-right: 2rem;
+            display: inline-block;
+        }
+        
+        .links-section a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .patreon-note {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.1);
+        }
+        
+        .patreon-note a {
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .links-section a {
+                margin-right: 1rem;
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background-container"></div>
+    
+    <main>
+        <h1>Bliss Blank</h1>
+        <p class="subtitle">Co-Director, Performer, Creative Force</p>
+        
+        <div class="nav-buttons">
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
+                    <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                </svg>
+            </button>
+        </div>
+        
+        <p>Bliss Blank is the voice and creative force that animates the Neuralverse. As co-director, performer, and editorial architect, she sustains the Deep Dream State  through relentless artistry.  Her vision shapes every arc; her performances define the project's emotional core. </p>
+        
+        <p>Her range is extraordinary. In <em>Interrogation</em>, she delivered a shattering performance that left listeners breathless. In <em>Belle</em>, she turned inward - an intimate portrait that was delicate and devastating. As Stephanie Ravenscroft, she created a character of real nuance and psychological depth. Her roles demonstrate not just technical mastery but artistic courage in every line.</p>
+        
+        <p>Beyond individual performances, Bliss Blank is the project's archivist and curator. She has appeared in hundreds of NNPP productions, bringing the same care to organizing and preserving the vast recording library. She makes sure the project's history remains vital and discoverable.</p>
+        
+        <p>Every Saturday night at 9 PM EST, she opens the Deep Drop Party - a listening event that has become a ritual gathering space. Bliss Blank's voice and vision form the connective tissue of the entire Neuralverse. Every world echoes with her cadence; every dream begins when she speaks.</p>
+        
+        <div class="roles-section">
+            <strong>Roles in Deep Dream State</strong>
+            <p>Olivia Naylor in <em>The Chthonic</em>, April in <em>Incognitoh</em>, and Dr. June Lowell in <em>The Sitri Center</em>.</p>
+        </div>
+        
+        <div class="links-section">
+            <strong>Find Bliss Blank</strong>
+            <div>
+                <a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener">IMDb</a>
+                <a href="https://www.tumblr.com/blog/blink-blank-bliss" target="_blank" rel="noopener">Tumblr</a>
+            </div>
+            <div class="patreon-note">
+                <strong>Support the Project</strong>
+                <p>Explore more of Neural Nets and Pretty Patterns' catalogue and support future releases at <a href="https://www.patreon.com/minderaser" target="_blank" rel="noopener">patreon.com/minderaser</a>.</p>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        const bgContainer = document.getElementById('background-container');
+        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-sitri-background.webp)';
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Bliss Blank",
+        "description": "Co-director and performer for Deep Dream State",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/bliss-blank/",
+        "sameAs": [
+            "https://www.imdb.com/name/nm17754818/",
+            "https://www.tumblr.com/blog/blink-blank-bliss"
+        ]
+    }
+    </script>
+</body>
+</html>
