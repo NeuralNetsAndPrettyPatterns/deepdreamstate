@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cast and Crew | Deep Dream State</title>
+    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateiconpink.svg">
+    <meta name="description" content="Cast and crew of Deep Dream State, the surreal psychological audio drama by Neural Nets and Pretty Patterns.">
+    <meta name="theme-color" content="#1a0a2e">
+    
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            font-family: 'IM Fell DW Pica', serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            overflow-x: hidden;
+        }
+        
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            font-weight: normal;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: nowrap;
+        }
+        
+        .nav-button {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #e8e8e8;
+            border-radius: 50%;
+            background: transparent;
+            color: #e8e8e8;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'IM Fell DW Pica', serif;
+            flex-shrink: 0;
+        }
+        
+        .nav-button:hover {
+            background: #e8e8e8;
+            color: #1a0a2e;
+            transform: scale(1.1);
+        }
+        
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .nav-button.home::before {
+            content: "⌂";
+            font-size: 1.5rem;
+        }
+        
+        .epigraph {
+            text-align: center;
+            margin: 2rem 0 1rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            padding: 1rem 0;
+        }
+        
+        p {
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .intro {
+            margin-bottom: 2rem;
+        }
+        
+        .cast-table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: collapse;
+        }
+        
+        .cast-table tr {
+            border: none;
+        }
+        
+        .cast-table td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border: none;
+            line-height: 1.6;
+        }
+        
+        .cast-table a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            transition: border-color 0.3s;
+        }
+        
+        .cast-table a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .cast-table tr:nth-child(odd) {
+            background-color: rgba(26, 10, 46, 0.3);
+        }
+        
+        .cast-table tr:nth-child(even) {
+            background-color: transparent;
+        }
+        
+        .links-cell {
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .cast-table td {
+                padding: 0.6rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .nav-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .links-cell {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background-container"></div>
+    
+    <main>
+        <h1>Cast and Crew</h1>
+        
+        <div class="nav-buttons">
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
+                    <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="epigraph">
+            <p>"We're actors. We're the opposite of people!" - Tom Stoppard</p>
+        </div>
+        
+        <div class="intro">
+            <p>Deep Dream State is voiced by a rotating ensemble of performers and produced by a core creative team obsessed with immersive storytelling and beautifully blurred identities.</p>
+        </div>
+        
+        <table class="cast-table">
+            <tr>
+                <td>Bliss Blank</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Olivia</a> / <a href="/deepdreamstate/arcs/incognitoh/">Lilly Ekimmu, April</a> / <a href="/deepdreamstate/arcs/sitri/">June</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/blissblank/">Bliss PodBio</a>  /  <a href="https://www.imdb.com/name/nm17754818/">Bliss IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Britt Reprogrammed</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Tiffany</a> / <a href="/deepdreamstate/arcs/sitri/">Reverie</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Bun Li</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Mairead</a> / <a href="/deepdreamstate/arcs/incognitoh/">Zarah</a> / <a href="/deepdreamstate/arcs/sitri/">Dr. Meg Aerin</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/bun-li/">Bun Li PodBio</a>  /  <a href="https://www.imdb.com/name/nm17796355/">Bun Li IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Dizzy Dollie</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Holly</a> / <a href="/deepdreamstate/arcs/incognitoh/">Coven Leader, Bella</a> / <a href="/deepdreamstate/arcs/sitri/">Nyra</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/">Dizzy PodBio</a>  /  <a href="https://www.imdb.com/name/nm17760876/">Dizzy IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Echo Doll</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Nika</a> / <a href="/deepdreamstate/arcs/incognitoh/">Hannah</a> / <a href="/deepdreamstate/arcs/sitri/">Elle Lawson</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/echo/">Echo PodBio</a>  /  <a href="https://www.imdb.com/name/nm17822435/">Echo IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Flux Lynniegal</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Violet Verdier, Kitty</a> / <a href="/deepdreamstate/arcs/sitri/">Lyra Crosswell</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/flux-lynniegal/">Flux PodBio</a>  /  <a href="https://www.imdb.com/name/nm17796354/">Flux IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Jade</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Fion</a> / <a href="/deepdreamstate/arcs/incognitoh/">Ashley</a> / <a href="/deepdreamstate/arcs/sitri/">Oona Reyes</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/jade-wolf/">Jade PodBio</a>  /  <a href="https://www.imdb.com/name/nm17764360/">Jade IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Jericho Caine</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Alistair</a> / <a href="/deepdreamstate/arcs/sitri/">Cael</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/jericho-caine/">Jericho PodBio</a>  /  <a href="https://www.imdb.com/name/nm17778008/">Jericho IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Kitten Azazel</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Brittany</a> / <a href="/deepdreamstate/arcs/incognitoh/">Kitten Azazel</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/kitten-azazel/">Kitten PodBio</a>  /  <a href="https://www.imdb.com/name/nm17774343/">Kitten IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Korrupted Innocence</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Amanda</a></td>
+                <td class="links-cell"><a href="https://www.imdb.com/name/nm17872359/">Korrupted IMDb</a></td>
+            </tr>
+            <tr>
+                <td><a href="/deepdreamstate/cast/neural-nets-and-pretty-patterns/">Neural Nets and Pretty Patterns</a></td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">William</a> / <a href="/deepdreamstate/arcs/sitri/">Zev Talcott (Z)</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/">NNPP PodBio</a>  /  <a href="https://www.imdb.com/name/nm17755189/">NNPP IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Pipp</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Emma</a> / <a href="/deepdreamstate/arcs/incognitoh/">Madison</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Princess Ella</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Candi</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/princess-ella/">Ella PodBio</a>  /  <a href="https://www.imdb.com/name/nm17822436/">Ella IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Ring of Kees</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Sarah</a> / <a href="/deepdreamstate/arcs/sitri/">Dr. Tessa Finn</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/ring-of-kees/">Kees PodBio</a>  /  <a href="https://www.imdb.com/name/nm17839622/">Kees IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Sofi Starship</td>
+                <td><a href="/deepdreamstate/arcs/sitri/">Phoebe Bosworth</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/thespacebimbo/">Sofi PodBio</a>  /  <a href="https://www.imdb.com/name/nm17864394/">Sofi IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Swirls and Twirls</td>
+                <td><a href="/deepdreamstate/arcs/sitri/">Iris Vale</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/swirlsandtwirls/">Swirls PodBio</a>  /  <a href="https://www.imdb.com/name/nm17864395/">Swirls IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Syndi Rella</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Selene</a> / <a href="/deepdreamstate/arcs/incognitoh/">Dee Dee</a> / <a href="/deepdreamstate/arcs/sitri/">Hespa</a></td>
+                <td class="links-cell"><a href="https://deepdreamstate.blubrry.net/syndi-rella/">Syndi PodBio</a>  /  <a href="https://www.imdb.com/name/nm17765752/">Syndi IMDb</a></td>
+            </tr>
+            <tr>
+                <td>Tender Confusion</td>
+                <td><a href="/deepdreamstate/arcs/chthonic/">Kara</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Aurora</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Coven</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Cupcake</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Coven</a> / <a href="/deepdreamstate/arcs/incognitoh/">Council</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Geek X</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Coven</a> / <a href="/deepdreamstate/arcs/incognitoh/">Council</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Jae</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Council</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Shiney</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Council</a></td>
+                <td class="links-cell"></td>
+            </tr>
+            <tr>
+                <td>Vampy McVampface</td>
+                <td><a href="/deepdreamstate/arcs/incognitoh/">Coven</a></td>
+                <td class="links-cell"></td>
+            </tr>
+        </table>
+        
+        <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.8;">Credits are fluid. Voices recur. The deeper you dream, the less you'll need to know who's who.</p>
+    </main>
+    
+    <script>
+        const bgContainer = document.getElementById('background-container');
+        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-sitri-background.webp)';
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Deep Dream State Cast and Crew",
+        "description": "Cast and crew of Deep Dream State, a psychological audio drama.",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/",
+        "creator": {
+            "@type": "Person",
+            "name": "Neural Nets and Pretty Patterns"
+        }
+    }
+    </script>
+</body>
+</html>
