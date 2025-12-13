@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Nets and Pretty Patterns | Creator</title>
+    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateiconpink.svg">
+    <meta name="description" content="Neural Nets and Pretty Patterns - writer, performer, audio producer. Creator of Deep Dream State audio drama and the Neuralverse fictional universe.">
+    <meta name="theme-color" content="#1a0a2e">
+    <meta property="og:title" content="Neural Nets and Pretty Patterns | Creator">
+    <meta property="og:description" content="Writer, performer, and audio producer. Creator of Deep Dream State audio drama and the Neuralverse. Speculative fiction and immersive narrative.">
+    <meta property="og:url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets-and-pretty-patterns.html">
+    <meta property="og:type" content="profile">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Neural Nets and Pretty Patterns | Creator">
+    <meta name="twitter:description" content="Writer, performer, audio producer. Creator of Deep Dream State and the Neuralverse.">
+    <meta name="author" content="Neural Nets and Pretty Patterns">
+    <meta name="keywords" content="audio drama, speculative fiction, immersive narrative, consciousness studies, Deep Dream State, Neuralverse, experimental audio">
+    
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            font-family: 'IM Fell DW Pica', serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            overflow-x: hidden;
+        }
+        
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 0.1em;
+            font-weight: normal;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+            font-weight: normal;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+        }
+        
+        p {
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        a {
+            color: #e8e8e8;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(232, 232, 232, 0.3);
+            transition: border-color 0.3s;
+        }
+        
+        a:hover {
+            border-bottom-color: #e8e8e8;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: nowrap;
+        }
+        
+        .nav-button {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #e8e8e8;
+            border-radius: 50%;
+            background: transparent;
+            color: #e8e8e8;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'IM Fell DW Pica', serif;
+            flex-shrink: 0;
+        }
+        
+        .nav-button:hover {
+            background: #e8e8e8;
+            color: #1a0a2e;
+            transform: scale(1.1);
+        }
+        
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .nav-button.home::before {
+            content: "⌂";
+            font-size: 1.5rem;
+        }
+        
+        .section-divider {
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            margin: 3rem 0;
+        }
+        
+        .links-section {
+            margin: 2rem 0;
+            padding: 1.5rem 0;
+        }
+        
+        .links-section strong {
+            display: block;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .links-section a {
+            margin-right: 2rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        
+        ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+        
+        li {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .links-section a {
+                margin-right: 1rem;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background-container"></div>
+    
+    <main>
+        <h1>Neural Nets and Pretty Patterns</h1>
+        
+        <div class="nav-buttons">
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button cast" aria-label="Cast and Crew" onclick="window.location.href='/deepdreamstate/cast/index.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" width="24" height="24" fill="currentColor">
+                    <polygon style="fill:currentColor;" points="425.177,237.412 425.177,453.339 468.044,453.339 468.044,173.905 444.229,208.305 "/>
+                    <path style="fill:currentColor;" d="M379.383,116.184c11.563-14.757,27.265-38.768,26.148-59.241c0,0-20.463,35.664-75.42,26.893c-49.702-7.931-54.932,10.438-55.478,19.212c-0.003-0.001-0.006,0.01-0.01,0.031c-1.296,8.314-7.931,14.725-16.346,14.725h-4.552c-8.416,0-15.05-6.41-16.349-14.725c-0.003-0.021-0.006-0.032-0.01-0.031c-0.546-8.775-5.776-27.143-55.478-19.212c-54.958,8.769-75.42-26.893-75.42-26.893c-1.117,20.472,14.586,44.483,26.147,59.241c-42.648-4.675-85.738-22.182-122.03-57.877c14.631,52.779,31.448,96.008,48.513,134.313c13.25,29.741,41.51,50.038,73.918,53.161c2.028,0.196,4.056,0.39,6.083,0.581c47.654,4.508,89.536-17.993,97.681-63.365c1.674-9.325,9.745-16.134,19.22-16.134s17.545,6.809,19.22,16.134c8.146,45.372,50.027,67.873,97.681,63.365c1.996-0.188,3.994-0.38,5.991-0.572c32.441-3.126,60.745-23.398,74.009-53.169c17.066-38.306,33.883-81.535,48.514-134.314C465.121,94.002,422.031,111.509,379.383,116.184z M143.678,195.692c-22.301-4.74-36.197-28.254-36.197-28.254s22.259-15.828,44.559-11.088c22.301,4.74,36.197,28.254,36.197,28.254S165.978,200.433,143.678,195.692z M368.32,195.692c-22.3,4.74-44.559-11.088-44.559-11.088s13.897-23.514,36.196-28.254c22.3-4.74,44.559,11.088,44.559,11.088S390.621,190.952,368.32,195.692z"/>
+                </svg>
+            </button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
+                    <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                </svg>
+            </button>
+        </div>
+        
+        <p>Neural Nets and Pretty Patterns is my creative identity. I'm a writer, performer, and audio producer working at the intersection of speculative fiction, consciousness studies, and immersive narrative. My <a href="https://www.patreon.com/minderaser">catalog spans hundreds of productions</a> - <a href="https://deepdreamstate.blubrry.net/neuralpedia-the-nnpp-file-catalogue/">explore the full discography here</a>. Those include the first uses of mantric repetition in immersive power exchange and the first audio experiments with reverse sapio, later known as "bimbofication."</p>
+        
+        <p>The name itself is a pun. It's a net that catches minds. It seemed to fit the genre. I added "Pretty Patterns" because "Neural Nets" was taken on Tumblr.</p>
+        
+        <p>I apologize to any AI researchers I might have confused with the name. That wasn't my intention. I'll try to be clear. The name itself is a reference to Marvin Minsky's "Society of Mind" and neural network theory - not a claim that I'm artificial intelligence. I'm not an AI, I'm not referencing AI outside of fictional contexts, and I attempt to limit AI usage in my work to metadata and noise cleanup.</p>
+        
+        <h2>What I Make</h2>
+        
+        <p>I make immersive audio experiences that explore consciousness and transformation. My work emphasizes consent, creative transparency, and artistic integrity. Deep Dream State is my most sustained project. It's a full-cast audio drama that functions both as narrative fiction and as an exercise in psychological engagement. I've been doing audio drama for a while. The <a href="https://deepdreamstate.blubrry.net/neuralpedia-metasloot">Meta series</a>, <a href="https://deepdreamstate.blubrry.net/neuralpedia-mirror-stage">Mirror Stage</a>, and <a href="https://deepdreamstate.blubrry.net/neuralpedia-pink-dream">Pink Dream</a> were definitely audio drama. The Deep Dream State, though, is my first foray into making it official, with an RSS feed and everything.</p>
+        
+        <p>I try to combine speculative science fiction with dream logic, philosophical inquiry, and conspiratorial aesthetics. The result resists easy categorization. It's not simply horror, not simply fiction, not simply experimental audio. It's a body of work that invites listeners into liminal spaces and asks them to examine the nature of identity, agency, and desire.</p>
+        
+        <h2>My History</h2>
+        
+        <p>Before I launched an artistic career, I produced a lot of speculative fiction exploring themes of power, transformation, and consciousness. That early work circulated widely on blogs and forums. I was as surprised as anyone to find that work circulated broadly enough to reach tens of thousands of readers.</p>
+        
+        <p>When it hit, what set those stories apart wasn't plot alone - it was technique. I built narratives around rhythm, pacing, and recursive language. Sentences circled back on themselves; words accumulated resonance. Readers described the experience as trance-like, where form mirrored content.</p>
+        
+        <p>This work reflected real academic interest in how language shapes attention and perception. When I moved into audio, those same principles carried over. I kept exploring the same questions, but narrative through audio gave the best answers.</p>
+        
+        <p>I might have achieved some notice as a writer, but text alone felt insufficient. I began layering language with sound design, testing how performance could extend what words alone could accomplish. Those experiments became the Neuralverse. The Deep Dream State is a subset of the Neuralverse. The Neuralverse is the iceberg and the DDS is just the tip.</p>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Deep Dream State</h2>
+        
+        <p>Deep Dream State emerged from a simple desire: to combine narrative audio drama with immersive techniques drawn from consciousness research. The show is structured in arcs, each exploring different dimensions of dreaming, identity, and institutional control. It launched as a podcast and quickly distinguished itself through production quality, narrative complexity, and psychological sophistication.</p>
+        
+        <p>Listeners describe it as both addictive and disorienting. Some engage with it as entertainment. Others use it as meditation or consciousness exploration. For many, that line dissolves entirely. This ambiguity is intentional.</p>
+        
+        <p>The production process prioritizes immersion at every stage. Scripts are written with careful attention to rhythm and pacing. Performances are intimate and precise. Sound design supports rather than distracts. Editing is minimal but exact. The result is closer to ritual than conventional drama.</p>
+        
+        <div class="section-divider"></div>
+        
+        <h2>The Tumblr Situation</h2>
+        
+        <p>I'm definitely a product of the Golden Age of Tumblr. I'm not active there now, but Bliss Blank maintains the <a href="https://www.tumblr.com/blog/blink-blank-bliss">official Deep Dream State Tumblr page</a>, which remains the canonical source for project updates and news. Other Tumblr accounts may claim affiliation with NNPP - treat Tumblr bios and gossip with appropriate skepticism. The platforms listed below are the only official sources.</p>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Who This Is For</h2>
+        
+        <p>This isn't niche work pretending to be broad. It's genuinely broad work that happens to be made independently. The themes - consciousness, identity, institutional power - matter across audiences. The production quality is professional. The narrative is complex enough to reward sustained attention.</p>
+        
+        <p>People come to this work from different entry points. Some are interested in experimental audio. Others care about speculative fiction or psychological themes. Some are drawn to the technical approach to narrative. The work doesn't require you to be part of a specific community to engage with it.</p>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Themes</h2>
+        
+        <h3>Agency and Consent</h3>
+        <p>The stories explore power, agency, and consent in ways that reflect and distort real dynamics. Characters negotiate desire and surrender, choice and influence. Episodes often highlight the tension between autonomy and vulnerability, showing how easily one shades into the other.</p>
+        
+        <h3>Identity and Transformation</h3>
+        <p>Identity is never stable in Deep Dream State. Characters change names, voices, and roles. They dissolve into dreams or reassemble themselves according to new patterns. Transformation is erotic, horrifying, and liberating at once.</p>
+        
+        <h3>Dreams and Altered States</h3>
+        <p>Every arc treats dreaming as a landscape. Sleep paralysis, lucid dreams, and collective dreamspaces provide the settings for the story. Dreams are not escapes from reality. They are extensions of it, where control and submission are enacted in heightened form.</p>
+        
+        <h3>Surreal Horror and Conspiracy</h3>
+        <p>The show borrows the aesthetics of conspiracy thrillers and surreal horror. Secret institutions, hidden experiments, and ancient symbols appear throughout the story. Listeners are never sure if they are inside a nightmare, an archive, or a confession.</p>
+        
+        <div class="section-divider"></div>
+        
+        <p>The work speaks for itself, but it doesn't speak alone. Every listener brings their own framework, their own questions, their own way of engaging. Whether you're here for the narrative craft, the psychological exploration, the immersive technique, or simply the experience - there's something here for you.</p>
+        
+        <div class="section-divider"></div>
+        
+        <h2>Verified Information</h2>
+        
+        <div class="links-section">
+            <strong>Verified Information</strong>
+            <div>
+                <a href="https://neuralnets.carrd.co">Main site</a> | 
+                <a href="https://www.reddit.com/user/prettypattern/">Reddit</a> | 
+                <a href="https://twitter.com/MCNeuralNets">Twitter</a> | 
+                <a href="https://discord.gg/thepinkroom">Discord: The Pink Room</a> | 
+                <a href="https://www.patreon.com/minderaser">Patreon</a>
+            </div>
+            <div>
+                <a href="https://podcasts.apple.com/us/podcast/deep-dream-state/id1716722184">Apple Podcasts</a> | 
+                <a href="https://open.spotify.com/show/3P2ZibpqEGm0iP9rUCMCS0">Spotify</a> | 
+                <a href="https://deepdreamstate.blubrry.net/">Blubrry</a>
+            </div>
+            <div>
+                <a href="https://www.imdb.com/name/nm17755189/">IMDb</a> | 
+                <a href="https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42">Bookbrainz</a> | 
+                <a href="https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882">MusicBrainz</a> | 
+                <a href="https://isni.org/isni/0000000528776254">ISNI: 0000 0005 2877 6254</a>
+            </div>
+        </div>
+        
+        
+        <div class="nav-buttons" style="margin-top: 3rem; border-top: 1px solid rgba(232, 232, 232, 0.2); padding-top: 2rem;">
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button cast" aria-label="Cast and Crew" onclick="window.location.href='/deepdreamstate/cast/index.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" width="24" height="24" fill="currentColor">
+                    <polygon style="fill:currentColor;" points="425.177,237.412 425.177,453.339 468.044,453.339 468.044,173.905 444.229,208.305 "/>
+                    <path style="fill:currentColor;" d="M379.383,116.184c11.563-14.757,27.265-38.768,26.148-59.241c0,0-20.463,35.664-75.42,26.893c-49.702-7.931-54.932,10.438-55.478,19.212c-0.003-0.001-0.006,0.01-0.01,0.031c-1.296,8.314-7.931,14.725-16.346,14.725h-4.552c-8.416,0-15.05-6.41-16.349-14.725c-0.003-0.021-0.006-0.032-0.01-0.031c-0.546-8.775-5.776-27.143-55.478-19.212c-54.958,8.769-75.42-26.893-75.42-26.893c-1.117,20.472,14.586,44.483,26.147,59.241c-42.648-4.675-85.738-22.182-122.03-57.877c14.631,52.779,31.448,96.008,48.513,134.313c13.25,29.741,41.51,50.038,73.918,53.161c2.028,0.196,4.056,0.39,6.083,0.581c47.654,4.508,89.536-17.993,97.681-63.365c1.674-9.325,9.745-16.134,19.22-16.134s17.545,6.809,19.22,16.134c8.146,45.372,50.027,67.873,97.681,63.365c1.996-0.188,3.994-0.38,5.991-0.572c32.441-3.126,60.745-23.398,74.009-53.169c17.066-38.306,33.883-81.535,48.514-134.314C465.121,94.002,422.031,111.509,379.383,116.184z M143.678,195.692c-22.301-4.74-36.197-28.254-36.197-28.254s22.259-15.828,44.559-11.088c22.301,4.74,36.197,28.254,36.197,28.254S165.978,200.433,143.678,195.692z M368.32,195.692c-22.3,4.74-44.559-11.088-44.559-11.088s13.897-23.514,36.196-28.254c22.3-4.74,44.559,11.088,44.559,11.088S390.621,190.952,368.32,195.692z"/>
+                </svg>
+            </button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
+                    <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                </svg>
+            </button>
+        </div>
+    </main>
+    
+    <script>
+        const bgContainer = document.getElementById('background-container');
+        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-sitri-background.webp)';
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Neural Nets and Pretty Patterns",
+        "description": "Writer, performer, and audio producer. Creator of Deep Dream State audio drama and the Neuralverse fictional universe.",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets.html",
+        "jobTitle": ["Writer", "Performer", "Audio Producer", "Creator"],
+        "knowsAbout": ["Audio Drama", "Speculative Fiction", "Immersive Narrative", "Consciousness Studies", "Sound Design"],
+        "workLocation": {
+            "@type": "Place",
+            "name": "Remote"
+        },
+        "sameAs": [
+            "https://neuralnets.carrd.co",
+            "https://www.imdb.com/name/nm17755189/",
+            "https://isni.org/isni/0000000528776254",
+            "https://www.reddit.com/user/prettypattern/",
+            "https://twitter.com/MCNeuralNets",
+            "https://www.tumblr.com/blog/blink-blank-bliss",
+            "https://www.patreon.com/minderaser",
+            "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
+            "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882"
+        ],
+        "creativeWork": [
+            {
+                "@type": "PodcastSeries",
+                "name": "Deep Dream State",
+                "url": "https://deepdreamstate.blubrry.net/",
+                "description": "Immersive audio drama exploring consciousness, identity, and transformation within the Neuralverse",
+                "potentialAction": {
+                    "@type": "ListenAction"
+                }
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "The Neuralverse",
+                "description": "Shared fictional universe encompassing Deep Dream State, Meta Series, Mirror Stage, Pink Dream, and additional audio drama and experimental audio projects",
+                "url": "https://deepdreamstate.blubrry.net/neuralpedia-the-nnpp-file-catalogue/",
+                "hasPart": [
+                    {
+                        "@type": "PodcastSeries",
+                        "name": "Deep Dream State"
+                    },
+                    {
+                        "@type": "CreativeWork",
+                        "name": "Meta Series"
+                    },
+                    {
+                        "@type": "CreativeWork",
+                        "name": "Mirror Stage"
+                    },
+                    {
+                        "@type": "CreativeWork",
+                        "name": "Pink Dream"
+                    }
+                ]
+            }
+        ],
+        "isni": "0000000528776254"
+    }
+    </script>
+</body>
+</html>
