@@ -211,7 +211,7 @@
     
     <main>
         <h1 class="page-title">Image Attribution</h1>
-        <p class="episode-number">Deep Dream State — Production Process</p>
+        <p class="episode-number">Deep Dream State — Production Credits</p>
         
         <div class="nav-buttons">
             <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
@@ -236,24 +236,24 @@
             <div class="attribution-item">
                 <h3>Core Image</h3>
                 <p>Vika Glitter, <em>Resurrection</em></p>
-                <p class="source-link">Source: <a href="#pixabay-resurrection">Pixabay — Illustrations</a></p>
+                <p class="source-link">Source: <a href="https://pixabay.com/illustrations/resurrection-dream-space-7036772/" target="_blank">Pixabay — Illustrations</a></p>
             </div>
             
             <div class="attribution-item">
                 <h3>About Bookstore Layer</h3>
                 <p>Personal photograph of book tunnel</p>
-                <p class="source-link">Source: <a href="#last-book-store">The Last Bookstore LA</a></p>
+                <p class="source-link">Source: <a href="https://www.lastbookstorela.com/" target="_blank">The Last Bookstore LA</a></p>
             </div>
             
             <div class="attribution-item">
                 <h3>Cast Stage Layer</h3>
                 <p>Photoshopped version of creative commons imagery — War Memorial Opera House</p>
-                <p class="source-link">Source: <a href="#war-memorial">Wikimedia Commons</a></p>
+                <p class="source-link">Source: <a href="https://commons.wikimedia.org/wiki/File:War_Memorial_Opera_House_stage.jpg" target="_blank">Wikimedia Commons</a></p>
             </div>
             
             <div class="attribution-item">
                 <h3>Character Art</h3>
-                <p>Provided by cast member <a href="#echo-doll">Echo Doll</a> with permission</p>
+                <p>Provided by cast member <a href="https://www.imdb.com/name/nm17822435/" target="_blank">Echo Doll</a> with permission</p>
             </div>
         </div>
         
@@ -265,27 +265,6 @@
     <script>
         const bgContainer = document.getElementById('background-container');
         bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
-        
-        // Internal anchor links that open external sources in new tabs
-        document.getElementById('pixabay-resurrection').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://pixabay.com/illustrations/resurrection-dream-space-7036772/', '_blank');
-        });
-        
-        document.getElementById('last-book-store').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://www.lastbookstorela.com/', '_blank');
-        });
-        
-        document.getElementById('war-memorial').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://commons.wikimedia.org/wiki/File:War_Memorial_Opera_House_stage.jpg', '_blank');
-        });
-        
-        document.getElementById('echo-doll').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://www.imdb.com/name/nm17822435/', '_blank');
-        });
     </script>
 </body>
 </html>
