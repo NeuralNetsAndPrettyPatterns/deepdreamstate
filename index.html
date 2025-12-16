@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Core -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="application-name" content="Deep Dream State">
+    <meta name="robots" content="index,follow,max-image-preview:large">
+    <meta name="googlebot" content="index,follow,max-image-preview:large">
     <title>Deep Dream State - Psychological Horror Audio Drama</title>
     <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateicon.svg">
     <link rel="canonical" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/">
     <meta name="description" content="Deep Dream State: A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation. An ongoing project with interactive elements and community participation.">
     <meta name="theme-color" content="#1a0a2e">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="Deep Dream State - Psychological Horror Audio Drama">
     <meta property="og:description" content="A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation.">
-    <meta property="og:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp">
-    <meta property="og:image:alt" content="Deep Dream State — psychological horror audio drama artwork">
     <meta property="og:url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Deep Dream State">
     <meta property="og:locale" content="en_US">
-    
+    <meta property="og:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp">
+    <meta property="og:image:secure_url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp">
+    <meta property="og:image:alt" content="Deep Dream State — psychological horror audio drama artwork">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Deep Dream State - Psychological Horror Audio Drama">
@@ -28,18 +34,14 @@
     <meta name="twitter:image:alt" content="Deep Dream State — psychological horror audio drama artwork">
     <meta name="twitter:creator" content="@MCNeuralNets">
     <meta name="twitter:site" content="@MCNeuralNets">
-    
-    <!-- Google Fonts: IM Fell DW Pica -->
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
-    
+
+    <!-- Styles (unchanged) -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html, body {
             width: 100%;
             font-family: 'IM Fell DW Pica', serif;
@@ -47,271 +49,130 @@
             color: #e8e8e8;
             overflow-x: hidden;
         }
-        
         #background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 1;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0; opacity: 1; background-size: cover; background-position: center; background-repeat: no-repeat;
         }
-        
-        main {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-        
-        .page-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.1em;
-            font-weight: normal;
-        }
-        
-        .episode-number {
-            font-size: 0.95rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            letter-spacing: 0.05em;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: nowrap;
-        }
-        
+        main { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem; text-align: center; }
+        .page-title { font-size: 2.5rem; text-align: center; margin-bottom: 0.5rem; letter-spacing: 0.1em; font-weight: normal; }
+        .episode-number { font-size: 0.95rem; text-align: center; margin-bottom: 2rem; opacity: 0.8; letter-spacing: 0.05em; }
+        .nav-buttons { display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem; margin-bottom: 2rem; flex-wrap: nowrap; }
         .nav-button {
-            width: 45px;
-            height: 45px;
-            border: 2px solid #e8e8e8;
-            border-radius: 50%;
-            background: transparent;
-            color: #e8e8e8;
-            font-size: 1.3rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-            font-family: 'IM Fell DW Pica', serif;
-            flex-shrink: 0;
+            width: 45px; height: 45px; border: 2px solid #e8e8e8; border-radius: 50%;
+            background: transparent; color: #e8e8e8; font-size: 1.3rem; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s ease;
+            font-family: 'IM Fell DW Pica', serif; flex-shrink: 0;
         }
-        
-        .nav-button:hover {
-            background: #e8e8e8;
-            color: #1a0a2e;
-            transform: scale(1.1);
-        }
-        
-        .nav-button:active {
-            transform: scale(0.95);
-        }
-        
-        .nav-button svg {
-            width: 24px;
-            height: 24px;
-        }
-        
-        .nav-button.prev::before {
-            content: "‹";
-            font-weight: bold;
-            font-size: 2rem;
-        }
-        
-        .nav-button.next::before {
-            content: "›";
-            font-weight: bold;
-            font-size: 2rem;
-        }
-        
-        .nav-button.home::before {
-            content: "⌂";
-            font-size: 1.5rem;
-        }
-        
-        .carousel-container {
-            width: 100%;
-            max-width: 400px;
-            margin: 2rem auto;
-        }
-        
+        .nav-button:hover { background: #e8e8e8; color: #1a0a2e; transform: scale(1.1); }
+        .nav-button:active { transform: scale(0.95); }
+        .nav-button svg { width: 24px; height: 24px; }
+        .nav-button.prev::before { content: "‹"; font-weight: bold; font-size: 2rem; }
+        .nav-button.next::before { content: "›"; font-weight: bold; font-size: 2rem; }
+        .nav-button.home::before { content: "⌂"; font-size: 1.5rem; }
+        .carousel-container { width: 100%; max-width: 400px; margin: 2rem auto; }
         .card {
-            width: 100%;
-            aspect-ratio: 1;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-            display: block;
-            cursor: pointer;
-            transition: all 0.6s ease;
+            width: 100%; aspect-ratio: 1; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); display: block; cursor: pointer; transition: all 0.6s ease;
         }
-        
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .card:hover {
-            box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
-            transform: translateY(-5px);
-        }
-        
-        .card.hidden {
-            display: none;
-        }
-        
-        .card.visible {
-            display: block;
-        }
-        
-        .card a {
-            display: block;
-            width: 100%;
-            height: 100%;
-            text-decoration: none;
-        }
-        
-        .dot-indicator {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-        
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(232, 232, 232, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dot.active {
-            background: #e8e8e8;
-            width: 30px;
-            border-radius: 5px;
-        }
-        
-        .content-block {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-            text-align: left;
-            line-height: 1.8;
-        }
-        
-        .content-block h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: normal;
-            letter-spacing: 0.05em;
-            text-align: center;
-        }
-        
-        .content-block h2:first-of-type {
-            margin-top: 0;
-        }
-        
-        .content-block h3 {
-            font-size: 1.3rem;
-            margin-top: 2rem;
-            margin-bottom: 0.8rem;
-            font-weight: normal;
-            letter-spacing: 0.03em;
-            text-align: left;
-        }
-        
-        .content-block p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .content-block p:last-child {
-            margin-bottom: 0;
-        }
-        
+        .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .card:hover { box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3); transform: translateY(-5px); }
+        .card.hidden { display: none; }
+        .card.visible { display: block; }
+        .card a { display: block; width: 100%; height: 100%; text-decoration: none; }
+        .dot-indicator { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(232, 232, 232, 0.3); cursor: pointer; transition: all 0.3s ease; }
+        .dot.active { background: #e8e8e8; width: 30px; border-radius: 5px; }
+        .content-block { max-width: 800px; margin: 3rem auto; padding: 0 2rem; text-align: left; line-height: 1.8; }
+        .content-block h2 { font-size: 1.8rem; margin-top: 2.5rem; margin-bottom: 1rem; font-weight: normal; letter-spacing: 0.05em; text-align: center; }
+        .content-block h2:first-of-type { margin-top: 0; }
+        .content-block h3 { font-size: 1.3rem; margin-top: 2rem; margin-bottom: 0.8rem; font-weight: normal; letter-spacing: 0.03em; text-align: left; }
+        .content-block p { margin-bottom: 1.5rem; }
+        .content-block p:last-child { margin-bottom: 0; }
         .footer-credit {
-            display: flex;
-            justify-content: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(232, 232, 232, 0.2);
-            font-size: 0.95rem;
-            opacity: 0.8;
+            display: flex; justify-content: center; margin-top: 3rem; padding-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.2); font-size: 0.95rem; opacity: 0.8;
         }
-        
         @media (max-width: 768px) {
-            main {
-                padding: 2rem 1rem;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .carousel-container {
-                max-width: 320px;
-            }
-            
-            .nav-button {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            
-            .content-block {
-                padding: 1.5rem;
-                font-size: 0.95rem;
-            }
+            main { padding: 2rem 1rem; }
+            .page-title { font-size: 2rem; }
+            .carousel-container { max-width: 320px; }
+            .nav-button { width: 40px; height: 40px; font-size: 1.1rem; }
+            .content-block { padding: 1.5rem; font-size: 0.95rem; }
         }
-        
         @media (max-width: 480px) {
-            main {
-                padding: 1.5rem 1rem;
-            }
-            
-            .page-title {
-                font-size: 1.5rem;
-            }
-            
-            .carousel-container {
-                max-width: 280px;
-            }
-            
-            .nav-buttons {
-                gap: 0.3rem;
-            }
-            
-            .nav-button {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
-            }
-            
-            .content-block {
-                padding: 1rem;
-                font-size: 0.9rem;
-            }
+            main { padding: 1.5rem 1rem; }
+            .page-title { font-size: 1.5rem; }
+            .carousel-container { max-width: 280px; }
+            .nav-buttons { gap: 0.3rem; }
+            .nav-button { width: 38px; height: 38px; font-size: 1rem; }
+            .content-block { padding: 1rem; font-size: 0.9rem; }
         }
     </style>
+
+    <!-- Structured Data: PodcastSeries -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PodcastSeries",
+      "name": "Deep Dream State",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+      "inLanguage": "en",
+      "description": "A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation. An ongoing project with interactive elements and community participation.",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp",
+        "width": 1200,
+        "height": 630
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Neural Nets and Pretty Patterns",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+      },
+      "sameAs": [
+        "https://deepdreamstate.blubrry.net/",
+        "https://www.imdb.com/title/tt38590860/",
+        "https://www.patreon.com/minderaser",
+        "https://x.com/MCNeuralNets"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Neural Nets and Pretty Patterns",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/deepdreamstateicon.svg"
+      },
+      "sameAs": [
+        "https://deepdreamstate.blubrry.net/",
+        "https://www.imdb.com/name/nm17755189/",
+        "https://www.patreon.com/minderaser",
+        "https://x.com/MCNeuralNets"
+      ],
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "contactType": "inquiries",
+        "url": "https://www.patreon.com/minderaser"
+      }]
+    }
+    </script>
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Deep Dream State",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+      "inLanguage": "en"
+    }
+    </script>
 </head>
 <body>
     <div id="background-container"></div>
@@ -477,65 +338,6 @@
         });
         
         showCard(0);
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "PodcastSeries",
-        "name": "Deep Dream State",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-        "inLanguage": "en",
-        "description": "A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation. An ongoing project with interactive elements and community participation.",
-        "image": {
-            "@type": "ImageObject",
-            "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Neural Nets and Pretty Patterns",
-            "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
-        },
-        "sameAs": [
-            "https://deepdreamstate.blubrry.net/",
-            "https://www.imdb.com/title/tt38590860/",
-            "https://www.patreon.com/minderaser",
-            "https://x.com/MCNeuralNets"
-        ]
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Neural Nets and Pretty Patterns",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/deepdreamstateicon.svg"
-        },
-        "sameAs": [
-            "https://deepdreamstate.blubrry.net/",
-            "https://www.imdb.com/name/nm17755189/",
-            "https://www.patreon.com/minderaser",
-            "https://x.com/MCNeuralNets"
-        ],
-        "contactPoint": [{
-            "@type": "ContactPoint",
-            "contactType": "inquiries",
-            "url": "https://www.patreon.com/minderaser"
-        }]
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Deep Dream State",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
-    }
     </script>
 </body>
 </html>
