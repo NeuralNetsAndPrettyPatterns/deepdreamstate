@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Dream State - Audio Drama by Neural Nets and Pretty Patterns</title>
+    <title>Deep Dream State - Psychological Horror Audio Drama</title>
     <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateicon.svg">
     <link rel="canonical" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/">
-    <meta name="description" content="Deep Dream State: A psychological horror audio drama exploring dreams, sound design, and the boundaries between story and reality. Created by Neural Nets and Pretty Patterns.">
+    <meta name="description" content="Deep Dream State: A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation. An ongoing project with interactive elements and community participation.">
     <meta name="theme-color" content="#1a0a2e">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Deep Dream State - Audio Drama">
-    <meta property="og:description" content="A psychological horror audio drama exploring dreams, sound design, and the boundaries between story and reality.">
+    <meta property="og:title" content="Deep Dream State - Psychological Horror Audio Drama">
+    <meta property="og:description" content="A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation.">
     <meta property="og:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp">
     <meta property="og:image:alt" content="Deep Dream State - psychological horror audio drama artwork">
     <meta property="og:url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/">
@@ -20,8 +20,8 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Deep Dream State - Audio Drama">
-    <meta name="twitter:description" content="A psychological horror audio drama exploring dreams, sound design, and the boundaries between story and reality.">
+    <meta name="twitter:title" content="Deep Dream State - Psychological Horror Audio Drama">
+    <meta name="twitter:description" content="A psychological horror audio drama exploring why we enjoy being controlled.">
     <meta name="twitter:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp">
     <meta name="twitter:creator" content="@MCNeuralNets">
     
@@ -205,6 +205,44 @@
             border-radius: 5px;
         }
         
+        .content-block {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: left;
+            line-height: 1.8;
+        }
+        
+        .content-block h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+        
+        .content-block h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .content-block h3 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: normal;
+            letter-spacing: 0.03em;
+            text-align: left;
+        }
+        
+        .content-block p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-block p:last-child {
+            margin-bottom: 0;
+        }
+        
         .footer-credit {
             display: flex;
             justify-content: center;
@@ -233,6 +271,11 @@
                 height: 40px;
                 font-size: 1.1rem;
             }
+            
+            .content-block {
+                padding: 1.5rem;
+                font-size: 0.95rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -257,6 +300,11 @@
                 height: 38px;
                 font-size: 1rem;
             }
+            
+            .content-block {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -265,7 +313,7 @@
     
     <main>
         <h1 class="page-title">Deep Dream State</h1>
-        <p class="episode-number" id="subtitle"></p>
+        <p class="episode-number" id="subtitle">Psychological Horror Audio Drama</p>
         
         <div class="nav-buttons">
             <button class="nav-button prev" aria-label="Previous card"></button>
@@ -287,19 +335,19 @@
         <div class="carousel-container">
             <div class="card visible" data-index="0">
                 <a href="/deepdreamstate/arcs/chthonic/">
-                    <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" alt="Arc 1: The Chthonic">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-chthonic.webp" alt="Chthonic Arc">
                 </a>
             </div>
             
             <div class="card hidden" data-index="1">
                 <a href="/deepdreamstate/arcs/incognitoh/">
-                    <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" alt="Arc 2: Incognitoh">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-incognitoh.webp" alt="Incognitoh Arc">
                 </a>
             </div>
             
             <div class="card hidden" data-index="2">
                 <a href="/deepdreamstate/arcs/sitri/">
-                    <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" alt="Arc 3: Sitri Center">
+                    <img src="/deepdreamstate/assets/images/dds-carousel-card-sitricenter.webp" alt="Sitri Center Arc">
                 </a>
             </div>
             
@@ -322,6 +370,46 @@
             <div class="dot" data-index="2"></div>
             <div class="dot" data-index="3"></div>
             <div class="dot" data-index="4"></div>
+        </div>
+        
+        <div class="content-block">
+            <h2>The Center of the Dream</h2>
+            
+            <p>The Deep Dream State is a psychological horror audio drama. It explores the real mystery nested inside horror.</p>
+            
+            <p>"If it's horror, why do we like it so much?"</p>
+            
+            <p>To get all way inside that question, we need to put aside some barriers. Genre conventions will always occlude the answer. Horror has its stock answers. Erotica has its own answers. Both genres fixate on own side of the coin, and so they can't see where they fuse.</p>
+            
+            <p>The answer's well outside any niche. I'm not sure we can get an answer, but I know it's worth asking the question. Almost every contemporary control system runs on enjoyment. Enjoyment's parsed and subcategorized and ontologized and served back to us by machines. If there's anything to be said about these systems past mute acceptance, we have to determine why we like being controlled so much - even when or maybe especially when it's horrifying.</p>
+            
+            <p>Deep Dream State poses this question again and again. Each arc's built around this mystery. There's plot based mystery, of course, which is resolved. There's the broader listener mystery. That demands your participation, and it'll probably never be answered. But each arc will circle around the question for as long as I can keep doing this.</p>
+            
+            <h3>Chthonic</h3>
+            <p>Follows a luxury cruise wedding party as they sail into something older than ceremony. The descent begins with social discomfort and ends in absolute surrender to forces that predate language. This arc asks why rituals feel simultaneously threatening and seductive, why we seek structures that dissolve individual will. The ship becomes a space where control and enjoyment fuse completely - passengers find themselves participating in ceremonies they don't understand but cannot resist. Archaeology unearths what was never really buried. The question here is whether submission to incomprehensible forces counts as horror or transcendence, and whether that distinction matters when you're already gone.</p>
+            
+            <h3>Incognitoh</h3>
+            <p>Drops contestants into a reality competition designed to remake its players from the inside out. The game uses surveillance not just to watch but to rewrite, turning visibility itself into the mechanism of control. Alliances become currency, manipulation becomes gameplay, and eventually the contestants can't distinguish between performing for cameras and simply being. This arc directly confronts how systems built on voyeurism and performance create enjoyment through diminishment - how being watched and controlled becomes the pleasure itself. The competition never ends because the players have internalized its logic completely. It asks why we find entertainment in watching people dissolve under observation, and why the observed seem to crave that dissolution.</p>
+            
+            <h3>Sitri Center</h3>
+            <p>Offers participants entry into a dream research institute promising mastery over their unconscious minds. The program uses therapeutic language to package systematic dismantling of boundaries between self and suggestion. What begins as clinical treatment becomes orchestrated fantasy, and what seemed like liberation reveals itself as sophisticated imprisonment. This arc examines how control systems disguise themselves as empowerment, how the apparatus that seems most designed to free us often binds us most completely. Dreams that felt like escape routes become corridors of someone else's design. The question is whether there's meaningful difference between choosing your cage and having it chosen for you when the choice itself was engineered.</p>
+            
+            <h3>Solstitial</h3>
+            <p>Will explore gift-giving, obligation, and seasonal rituals we perform without understanding their origins or implications. The winter solstice marks a threshold where ancient practices resurface through modern celebration. What happens when the old ways remember themselves through us? Coming in development.</p>
+            
+            <h3>Ongoing</h3>
+            
+            <p>Future arcs are teased throughout the series. Your engagement determines where this goes. Pay special attention to the advertisements at the end of Arc 2 - they're not just flavor text. They're invitations to participate in determining what gets made next. The listeners who notice what's being offered and what's being asked for will shape the trajectory of the show.</p>
+            
+            <p>This is an ongoing project. Each arc attempts something the previous one didn't quite reach. The sound design gets sharper. The questions get harder. The work continues as long as there are listeners willing to follow where it leads.</p>
+            
+            <h2>The Deep Dream Site</h2>
+            
+            <p>The carousel above shows five cards. Use the arrow buttons to cycle through arcs, or click the dots below the image to jump directly to a specific card. The home button returns you here. The cast button takes you to performer credits and profiles. The Patreon button links to exclusive content and early access. Click any carousel card to enter that section and access episodes.</p>
+            
+            <p>This site will serve as a sandbox for show-related experiments. Expect interactive games that extend the narrative, original fan art galleries, and listening experiences that blur the boundary between passive consumption and active participation. The distinction between "official" content and community contribution will intentionally erode. If the show asks questions about control and enjoyment, the site should embody those questions in how it's structured and what it offers.</p>
+            
+            <p>Think of this space as a living archive that's also a playground. The arcs are complete narrative units, but the site itself remains perpetually under construction. New features will appear without announcement. Some will stay. Some will vanish. The site's instability is deliberate - a reflection of the show's themes rendered as interface design.</p>
         </div>
         
         <div class="footer-credit">
@@ -393,7 +481,7 @@
         "name": "Neural Nets and Pretty Patterns",
         "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
         "logo": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp",
-        "description": "A psychological horror audio drama exploring sound design and the boundaries between dream and story.",
+        "description": "A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation. An ongoing project with interactive elements and community participation.",
         "sameAs": [
             "https://deepdreamstate.blubrry.net/",
             "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets-and-pretty-patterns.html",
