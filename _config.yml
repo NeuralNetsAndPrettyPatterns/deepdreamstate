@@ -1,1 +1,3 @@
 favicon: /assets/images/deepdreamstateicon.svg
+include:
+  - sitemap.xml
