@@ -1,31 +1,53 @@
-# Deep Dream State - Official Website
+# Deep Dream State — Official Website
 
-A psychological horror audio drama from Neural Nets And Pretty Patterns.
+The official website for *Deep Dream State*, a psychological horror audio drama from **Neural Nets and Pretty Patterns**.
 
-**Live Site:** https://neuralnetsandprettypatterns.github.io/deepdreamstate/
+**Live site:**  
+https://neuralnetsandprettypatterns.github.io/deepdreamstate/
+
+---
 
 ## About the Series
 
-Deep Dream State is a narrative audio series exploring hypnosis, sound design, and the boundaries between dream and story. Three narrative arcs unfold across 25 episodes of experimental audio drama.
+*Deep Dream State* is a narrative audio drama exploring hypnosis, sound design, and the blurred boundary between dream, control, and story. The series unfolds across multiple narrative arcs, each structured as a self-contained experiment within a shared fictional framework.
 
-- **Arc 1: The Chthonic** — A luxury cruise with a wedding party sails into an older ceremony. Archaeology, vows, and sea gods turn the ship into ritual.
-- **Arc 2: Incognitoh** — A reality competition rewrites its players. Surveillance is constant, alliances are leverage, and the game keeps playing back.
-- **Arc 3: Sitri Center** — A secluded dream institute offers participants a chance to master their dreams. But once the experiment begins, control becomes illusion.
+The show examines why systems of control can feel pleasurable, comforting, or desirable — even when they are unsettling.
+
+### Narrative Arcs
+
+- **Arc 1: Chthonic**  
+  A luxury cruise wedding party drifts into an older ceremony. Archaeology, vows, and submerged gods turn the ship into a ritual space where individual will dissolves.
+
+- **Arc 2: Incognitoh**  
+  A reality competition reshapes its contestants from the inside out. Surveillance becomes a mechanism of transformation, and performance replaces identity.
+
+- **Arc 3: Sitri Center**  
+  A secluded dream research institute promises mastery over the unconscious. Therapeutic language masks a system where empowerment and control become indistinguishable.
+
+Additional arcs are in development.
+
+---
 
 ## Credits
 
-Written and produced by **Neural Nets and Pretty Patterns** with co-production by **Bliss Blank**.
+Written and produced by **Neural Nets and Pretty Patterns**  
+Co-produced by **Bliss Blank**
 
-Sound design, editing, and scoring by **Neural Nets and Pretty Patterns**.
+Sound design, editing, and original scoring by **Neural Nets and Pretty Patterns**
 
-## Build & Deployment
+---
 
-Built with static HTML, CSS, and JavaScript. Hosted on GitHub Pages.
+## Build and Deployment
 
-- Images: WebP format with JPG fallbacks
-- Carousel: Swiper.js
-- Structured data: JSON-LD (Podcast/Episode/Person schemas)
+The site is built as a static project using HTML, CSS, and JavaScript, and is hosted on GitHub Pages.
+
+- Image assets served primarily in WebP format  
+- Structured data implemented using JSON-LD  
+- Schema coverage includes PodcastSeries and Organization metadata
+
+---
 
 ## Support
 
-[Listen on Patreon](https://patreon.com/minderaser)
+Exclusive content and early access are available via Patreon:  
+https://www.patreon.com/minderaser
