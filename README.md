@@ -1,6 +1,6 @@
 # Deep Dream State - Official Website
 
-A surreal psychological horror audio drama from Neural Nets And Pretty Patterns.
+A psychological horror audio drama from Neural Nets And Pretty Patterns.
 
 **Live Site:** https://neuralnetsandprettypatterns.github.io/deepdreamstate/
 
