@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Dream Site - Dream Team Drills!</title>
+    <title>Deep Dream Site - Dream Team Drills</title>
     <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/deepdreamstate/main/assets/images/games/sitridrillhespa.png">
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -179,7 +179,7 @@
             const lineTextStyle = { fontSize: '1.2rem', lineHeight: '1.6', fontStyle: 'italic', margin: '0', maxWidth: '800px', textAlign: 'center', fontFamily: "'IM Fell DW Pica', serif" };
             const questionCounterStyle = { fontSize: '0.8rem', margin: '0', fontFamily: "'IM Fell DW Pica', serif", opacity: '0.7' };
             const feedbackStyle = { fontSize: '1.2rem', fontWeight: 'bold', padding: '1rem 2rem', textAlign: 'center', fontFamily: "'IM Fell DW Pica', serif", minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' };
-            const modalContainerStyle = { maxWidth: '900px', padding: '3rem 2rem', lineHeight: '1.8', width: '100%', textAlign: 'center', marginTop: '2rem' };
+            const modalContainerStyle = { maxWidth: '900px', padding: '1rem 2rem', lineHeight: '1.8', width: '100%', textAlign: 'center', marginTop: '0.5rem' };
             const startButtonStyle = { marginBottom: '2rem', padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#8B4789', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
             const footerStyle = { marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid rgba(232, 232, 232, 0.2)', fontSize: '0.9rem', opacity: '0.8', textAlign: 'center', fontFamily: "'IM Fell DW Pica', serif", margin: '2rem 0 0 0', width: '100%' };
             const scoreScreenStyle = { textAlign: 'center', marginTop: '4rem', paddingBottom: '4rem' };
@@ -213,7 +213,6 @@
                         <h1 style={titleStyle}>Deep Dream Site</h1>
                         <h2 style={subtitleStyle}>Dream Team Drills</h2>
                         <div style={scoreScreenStyle}>
-                            <h2 style={scoreTitleStyle}>Game Complete</h2>
                             <p style={scoreTextStyle}>{score} / 10</p>
                             <p style={resultMessageStyle}>{getResultMessage(score)}</p>
                             <div style={buttonGroupStyle}>
@@ -251,7 +250,7 @@
                     {currentLine && <p style={lineTextStyle}>"{currentLine}"</p>}
                     <div style={dividerStyle} />
 
-                    <p style={questionCounterStyle}>Question {questionCount} of 10</p>
+                    <p style={questionCounterStyle}>Question {questionCount} of 10. If you don't remember the line, Reverie whispered it in forgotten dreams.</p>
                     <div style={dividerStyle} />
 
                     {feedback && (
@@ -261,7 +260,7 @@
                     )}
 
                     <div style={{height: '12rem'}} />
-                    <footer style={footerStyle}>All Art Drawn By Echo Doll.</footer>
+                    <footer style={footerStyle}>All Art Drawn By Echo Doll!</footer>
                 </div>
             );
         };
