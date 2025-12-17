@@ -1,27 +1,37 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cast - Deep Dream State</title>
-    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateiconpink.svg">
+    <meta name="application-name" content="{{ site.title }}">
+    <meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+    <title>Cast - {{ site.title }}</title>
+    <link rel="icon" type="image/x-icon" href="/deepdreamstate{{ site.favicon }}">
     <link rel="canonical" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/">
-    <meta name="description" content="Cast and crew of Deep Dream State: voice actors, performers, and creators behind the psychological horror audio drama.">
+    <meta name="description" content="Cast and crew of {{ site.title }}: voice actors, performers, and creators behind the psychological horror audio drama.">
     <meta name="theme-color" content="#1a0a2e">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Cast - Deep Dream State">
+    <meta property="og:title" content="Cast - {{ site.title }}">
     <meta property="og:description" content="Voice actors, performers, and creators behind the psychological horror audio drama.">
     <meta property="og:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp">
     <meta property="og:url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image:alt" content="{{ site.title }} cast artwork">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Cast - Deep Dream State">
+    <meta name="twitter:title" content="Cast - {{ site.title }}">
     <meta name="twitter:description" content="Voice actors, performers, and creators behind the psychological horror audio drama.">
     <meta name="twitter:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-background.webp">
+    <meta name="twitter:image:alt" content="{{ site.title }} cast artwork">
     <meta name="twitter:creator" content="@MCNeuralNets">
+    <meta name="twitter:site" content="@MCNeuralNets">
     
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
     
@@ -67,6 +77,15 @@
             margin-bottom: 1rem;
             letter-spacing: 0.1em;
             font-weight: normal;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-align: center;
         }
         
         .nav-buttons {
@@ -175,6 +194,24 @@
             white-space: nowrap;
             font-size: 0.95rem;
         }
+
+        .content-block {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .footer-credit {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
         
         @media (max-width: 768px) {
             main {
@@ -199,6 +236,11 @@
             .links-cell {
                 font-size: 0.85rem;
             }
+
+            .content-block {
+                padding: 0 1rem;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
@@ -222,7 +264,7 @@
         </div>
         
         <div class="intro">
-            <p>Deep Dream State is voiced by a rotating ensemble of performers and produced by a core creative team obsessed with immersive storytelling and beautifully blurred identities.</p>
+            <p>{{ site.title }} is voiced by a rotating ensemble of performers and produced by a core creative team obsessed with immersive storytelling and beautifully blurred identities.</p>
         </div>
         
         <table class="cast-table">
@@ -348,7 +390,29 @@
             </tr>
         </table>
         
-        <p style="margin-top: 2rem; font-size: 0.95rem; opacity: 0.8;">Credits are fluid. Voices recur. The deeper you dream, the less you'll need to know who's who.</p>
+        <div class="content-block">
+            <p style="text-align: center; font-size: 0.95rem; opacity: 0.8; margin-bottom: 2rem;">Credits are fluid. Voices recur. The deeper you dream, the less you'll need to know who's who.</p>
+
+            <h2>The Architecture of Performance</h2>
+
+            <p>The ensemble that voices {{ site.title }} operates according to principles radically different from traditional ensemble casts. These are not actors playing characters in a linear narrative. These are artists inhabiting identities that shift across arcs, recur in unexpected contexts, and blur the boundary between performer and performance.</p>
+
+            <p>Each voice carries memory. Listeners who follow the show across arcs will recognize performers returning in new bodies, new names, new contexts. A voice that belonged to one character in the Chthonic arc emerges transformed in the Sitri Center. The same performer might narrate one arc and inhabit multiple characters in another. This approach to casting treats voices as instruments rather than simple vessels for character. It asks listeners to hear through the performance to something beneath the surface.</p>
+
+            <p>The rotating ensemble creates a specific kind of vertigo. You cannot quite trust which character belongs to which performer because that assignment is deliberately unstable. A voice carries meaning independent of the body it claims to inhabit. Listeners learn to listen beneath words, to the texture of utterance, to the architecture of breath and silence. By the time you reach the later arcs, the distinction between voice and character has become genuinely permeable. You're listening to performers more than to characters. You're witnessing the act of performance as much as the fiction being performed.</p>
+
+            <p>This approach also reflects something true about the show's thematic obsessions. In a series fundamentally concerned with identity, with how institutional systems rewrite who we are, with how surveillance and performance dismantle the self, it matters that the cast structure itself performs these questions. The listeners cannot know who they're hearing. The boundaries between performers blur. Identities shift. The self becomes uncertain. By making the cast a permeable ensemble, the show extends its central questions into the production itself.</p>
+
+            <p>The performers themselves come from varied backgrounds. Some have extensive training in professional audio drama production. Others come from communities of experimental performance, underground music, and participatory art. Several are established figures in niche performance communities. Others are emerging artists finding their voice through this project. What unites them is not conventional training but a shared commitment to pushing what audio performance can accomplish. They understand that {{ site.title }} is not a conventional podcast. It is an attempt to use sound and voice as tools for reaching listeners at the level of consciousness itself.</p>
+
+            <p>Each performer brings their own sonic signature. Some voices are instantly recognizable. Others seem to dissolve into pure instruction. Some embody authority while others suggest dissolution and uncertainty. This variety is intentional. The show wants listeners to hear radically different approaches to performance all in the same narrative. You might encounter a character delivered with absolute emotional directness followed by one performed with complete detachment. The tonal texture shifts deliberately. There is no consistent performance style. This creates a listening experience that feels genuinely unstable, genuinely disorienting in ways that serve the show's deepest intentions.</p>
+
+            <p>The core creative team that produces the show works in close collaboration with each performer to ensure that every vocal choice serves the larger design. Scripts are written with specific voices in mind. But voices also surprise the creation process. Performers discover in the material dimensions the writer never anticipated. Direction emerges through dialogue between conception and execution. By the time an episode is finished, it has passed through multiple interpretive layers. It has been shaped by writer, performer, sound designer, and editor in ways that make the final product genuinely collaborative. The cast is not delivering a pre-existing text. They are creating meaning through the act of performance itself.</p>
+        </div>
+
+        <div class="footer-credit">
+            {{ site.title }}: {{ site.description }}
+        </div>
     </main>
     
     <script>
@@ -360,8 +424,8 @@
     {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Deep Dream State Cast",
-        "description": "Voice actors and performers in the Deep Dream State audio drama.",
+        "name": "{{ site.title }} Cast",
+        "description": "Voice actors and performers in the {{ site.title }} audio drama.",
         "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/",
         "numberOfItems": 24
     }
@@ -375,7 +439,7 @@
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Deep Dream State",
+                "name": "{{ site.title }}",
                 "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
             },
             {
