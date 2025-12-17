@@ -354,17 +354,12 @@
             };
 
             const feedbackOverlayStyle = {
-                position: 'fixed',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                fontSize: '1.8rem',
+                fontSize: '1.2rem',
                 fontWeight: 'bold',
-                padding: '2rem',
+                padding: '1rem 2rem',
                 textAlign: 'center',
-                zIndex: 1000,
-                animation: 'fadeInOut 3s ease-in-out',
-                fontFamily: "'IM Fell DW Pica', serif"
+                fontFamily: "'IM Fell DW Pica', serif",
+                marginTop: '1rem'
             };
 
             const explanationContainerStyle = {
@@ -524,10 +519,6 @@
                     <p style={questionCounterStyle}>Question {questionCount} of 10</p>
 
                     <div style={dividerStyle} />
-
-                    <div style={explanationContainerStyle}>
-                        <p style={explanationTextStyle}>{explanationText}</p>
-                    </div>
 
                     {feedback && (
                         <div style={{
