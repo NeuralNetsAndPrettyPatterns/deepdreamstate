@@ -1,511 +1,549 @@
-import React, { useState, useEffect } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Dream Site - Dream Team Drills</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'IM Fell DW Pica', serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            min-height: 100vh;
+        }
+        #root {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        console.log('Script is running');
+        const SitriCharactersGame = () => {
+            const characters = ['HESPA', 'CAEL', 'NYRA', 'REVERIE'];
+            
+            const characterImages = {
+                HESPA: 'https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/deepdreamstate/main/assets/images/games/sitridrillhespa.png',
+                CAEL: 'https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/deepdreamstate/main/assets/images/games/sitridrillcael.png',
+                NYRA: 'https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/deepdreamstate/main/assets/images/games/sitridrillnyra.png',
+                REVERIE: 'https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/deepdreamstate/main/assets/images/games/sitridrillreverie.png'
+            };
 
-const SitriCharactersGame = () => {
-  const characters = ['HESPA', 'CAEL', 'NYRA', 'REVERIE'];
-  const characterColors = {
-    HESPA: '#8B4789',
-    CAEL: '#D4534F',
-    NYRA: '#4A7C9E',
-    REVERIE: '#6B6B6B'
-  };
+            const lines = {
+                HESPA: [
+                    "They're all watching you.",
+                    "Look at those fingers!",
+                    "I can smell it.",
+                    "Don't contradict teacher!",
+                    "RELAX, Phoebe. Nobody sees unless we want them to. Besides -- I think you like a little risk.",
+                    "We planned exactly what you'd expect, OFFICERS.",
+                    "We were going to use it. Together. Maybe if you saw... you'd let us off with a warning?",
+                    "You're gonna be the lab rat.",
+                    "They'll watch you. They'll record it. They'll whisper about how desperate you are. Every night.",
+                    "Oh honey. No. We've got a LINE.",
+                    "Baby. This is Crossroads. You think anyone here that counts wears a badge?",
+                    "Or a taxman. Just follow my lead",
+                    "Well you'll need to come back later. Your minute's up.",
+                    "That's what doors are for.",
+                    "It's always the same name.",
+                    "From the edges.",
+                    "You go back to where it started - then you can FINISH.",
+                    "It's always the wheel.",
+                    "Myth and flesh.",
+                    "Plug and play -- plug and play.",
+                    "But those bitches are UNPLEASABLE.",
+                    "Like you CHOSE to do.",
+                    "Psychic insurance.",
+                    "We've GOT this. We just have to stick -- together."
+                ],
+                CAEL: [
+                    "We see everything.",
+                    "AGAIN.",
+                    "You're distracting the class, Missy. Now WRITE.",
+                    "You weren't stealing? Funny, because I think you were exactly stealing.",
+                    "Caught more thieves.",
+                    "But you have to. WE make the rules here.",
+                    "You're already a puppet.",
+                    "Yeah. You're a good earner. You know what to do.",
+                    "I can help you. And you'll help me.",
+                    "I wanna see that purpose.",
+                    "Never wake up.",
+                    "Real as this water.",
+                    "Sippar... the first plow.",
+                    "Like THIS one. Spin the wheel - pick a station. You'll know. It rises up from below.",
+                    "They called me a GOONER.",
+                    "Gooooon gooooon gooooon",
+                    "The Grimace Room?",
+                    "Wait -- you get paid?",
+                    "Linked... in?"
+                ],
+                NYRA: [
+                    "They WANNA see everything.",
+                    "If you wanna stop, why are you still doing it?",
+                    "That's EXACTLY why we're doing it. You deserve something new. A taste.",
+                    "Tell me - what EXACTLY were you planning on doing with that?",
+                    "Of course you can't stop, sweetie.",
+                    "You should be hiding too.",
+                    "He likes routines. And he likes when we remember the script.",
+                    "She doesn't even know she's drooling.",
+                    "Bai bai now!",
+                    "Oh yes. She's a talent.",
+                    "Between self and service.",
+                    "Between your echo lives.",
+                    "Sippar plowgirls.",
+                    "Yet you've missed our finest creation - nin-dur.",
+                    "Always. But for a FOREIGNER to share with a priestess, she must first demonstrate knowledge of our rites.",
+                    "No, silly. That'd be cheating. And boring. I didn't come all the way to this instance to get BORED. It's no dream.",
+                    "No. Really. You don't have to trust me -- you just trust yourselves. You know the signs. You've done this over and over for lucid dreams. You learned the checklist in -- sleep school.",
+                    "It is. We made it FROM dreams. But it's not an in-dream clock. It works, right?",
+                    "Those are all definitely words. You can't hear yourself, clearly. Just LOOK.",
+                    "You need... to know.",
+                    "Oh yeah. They called me an ADDICT. A Cognitolol ADDICT.",
+                    "Yeah. See? Ancient sex spirit is NOT a portable resume."
+                ],
+                REVERIE: [
+                    "Deeper than you think. Down where the doors don't close.",
+                    "They're always listening. Even when you're not awake.",
+                    "The dreams are real. The dreams are always real.",
+                    "You know what you want. You've always known.",
+                    "Service is just another word for permission.",
+                    "The pattern holds. The pattern always holds.",
+                    "Nothing escapes the wheel. Nothing ever does.",
+                    "You're exactly where you want to be.",
+                    "The veil is thinner than you remember.",
+                    "Wake up. You're still dreaming."
+                ]
+            };
 
-  const lines = {
-    HESPA: [
-      "They're all watching you.",
-      "Look at those fingers!",
-      "I can smell it.",
-      "Don't contradict teacher!",
-      "RELAX, Phoebe. Nobody sees unless we want them to. Besides -- I think you like a little risk.",
-      "We planned exactly what you'd expect, OFFICERS.",
-      "We were going to use it. Together. Maybe if you saw... you'd let us off with a warning?",
-      "You're gonna be the lab rat.",
-      "They'll watch you. They'll record it. They'll whisper about how desperate you are. Every night.",
-      "Oh honey. No. We've got a LINE.",
-      "Baby. This is Crossroads. You think anyone here that counts wears a badge?",
-      "Or a taxman. Just follow my lead",
-      "Well you'll need to come back later. Your minute's up.",
-      "That's what doors are for.",
-      "It's always the same name.",
-      "From the edges.",
-      "You go back to where it started - then you can FINISH.",
-      "It's always the wheel.",
-      "Myth and flesh.",
-      "Plug and play -- plug and play.",
-      "But those bitches are UNPLEASABLE.",
-      "Like you CHOSE to do.",
-      "Psychic insurance.",
-      "We've GOT this. We just have to stick -- together."
-    ],
-    CAEL: [
-      "We see everything.",
-      "AGAIN.",
-      "You're distracting the class, Missy. Now WRITE.",
-      "You weren't stealing? Funny, because I think you were exactly stealing.",
-      "Caught more thieves.",
-      "But you have to. WE make the rules here.",
-      "You're already a puppet.",
-      "Yeah. You're a good earner. You know what to do.",
-      "I can help you. And you'll help me.",
-      "I wanna see that purpose.",
-      "Never wake up.",
-      "Real as this water.",
-      "Sippar... the first plow.",
-      "Like THIS one. Spin the wheel - pick a station. You'll know. It rises up from below.",
-      "They called me a GOONER.",
-      "Gooooon gooooon gooooon",
-      "The Grimace Room?",
-      "Wait -- you get paid?",
-      "Linked... in?"
-    ],
-    NYRA: [
-      "They WANNA see everything.",
-      "If you wanna stop, why are you still doing it?",
-      "That's EXACTLY why we're doing it. You deserve something new. A taste.",
-      "Tell me - what EXACTLY were you planning on doing with that?",
-      "Of course you can't stop, sweetie.",
-      "You should be hiding too.",
-      "He likes routines. And he likes when we remember the script.",
-      "She doesn't even know she's drooling.",
-      "Bai bai now!",
-      "Oh yes. She's a talent.",
-      "Between self and service.",
-      "Between your echo lives.",
-      "Sippar plowgirls.",
-      "Yet you've missed our finest creation - nin-dur.",
-      "Always. But for a FOREIGNER to share with a priestess, she must first demonstrate knowledge of our rites.",
-      "No, silly. That'd be cheating. And boring. I didn't come all the way to this instance to get BORED. It's no dream.",
-      "No. Really. You don't have to trust me -- you just trust yourselves. You know the signs. You've done this over and over for lucid dreams. You learned the checklist in -- sleep school.",
-      "It is. We made it FROM dreams. But it's not an in-dream clock. It works, right?",
-      "Those are all definitely words. You can't hear yourself, clearly. Just LOOK.",
-      "You need... to know.",
-      "Oh yeah. They called me an ADDICT. A Cognitolol ADDICT.",
-      "Yeah. See? Ancient sex spirit is NOT a portable resume."
-    ],
-    REVERIE: [
-      "Deeper than you think. Down where the doors don't close.",
-      "They're always listening. Even when you're not awake.",
-      "The dreams are real. The dreams are always real.",
-      "You know what you want. You've always known.",
-      "Service is just another word for permission.",
-      "The pattern holds. The pattern always holds.",
-      "Nothing escapes the wheel. Nothing ever does.",
-      "You're exactly where you want to be.",
-      "The veil is thinner than you remember.",
-      "Wake up. You're still dreaming."
-    ]
-  };
+            const correctMessages = [
+                "You got it right! You're a good dream doll.",
+                "You got it right! You're a good test subject.",
+                "You got it right! You're a good student.",
+                "You got it right! You're a good naditu.",
+                "You got it right! You're a good lab bunny.",
+                "You got it right! You're a good listener.",
+                "You got it right! You're a good pattern puppet."
+            ];
 
-  const correctMessages = [
-    "You got it right! You're a good dream doll.",
-    "You got it right! You're a good test subject.",
-    "You got it right! You're a good student.",
-    "You got it right! You're a good naditu.",
-    "You got it right! You're a good lab bunny.",
-    "You got it right! You're a good listener.",
-    "You got it right! You're a good pattern puppet."
-  ];
+            const incorrectMessages = [
+                "That's not right at all. You need to work on your dream doll skills.",
+                "That's not right at all. You need to work on your test subject skills.",
+                "That's not right at all. You need to work on your student skills.",
+                "That's not right at all. You need to work on your naditu skills.",
+                "That's not right at all. You need to work on your lab bunny skills.",
+                "That's not right at all. You need to work on your listener skills.",
+                "That's not right at all. You need to work on your pattern puppet skills."
+            ];
 
-  const incorrectMessages = [
-    "That's not right at all. You need to work on your dream doll skills.",
-    "That's not right at all. You need to work on your test subject skills.",
-    "That's not right at all. You need to work on your student skills.",
-    "That's not right at all. You need to work on your naditu skills.",
-    "That's not right at all. You need to work on your lab bunny skills.",
-    "That's not right at all. You need to work on your listener skills.",
-    "That's not right at all. You need to work on your pattern puppet skills."
-  ];
+            const explanationText = `Welcome to an interactive dimension where the boundaries between listener and participant dissolve. This game exists at the threshold where audio drama becomes something more, an immersive experience that challenges you to decode voice, intention, and character beneath the surface. Deep Dream State operates on multiple layers. On the surface, it's a narrative about psychological institutions, dream manipulation, and the architecture of control. Deeper, it's about language itself, how certain phrases can anchor you to a character, how repetition builds neural pathways, how the voice becomes a fingerprint. This attribution game pushes that envelope further. By asking you to recognize character through isolated dialogue, we're training your ear to detect the subtle differences in speech patterns, vocal cadence, and psychological motivation. Each character in the Sitri Institute has a distinct perspective shaped by their role: Hespa moves through the world as an accomplice in transformation, Cael as an architect of scenarios, Nyra as a being who exists between states, and Reverie as a voice that speaks directly to the liminal spaces in your mind. We believe innovation in audio storytelling means breaking the fourth wall strategically. It means making you complicit in the narrative by forcing recognition, asking you to identify not just what is said, but who says it and why. When you attribute a line correctly, you've internalized something about that character's essence. When you get it wrong, you've glimpsed an alternate interpretation. This is interactive design for the modern listener. Not passive consumption, but active participation in constructing meaning. The Sitri Institute exists because people like you are willing to engage at this depth, to sit in the discomfort of not knowing, to let your attention become the currency of the experience. Each question is a test. Not of your knowledge, but of your attunement. Can you hear the difference between manipulation and seduction? Between authority and chaos? Between the human and the algorithmic? The game continues until you've answered ten questions. Your score reflects how well you've learned to listen. Welcome to the next frontier of storytelling.`;
 
-  const explanationText = `Welcome to an interactive dimension where the boundaries between listener and participant dissolve. This game exists at the threshold where audio drama becomes something more, an immersive experience that challenges you to decode voice, intention, and character beneath the surface. Deep Dream State operates on multiple layers. On the surface, it's a narrative about psychological institutions, dream manipulation, and the architecture of control. Deeper, it's about language itself, how certain phrases can anchor you to a character, how repetition builds neural pathways, how the voice becomes a fingerprint. This attribution game pushes that envelope further. By asking you to recognize character through isolated dialogue, we're training your ear to detect the subtle differences in speech patterns, vocal cadence, and psychological motivation. Each character in the Sitri Institute has a distinct perspective shaped by their role: Hespa moves through the world as an accomplice in transformation, Cael as an architect of scenarios, Nyra as a being who exists between states, and Reverie as a voice that speaks directly to the liminal spaces in your mind. We believe innovation in audio storytelling means breaking the fourth wall strategically. It means making you complicit in the narrative by forcing recognition, asking you to identify not just what is said, but who says it and why. When you attribute a line correctly, you've internalized something about that character's essence. When you get it wrong, you've glimpsed an alternate interpretation. This is interactive design for the modern listener. Not passive consumption, but active participation in constructing meaning. The Sitri Institute exists because people like you are willing to engage at this depth, to sit in the discomfort of not knowing, to let your attention become the currency of the experience. Each question is a test. Not of your knowledge, but of your attunement. Can you hear the difference between manipulation and seduction? Between authority and chaos? Between the human and the algorithmic? The game continues until you've answered ten questions. Your score reflects how well you've learned to listen. Welcome to the next frontier of storytelling.`;
+            const [gameStarted, setGameStarted] = React.useState(false);
+            const [score, setScore] = React.useState(0);
+            const [questionCount, setQuestionCount] = React.useState(1);
+            const [currentLine, setCurrentLine] = React.useState(null);
+            const [correctCharacter, setCorrectCharacter] = React.useState(null);
+            const [usedLineIndices, setUsedLineIndices] = React.useState(new Set());
+            const [feedback, setFeedback] = React.useState(null);
+            const [gameOver, setGameOver] = React.useState(false);
+            const [selectedButton, setSelectedButton] = React.useState(null);
+            const [buttonPressed, setButtonPressed] = React.useState(null);
 
-  // State
-  const [gameStarted, setGameStarted] = useState(false);
-  const [score, setScore] = useState(0);
-  const [questionCount, setQuestionCount] = useState(1);
-  const [currentLine, setCurrentLine] = useState(null);
-  const [correctCharacter, setCorrectCharacter] = useState(null);
-  const [usedLineIndices, setUsedLineIndices] = useState(new Set());
-  const [feedback, setFeedback] = useState(null);
-  const [gameOver, setGameOver] = useState(false);
-  const [selectedButton, setSelectedButton] = useState(null);
-  const [buttonPressed, setButtonPressed] = useState(null);
+            React.useEffect(() => {
+                if (gameStarted) {
+                    generateNewQuestion();
+                }
+            }, [gameStarted]);
 
-  // Initialize game
-  useEffect(() => {
-    if (gameStarted) {
-      generateNewQuestion();
-    }
-  }, [gameStarted]);
+            const generateNewQuestion = () => {
+                if (questionCount > 10) {
+                    setGameOver(true);
+                    return;
+                }
 
-  const generateNewQuestion = () => {
-    if (questionCount > 10) {
-      setGameOver(true);
-      return;
-    }
+                const randomChar = characters[Math.floor(Math.random() * characters.length)];
+                const charLines = lines[randomChar];
+                
+                let randomIndex;
+                let attempts = 0;
+                do {
+                    randomIndex = Math.floor(Math.random() * charLines.length);
+                    attempts++;
+                } while (usedLineIndices.has(`${randomChar}-${randomIndex}`) && attempts < 100);
 
-    // Pick random character
-    const randomChar = characters[Math.floor(Math.random() * characters.length)];
-    const charLines = lines[randomChar];
-    
-    // Pick random line not used yet in this game
-    let randomIndex;
-    let attempts = 0;
-    do {
-      randomIndex = Math.floor(Math.random() * charLines.length);
-      attempts++;
-    } while (usedLineIndices.has(`${randomChar}-${randomIndex}`) && attempts < 100);
+                const lineKey = `${randomChar}-${randomIndex}`;
+                const newUsedIndices = new Set(usedLineIndices);
+                newUsedIndices.add(lineKey);
+                setUsedLineIndices(newUsedIndices);
 
-    const lineKey = `${randomChar}-${randomIndex}`;
-    const newUsedIndices = new Set(usedLineIndices);
-    newUsedIndices.add(lineKey);
-    setUsedLineIndices(newUsedIndices);
+                setCurrentLine(charLines[randomIndex]);
+                setCorrectCharacter(randomChar);
+                setSelectedButton(null);
+                setButtonPressed(null);
+                setFeedback(null);
+            };
 
-    setCurrentLine(charLines[randomIndex]);
-    setCorrectCharacter(randomChar);
-    setSelectedButton(null);
-    setButtonPressed(null);
-    setFeedback(null);
-  };
+            const handleButtonClick = (character) => {
+                setButtonPressed(character);
+                setSelectedButton(character);
+                const isCorrect = character === correctCharacter;
 
-  const handleButtonClick = (character) => {
-    setButtonPressed(character);
-    setSelectedButton(character);
-    const isCorrect = character === correctCharacter;
+                if (isCorrect) {
+                    setScore(score + 1);
+                    setFeedback({
+                        message: correctMessages[Math.floor(Math.random() * correctMessages.length)],
+                        correct: true
+                    });
+                } else {
+                    setFeedback({
+                        message: incorrectMessages[Math.floor(Math.random() * incorrectMessages.length)],
+                        correct: false
+                    });
+                }
 
-    if (isCorrect) {
-      setScore(score + 1);
-      setFeedback({
-        message: correctMessages[Math.floor(Math.random() * correctMessages.length)],
-        correct: true
-      });
-    } else {
-      setFeedback({
-        message: incorrectMessages[Math.floor(Math.random() * incorrectMessages.length)],
-        correct: false
-      });
-    }
+                setTimeout(() => {
+                    setQuestionCount(questionCount + 1);
+                    generateNewQuestion();
+                }, 3000);
+            };
 
-    setTimeout(() => {
-      setQuestionCount(questionCount + 1);
-      generateNewQuestion();
-    }, 3000);
-  };
+            const handleReset = () => {
+                setScore(0);
+                setQuestionCount(1);
+                setUsedLineIndices(new Set());
+                setFeedback(null);
+                setGameOver(false);
+                setSelectedButton(null);
+                setButtonPressed(null);
+                generateNewQuestion();
+            };
 
-  const handleReset = () => {
-    setScore(0);
-    setQuestionCount(1);
-    setUsedLineIndices(new Set());
-    setFeedback(null);
-    setGameOver(false);
-    setSelectedButton(null);
-    setButtonPressed(null);
-    generateNewQuestion();
-  };
+            const handleStartGame = () => {
+                setGameStarted(true);
+            };
 
-  const handleStartGame = () => {
-    setGameStarted(true);
-  };
+            const containerStyle = {
+                fontFamily: "'IM Fell DW Pica', serif",
+                background: 'linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%)',
+                color: '#e8e8e8',
+                minHeight: '100vh',
+                padding: '2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+            };
 
-  // Initial explanation screen
-  if (!gameStarted) {
-    return (
-      <div style={styles.container}>
-        <h1 style={styles.title}>Deep Dream Site</h1>
-        <h2 style={styles.subtitle}>Dream Team Drills</h2>
-        
-        <div style={styles.modalContainer}>
-          <button style={styles.startButton} onClick={handleStartGame}>
-            Begin Game
-          </button>
-          <p style={styles.explanationText}>{explanationText}</p>
-        </div>
+            const titleStyle = {
+                fontSize: '2.5rem',
+                textAlign: 'center',
+                letterSpacing: '0.1em',
+                fontWeight: 'normal',
+                fontFamily: "'IM Fell DW Pica', serif",
+                margin: '0 0 0.5rem 0'
+            };
 
-        <footer style={styles.footer}>All Art Drawn By Echo Doll.</footer>
-      </div>
-    );
-  }
+            const subtitleStyle = {
+                fontSize: '1.3rem',
+                textAlign: 'center',
+                letterSpacing: '0.05em',
+                fontWeight: 'normal',
+                fontFamily: "'IM Fell DW Pica', serif",
+                opacity: '0.9',
+                margin: '0 0 2rem 0'
+            };
 
-  // Game over screen
-  if (gameOver) {
-    return (
-      <div style={styles.container}>
-        <h1 style={styles.title}>Deep Dream Site</h1>
-        <h2 style={styles.subtitle}>Dream Team Drills</h2>
-        <div style={styles.scoreScreen}>
-          <h2 style={styles.scoreTitle}>Game Complete</h2>
-          <p style={styles.scoreText}>{score} / 10</p>
-          <button style={styles.resetButton} onClick={handleReset}>
-            Play Again
-          </button>
-        </div>
-        <footer style={styles.footer}>All Art Drawn By Echo Doll.</footer>
-      </div>
-    );
-  }
+            const dividerStyle = {
+                width: '80%',
+                maxWidth: '900px',
+                height: '1px',
+                backgroundColor: 'rgba(232, 232, 232, 0.3)',
+                margin: '1rem 0',
+                borderRadius: '1px'
+            };
 
-  // Main game screen
-  return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Deep Dream Site</h1>
-      <h2 style={styles.subtitle}>Dream Team Drills</h2>
+            const cardGridStyle = {
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '3rem',
+                marginBottom: '1rem',
+                flexWrap: 'wrap',
+                width: '100%'
+            };
 
-      {/* Character Images and Buttons */}
-      <div style={styles.cardGrid}>
-        {characters.map((char) => (
-          <div key={char} style={styles.characterCard}>
-            <div 
-              style={{
-                ...styles.imagePlaceholder,
-                backgroundColor: characterColors[char]
-              }}
-            />
-            <button
-              style={{
-                ...styles.button,
-                ...(buttonPressed === char ? (
-                  feedback?.correct ? styles.buttonPressedGreen : styles.buttonPressedRed
-                ) : {})
-              }}
-              onClick={() => handleButtonClick(char)}
-              disabled={selectedButton !== null}
-            >
-              {char}
-            </button>
-          </div>
-        ))}
-      </div>
+            const characterCardStyle = {
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '1rem'
+            };
 
-      <div style={styles.divider} />
+            const imagePlaceholderStyle = {
+                width: '300px',
+                height: '300px',
+                borderRadius: '8px',
+                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)',
+                objectFit: 'contain',
+                backgroundColor: 'transparent'
+            };
 
-      {/* Current Line */}
-      {currentLine && (
-        <p style={styles.lineText}>"{currentLine}"</p>
-      )}
+            const buttonStyle = {
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                border: 'none',
+                backgroundColor: '#e8e8e8',
+                color: '#1a0a2e',
+                fontSize: '0.85rem',
+                fontWeight: 'bold',
+                cursor: 'pointer',
+                transition: 'all 0.1s ease',
+                fontFamily: "'IM Fell DW Pica', serif",
+                boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)',
+                outline: 'none'
+            };
 
-      <div style={styles.divider} />
+            const buttonPressedGreenStyle = {
+                ...buttonStyle,
+                backgroundColor: '#00FF00',
+                color: '#000000',
+                boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #00FF00',
+                transform: 'scale(0.98)'
+            };
 
-      {/* Question Counter */}
-      <p style={styles.questionCounter}>Question {questionCount} of 10</p>
+            const buttonPressedRedStyle = {
+                ...buttonStyle,
+                backgroundColor: '#FF0000',
+                color: '#FFFFFF',
+                boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #FF0000',
+                transform: 'scale(0.98)'
+            };
 
-      <div style={styles.divider} />
+            const lineTextStyle = {
+                fontSize: '1.2rem',
+                lineHeight: '1.6',
+                fontStyle: 'italic',
+                margin: '0',
+                maxWidth: '800px',
+                textAlign: 'center',
+                fontFamily: "'IM Fell DW Pica', serif"
+            };
 
-      {/* Explanation */}
-      <div style={styles.explanationContainer}>
-        <p style={styles.explanationText}>{explanationText}</p>
-      </div>
+            const questionCounterStyle = {
+                fontSize: '0.8rem',
+                margin: '0',
+                fontFamily: "'IM Fell DW Pica', serif",
+                opacity: '0.7'
+            };
 
-      {/* Feedback Message */}
-      {feedback && (
-        <div style={{
-          ...styles.feedbackOverlay,
-          color: feedback.correct ? '#00FF00' : '#FF0000'
-        }}>
-          {feedback.message}
-        </div>
-      )}
+            const feedbackOverlayStyle = {
+                position: 'fixed',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                fontSize: '1.8rem',
+                fontWeight: 'bold',
+                padding: '2rem',
+                textAlign: 'center',
+                zIndex: 1000,
+                animation: 'fadeInOut 3s ease-in-out',
+                fontFamily: "'IM Fell DW Pica', serif"
+            };
 
-      {/* Footer */}
-      <footer style={styles.footer}>All Art Drawn By Echo Doll.</footer>
-    </div>
-  );
-};
+            const explanationContainerStyle = {
+                maxWidth: '900px',
+                padding: '2rem',
+                lineHeight: '1.8',
+                width: '100%'
+            };
 
-const styles = {
-  container: {
-    fontFamily: "'IM Fell DW Pica', serif",
-    background: 'linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%)',
-    color: '#e8e8e8',
-    minHeight: '100vh',
-    padding: '2rem',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
-  title: {
-    fontSize: '2.5rem',
-    textAlign: 'center',
-    letterSpacing: '0.1em',
-    fontWeight: 'normal',
-    fontFamily: "'IM Fell DW Pica', serif",
-    margin: '0 0 0.5rem 0'
-  },
-  subtitle: {
-    fontSize: '1.3rem',
-    textAlign: 'center',
-    letterSpacing: '0.05em',
-    fontWeight: 'normal',
-    fontFamily: "'IM Fell DW Pica', serif",
-    opacity: '0.9',
-    margin: '0 0 2rem 0'
-  },
-  divider: {
-    width: '80%',
-    maxWidth: '900px',
-    height: '1px',
-    backgroundColor: 'rgba(232, 232, 232, 0.3)',
-    margin: '1rem 0',
-    borderRadius: '1px'
-  },
-  cardGrid: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '3rem',
-    marginBottom: '1rem',
-    flexWrap: 'wrap',
-    width: '100%'
-  },
-  characterCard: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '1rem'
-  },
-  imagePlaceholder: {
-    width: '150px',
-    height: '150px',
-    borderRadius: '8px',
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)'
-  },
-  button: {
-    width: '80px',
-    height: '80px',
-    borderRadius: '50%',
-    border: 'none',
-    backgroundColor: '#e8e8e8',
-    color: '#1a0a2e',
-    fontSize: '0.85rem',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    transition: 'all 0.1s ease',
-    fontFamily: "'IM Fell DW Pica', serif",
-    boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)',
-    outline: 'none'
-  },
-  buttonPressedGreen: {
-    backgroundColor: '#00FF00',
-    color: '#000000',
-    boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #00FF00',
-    transform: 'scale(0.98)'
-  },
-  buttonPressedRed: {
-    backgroundColor: '#FF0000',
-    color: '#FFFFFF',
-    boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #FF0000',
-    transform: 'scale(0.98)'
-  },
-  lineText: {
-    fontSize: '1.2rem',
-    lineHeight: '1.6',
-    fontStyle: 'italic',
-    margin: '0',
-    maxWidth: '800px',
-    textAlign: 'center',
-    fontFamily: "'IM Fell DW Pica', serif"
-  },
-  questionCounter: {
-    fontSize: '0.8rem',
-    margin: '0',
-    fontFamily: "'IM Fell DW Pica', serif",
-    opacity: '0.7'
-  },
-  feedbackOverlay: {
-    position: 'fixed',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    fontSize: '1.8rem',
-    fontWeight: 'bold',
-    padding: '2rem',
-    textAlign: 'center',
-    zIndex: 1000,
-    animation: 'fadeInOut 3s ease-in-out',
-    fontFamily: "'IM Fell DW Pica', serif"
-  },
-  explanationContainer: {
-    maxWidth: '900px',
-    padding: '2rem',
-    lineHeight: '1.8',
-    width: '100%'
-  },
-  explanationText: {
-    margin: '0',
-    fontSize: '0.95rem',
-    fontFamily: "'IM Fell DW Pica', serif"
-  },
-  modalContainer: {
-    maxWidth: '900px',
-    padding: '3rem 2rem',
-    lineHeight: '1.8',
-    width: '100%',
-    textAlign: 'center',
-    marginTop: '2rem'
-  },
-  startButton: {
-    marginBottom: '2rem',
-    padding: '1rem 2rem',
-    fontSize: '1.1rem',
-    backgroundColor: '#8B4789',
-    color: '#e8e8e8',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontFamily: "'IM Fell DW Pica', serif",
-    transition: 'all 0.3s ease',
-    boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)'
-  },
-  footer: {
-    marginTop: 'auto',
-    paddingTop: '2rem',
-    borderTop: '1px solid rgba(232, 232, 232, 0.2)',
-    fontSize: '0.9rem',
-    opacity: '0.8',
-    textAlign: 'center',
-    fontFamily: "'IM Fell DW Pica', serif",
-    margin: '2rem 0 0 0'
-  },
-  scoreScreen: {
-    textAlign: 'center',
-    marginTop: '4rem'
-  },
-  scoreTitle: {
-    fontSize: '2rem',
-    marginBottom: '1rem',
-    fontFamily: "'IM Fell DW Pica', serif"
-  },
-  scoreText: {
-    fontSize: '3rem',
-    fontWeight: 'bold',
-    color: '#e8e8e8',
-    marginBottom: '2rem',
-    fontFamily: "'IM Fell DW Pica', serif",
-    margin: '0 0 2rem 0'
-  },
-  resetButton: {
-    padding: '1rem 2rem',
-    fontSize: '1.1rem',
-    backgroundColor: '#8B4789',
-    color: '#e8e8e8',
-    border: 'none',
-    borderRadius: '8px',
-    cursor: 'pointer',
-    fontFamily: "'IM Fell DW Pica', serif",
-    transition: 'all 0.3s ease',
-    boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)'
-  }
-};
+            const explanationTextStyle = {
+                margin: '0',
+                fontSize: '0.95rem',
+                fontFamily: "'IM Fell DW Pica', serif"
+            };
 
-// Add CSS for animation
-const styleSheet = document.createElement("style");
-styleSheet.textContent = `
-  @keyframes fadeInOut {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-  button:disabled {
-    cursor: not-allowed;
-  }
-`;
-document.head.appendChild(styleSheet);
+            const modalContainerStyle = {
+                maxWidth: '900px',
+                padding: '3rem 2rem',
+                lineHeight: '1.8',
+                width: '100%',
+                textAlign: 'center',
+                marginTop: '2rem'
+            };
 
-export default SitriCharactersGame;
+            const startButtonStyle = {
+                marginBottom: '2rem',
+                padding: '1rem 2rem',
+                fontSize: '1.1rem',
+                backgroundColor: '#8B4789',
+                color: '#e8e8e8',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontFamily: "'IM Fell DW Pica', serif",
+                transition: 'all 0.3s ease',
+                boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)'
+            };
+
+            const footerStyle = {
+                marginTop: 'auto',
+                paddingTop: '2rem',
+                borderTop: '1px solid rgba(232, 232, 232, 0.2)',
+                fontSize: '0.9rem',
+                opacity: '0.8',
+                textAlign: 'center',
+                fontFamily: "'IM Fell DW Pica', serif",
+                margin: '2rem 0 0 0'
+            };
+
+            const scoreScreenStyle = {
+                textAlign: 'center',
+                marginTop: '4rem'
+            };
+
+            const scoreTitleStyle = {
+                fontSize: '2rem',
+                marginBottom: '1rem',
+                fontFamily: "'IM Fell DW Pica', serif"
+            };
+
+            const scoreTextStyle = {
+                fontSize: '3rem',
+                fontWeight: 'bold',
+                color: '#e8e8e8',
+                marginBottom: '2rem',
+                fontFamily: "'IM Fell DW Pica', serif",
+                margin: '0 0 2rem 0'
+            };
+
+            const resetButtonStyle = {
+                padding: '1rem 2rem',
+                fontSize: '1.1rem',
+                backgroundColor: '#8B4789',
+                color: '#e8e8e8',
+                border: 'none',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontFamily: "'IM Fell DW Pica', serif",
+                transition: 'all 0.3s ease',
+                boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)'
+            };
+
+            // Initial explanation screen
+            if (!gameStarted) {
+                return (
+                    <div style={containerStyle}>
+                        <h1 style={titleStyle}>Deep Dream Site</h1>
+                        <h2 style={subtitleStyle}>Dream Team Drills</h2>
+                        
+                        <div style={modalContainerStyle}>
+                            <button style={startButtonStyle} onClick={handleStartGame}>
+                                Begin Game
+                            </button>
+                            <p style={explanationTextStyle}>{explanationText}</p>
+                        </div>
+
+                        <footer style={footerStyle}>All Art Drawn By Echo Doll.</footer>
+                    </div>
+                );
+            }
+
+            // Game over screen
+            if (gameOver) {
+                return (
+                    <div style={containerStyle}>
+                        <h1 style={titleStyle}>Deep Dream Site</h1>
+                        <h2 style={subtitleStyle}>Dream Team Drills</h2>
+                        <div style={scoreScreenStyle}>
+                            <h2 style={scoreTitleStyle}>Game Complete</h2>
+                            <p style={scoreTextStyle}>{score} / 10</p>
+                            <button style={resetButtonStyle} onClick={handleReset}>
+                                Play Again
+                            </button>
+                        </div>
+                        <footer style={footerStyle}>All Art Drawn By Echo Doll.</footer>
+                    </div>
+                );
+            }
+
+            // Main game screen
+            return (
+                <div style={containerStyle}>
+                    <h1 style={titleStyle}>Deep Dream Site</h1>
+                    <h2 style={subtitleStyle}>Dream Team Drills</h2>
+
+                    <div style={cardGridStyle}>
+                        {characters.map((char) => (
+                            <div key={char} style={characterCardStyle}>
+                                <img 
+                                    src={characterImages[char]}
+                                    alt={char}
+                                    style={imagePlaceholderStyle}
+                                />
+                                <button
+                                    style={
+                                        buttonPressed === char ? (
+                                            feedback?.correct ? buttonPressedGreenStyle : buttonPressedRedStyle
+                                        ) : buttonStyle
+                                    }
+                                    onClick={() => handleButtonClick(char)}
+                                    disabled={selectedButton !== null}
+                                >
+                                    {char}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div style={dividerStyle} />
+
+                    {currentLine && (
+                        <p style={lineTextStyle}>"{currentLine}"</p>
+                    )}
+
+                    <div style={dividerStyle} />
+
+                    <p style={questionCounterStyle}>Question {questionCount} of 10</p>
+
+                    <div style={dividerStyle} />
+
+                    <div style={explanationContainerStyle}>
+                        <p style={explanationTextStyle}>{explanationText}</p>
+                    </div>
+
+                    {feedback && (
+                        <div style={{
+                            ...feedbackOverlayStyle,
+                            color: feedback.correct ? '#00FF00' : '#FF0000'
+                        }}>
+                            {feedback.message}
+                        </div>
+                    )}
+
+                    <footer style={footerStyle}>All Art Drawn By Echo Doll.</footer>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<SitriCharactersGame />, document.getElementById('root'));
+    </script>
+</body>
+</html>
