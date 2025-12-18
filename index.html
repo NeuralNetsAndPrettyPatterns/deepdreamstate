@@ -19,7 +19,7 @@
     <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="googlebot" content="index,follow,max-image-preview:large">
     <title>Deep Dream State - Psychological Horror Audio Drama</title>
-    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/blob/main/assets/images/deepdreamstateicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateicon.svg">
     <link rel="canonical" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/">
     <meta name="description" content="Deep Dream State: A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation. An ongoing project with interactive elements and community participation.">
     <meta name="theme-color" content="#1a0a2e">
@@ -120,6 +120,22 @@
         }
     </style>
 
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Deep Dream State",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        }
+      ]
+    }
+    </script>
+
     <!-- Structured Data: PodcastSeries -->
     <script type="application/ld+json">
     {
@@ -135,8 +151,13 @@
         "width": 1200,
         "height": 630
       },
+      "creator": {
+        "@type": "Person",
+        "name": "Neural Nets and Pretty Patterns",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+      },
       "publisher": {
-        "@type": "Organization",
+        "@type": "Person",
         "name": "Neural Nets and Pretty Patterns",
         "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
       },
@@ -149,28 +170,19 @@
     }
     </script>
 
-    <!-- Structured Data: Organization -->
+    <!-- Structured Data: Person -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "Person",
       "name": "Neural Nets and Pretty Patterns",
       "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/deepdreamstateicon.svg"
-      },
       "sameAs": [
         "https://deepdreamstate.blubrry.net/",
         "https://www.imdb.com/name/nm17755189/",
         "https://www.patreon.com/minderaser",
         "https://x.com/MCNeuralNets"
-      ],
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "contactType": "inquiries",
-        "url": "https://www.patreon.com/minderaser"
-      }]
+      ]
     }
     </script>
 
