@@ -193,6 +193,116 @@
             }
         }
     </style>
+
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Neural Nets and Pretty Patterns",
+        "description": "Writer, performer, and audio producer. Creator of Deep Dream State audio drama and the Neuralverse fictional universe.",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets-and-pretty-patterns.html",
+        "jobTitle": ["Writer", "Performer", "Audio Producer", "Creator"],
+        "knowsAbout": ["Audio Drama", "Speculative Fiction", "Immersive Narrative", "Consciousness Studies", "Sound Design"],
+        "workLocation": {
+            "@type": "Place",
+            "name": "Remote"
+        },
+        "sameAs": [
+            "https://neuralnets.carrd.co",
+            "https://www.imdb.com/name/nm17755189/",
+            "https://www.reddit.com/user/prettypattern/",
+            "https://twitter.com/MCNeuralNets",
+            "https://www.tumblr.com/blog/blink-blank-bliss",
+            "https://www.patreon.com/minderaser",
+            "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
+            "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882"
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: Deep Dream State PodcastSeries -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "PodcastSeries",
+        "name": "Deep Dream State",
+        "url": "https://deepdreamstate.blubrry.net/",
+        "description": "Immersive audio drama exploring consciousness, identity, and transformation within the Neuralverse",
+        "creator": {
+            "@type": "Person",
+            "name": "Neural Nets and Pretty Patterns",
+            "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets-and-pretty-patterns.html"
+        },
+        "sameAs": [
+            "https://deepdreamstate.blubrry.net/",
+            "https://www.imdb.com/title/tt38590860/",
+            "https://www.patreon.com/minderaser"
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: The Neuralverse Universe -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "The Neuralverse",
+        "description": "Shared fictional universe encompassing Deep Dream State, Meta Series, Mirror Stage, Pink Dream, and additional audio drama and experimental audio projects",
+        "url": "https://deepdreamstate.blubrry.net/neuralpedia-the-nnpp-file-catalogue/",
+        "creator": {
+            "@type": "Person",
+            "name": "Neural Nets and Pretty Patterns"
+        },
+        "hasPart": [
+            {
+                "@type": "PodcastSeries",
+                "name": "Deep Dream State",
+                "url": "https://deepdreamstate.blubrry.net/"
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "Meta Series"
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "Mirror Stage"
+            },
+            {
+                "@type": "CreativeWork",
+                "name": "Pink Dream"
+            }
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Deep Dream State",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cast",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Neural Nets and Pretty Patterns",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets-and-pretty-patterns.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <div id="background-container"></div>
@@ -302,8 +412,7 @@
             <div>
                 <a href="https://www.imdb.com/name/nm17755189/">IMDb</a> | 
                 <a href="https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42">Bookbrainz</a> | 
-                <a href="https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882">MusicBrainz</a> | 
-                <a href="https://isni.org/isni/0000000528776254">ISNI: 0000 0005 2877 6254</a>
+                <a href="https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882">MusicBrainz</a>
             </div>
         </div>
         
@@ -327,69 +436,6 @@
     <script>
         const bgContainer = document.getElementById('background-container');
         bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-sitri-background.webp)';
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Neural Nets and Pretty Patterns",
-        "description": "Writer, performer, and audio producer. Creator of Deep Dream State audio drama and the Neuralverse fictional universe.",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets.html",
-        "jobTitle": ["Writer", "Performer", "Audio Producer", "Creator"],
-        "knowsAbout": ["Audio Drama", "Speculative Fiction", "Immersive Narrative", "Consciousness Studies", "Sound Design"],
-        "workLocation": {
-            "@type": "Place",
-            "name": "Remote"
-        },
-        "sameAs": [
-            "https://neuralnets.carrd.co",
-            "https://www.imdb.com/name/nm17755189/",
-            "https://isni.org/isni/0000000528776254",
-            "https://www.reddit.com/user/prettypattern/",
-            "https://twitter.com/MCNeuralNets",
-            "https://www.tumblr.com/blog/blink-blank-bliss",
-            "https://www.patreon.com/minderaser",
-            "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
-            "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882"
-        ],
-        "creativeWork": [
-            {
-                "@type": "PodcastSeries",
-                "name": "Deep Dream State",
-                "url": "https://deepdreamstate.blubrry.net/",
-                "description": "Immersive audio drama exploring consciousness, identity, and transformation within the Neuralverse",
-                "potentialAction": {
-                    "@type": "ListenAction"
-                }
-            },
-            {
-                "@type": "CreativeWork",
-                "name": "The Neuralverse",
-                "description": "Shared fictional universe encompassing Deep Dream State, Meta Series, Mirror Stage, Pink Dream, and additional audio drama and experimental audio projects",
-                "url": "https://deepdreamstate.blubrry.net/neuralpedia-the-nnpp-file-catalogue/",
-                "hasPart": [
-                    {
-                        "@type": "PodcastSeries",
-                        "name": "Deep Dream State"
-                    },
-                    {
-                        "@type": "CreativeWork",
-                        "name": "Meta Series"
-                    },
-                    {
-                        "@type": "CreativeWork",
-                        "name": "Mirror Stage"
-                    },
-                    {
-                        "@type": "CreativeWork",
-                        "name": "Pink Dream"
-                    }
-                ]
-            }
-        ],
-        "isni": "0000000528776254"
-    }
     </script>
 </body>
 </html>
