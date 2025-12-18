@@ -148,9 +148,9 @@
 
 You'll associate each statement with a charming creative force. Match Cael, Hespa, Nyra, or Reverie with their line. If you don't remember a line, it's likely been whispered by Reverie.
 
-This quiz is deliberately difficult. The human cast generally gets 5 answers right out of 10. Cael gets 8 because he is unusually adept and cunning. As a human, you should aspire to 5.
+This quiz is deliberately difficult. The human cast generally gets 5 answers right out of 10. Cael gets 8 because he is unusually adept and cunning. As a human, you should aspire to 5.`;
 
-This statement is from the directors of the Sitri Center. We are writing this of our own free will, uncoerced by any members of the Dream Team or walkout threats. They are very cool and smart, but that is just our unbiased opinion.`;
+            const disclaimer = "This statement is from the directors of the Sitri Center. We are writing this of our own free will, uncoerced by any members of the Dream Team or walkout threats. They are very cool and smart, but that is just our unbiased opinion.";
 
             const getResultMessage = (finalScore) => {
                 if (finalScore === 0 || finalScore === 1) {
@@ -305,7 +305,8 @@ This statement is from the directors of the Sitri Center. We are writing this of
             const buttonGroupStyle = { display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' };
             const resetButtonStyle = { padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#8B4789', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
             const backButtonStyle = { padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#6B6B6B', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
-            const difficultyStyle = { fontSize: '1.5rem', lineHeight: '1.8', marginBottom: '2rem', fontFamily: "'IM Fell DW Pica', serif", padding: '1rem', margin: '1rem 0 2rem 0' };
+            const difficultyStyle = { fontSize: '1.5rem', lineHeight: '1.8', marginBottom: '2rem', fontFamily: "'IM Fell DW Pica', serif", padding: '1rem', margin: '1rem 0 2rem 0', textAlign: 'left' };
+            const disclaimerStyle = { fontSize: '0.65rem', opacity: '0.5', marginTop: '1.5rem', lineHeight: '1.4', fontStyle: 'italic', textAlign: 'left' };
 
             const Breadcrumbs = () => (
                 <nav style={breadcrumbStyle}>
@@ -329,6 +330,7 @@ This statement is from the directors of the Sitri Center. We are writing this of
                                 {difficultyStatement.split('\n\n').map((paragraph, i) => (
                                     <p key={i} style={{margin: '1rem 0'}}>{paragraph}</p>
                                 ))}
+                                <p style={disclaimerStyle}>{disclaimer}</p>
                             </div>
                             <button style={startButtonStyle} onClick={handleStartGame}>Begin Game</button>
                         </div>
