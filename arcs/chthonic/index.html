@@ -313,6 +313,33 @@
         }
     </style>
 
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Neural Nets and Pretty Patterns",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+      "sameAs": [
+        "https://deepdreamstate.blubrry.net/",
+        "https://www.imdb.com/name/nm17755189/",
+        "https://www.patreon.com/minderaser",
+        "https://x.com/MCNeuralNets"
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Deep Dream State",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+      "inLanguage": "en"
+    }
+    </script>
+
     <!-- JSON-LD: Arc page + series -->
     <script type="application/ld+json">
     {
@@ -341,14 +368,15 @@
           "https://www.patreon.com/minderaser",
           "https://x.com/MCNeuralNets"
         ],
-        "publisher": {
-          "@type": "Organization",
+        "creator": {
+          "@type": "Person",
           "name": "Neural Nets and Pretty Patterns",
-          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-          "sameAs": [
-            "https://www.imdb.com/name/nm17755189/",
-            "https://isni.org/isni/0000000528776254"
-          ]
+          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Neural Nets and Pretty Patterns",
+          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
         }
       }
     }
@@ -373,6 +401,40 @@
           "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/"
         }
       ]
+    }
+    </script>
+
+    <!-- JSON-LD: CreativeWorkSeason -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWorkSeason",
+      "name": "Chthonic",
+      "description": "Chthonic: A luxury cruise wedding party sails into ancient ritual and older powers. Arc 1 of Deep Dream State.",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/",
+      "inLanguage": "en",
+      "numberOfEpisodes": 9,
+      "partOfSeries": {
+        "@type": "PodcastSeries",
+        "name": "Deep Dream State",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+        "sameAs": [
+          "https://deepdreamstate.blubrry.net/",
+          "https://www.imdb.com/title/tt38590860/",
+          "https://www.patreon.com/minderaser",
+          "https://x.com/MCNeuralNets"
+        ],
+        "creator": {
+          "@type": "Person",
+          "name": "Neural Nets and Pretty Patterns",
+          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": "Neural Nets and Pretty Patterns",
+          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        }
+      }
     }
     </script>
 </head>
@@ -557,38 +619,6 @@
         });
         
         showCard(0);
-    </script>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CreativeWorkSeason",
-      "name": "Chthonic",
-      "description": "Chthonic: A luxury cruise wedding party sails into ancient ritual and older powers. Arc 1 of Deep Dream State.",
-      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/",
-      "inLanguage": "en",
-      "numberOfEpisodes": 9,
-      "partOfSeries": {
-        "@type": "PodcastSeries",
-        "name": "Deep Dream State",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-        "sameAs": [
-          "https://deepdreamstate.blubrry.net/",
-          "https://www.imdb.com/title/tt38590860/",
-          "https://www.patreon.com/minderaser",
-          "https://x.com/MCNeuralNets"
-        ],
-        "publisher": {
-          "@type": "Organization",
-          "name": "Neural Nets and Pretty Patterns",
-          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-          "sameAs": [
-            "https://www.imdb.com/name/nm17755189/",
-            "https://isni.org/isni/0000000528776254"
-          ]
-        }
-      }
-    }
     </script>
 </body>
 </html>
