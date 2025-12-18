@@ -328,6 +328,85 @@
             }
         }
     </style>
+
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Neural Nets and Pretty Patterns",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets-and-pretty-patterns.html",
+        "sameAs": [
+            "https://www.imdb.com/name/nm17755189/",
+            "https://www.patreon.com/minderaser",
+            "https://twitter.com/MCNeuralNets"
+        ]
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Deep Dream State",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+        "inLanguage": "en"
+    }
+    </script>
+
+    <!-- JSON-LD: PodcastEpisode -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "PodcastEpisode",
+        "name": "Cringetide",
+        "episodeNumber": 2,
+        "description": "Debt, leverage, and the archaeology of something that refuses explanation.",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/episode-2-cringetide.html",
+        "partOfSeries": {
+            "@type": "PodcastSeries",
+            "name": "Deep Dream State",
+            "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+            "creator": {
+                "@type": "Person",
+                "name": "Neural Nets and Pretty Patterns"
+            }
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Neural Nets and Pretty Patterns"
+        }
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Deep Dream State",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Chthonic",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cringetide",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/episode-2-cringetide.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <div id="background-container"></div>
@@ -476,7 +555,7 @@
         
         <h2>Find Out More</h2>
         <div class="links-section">
-            <a href="https://www.theend.fyi/shows/deep-dream-state">The End</a> | <a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a> | <a href="https://isni.org/isni/0000000528776254">Creator ISNI</a>
+            <a href="https://www.theend.fyi/shows/deep-dream-state">The End</a> | <a href="https://audiodrama.directory/deep-dream-state/">Audio Drama Directory</a>
         </div>
         
         <div class="section-divider"></div>
@@ -520,25 +599,6 @@
     <script>
         const bgContainer = document.getElementById('background-container');
         bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-cth-background.webp)';
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "PodcastEpisode",
-        "name": "Cringetide",
-        "episodeNumber": 2,
-        "description": "Debt, leverage, and the archaeology of something that refuses explanation.",
-        "podcastSeries": {
-            "@type": "PodcastSeries",
-            "name": "Deep Dream State: The Chthonic Arc"
-        },
-        "author": {
-            "@type": "Person",
-            "name": "Neural Nets And Pretty Patterns"
-        },
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/chthonic/episode-2-cringetide.html"
-    }
     </script>
 </body>
 </html>
