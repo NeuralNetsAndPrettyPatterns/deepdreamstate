@@ -119,6 +119,39 @@
             display: flex;
             justify-content: center;
         }
+
+        /* MOBILE RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .character-image {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .char-button {
+                width: 60px !important;
+                height: 60px !important;
+                font-size: 0.7rem !important;
+            }
+
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1rem !important; }
+        }
+
+        @media (max-width: 480px) {
+            .character-image {
+                width: 80px !important;
+                height: 80px !important;
+            }
+            
+            .char-button {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 0.6rem !important;
+            }
+
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 0.9rem !important; }
+        }
     </style>
 </head>
 <body>
@@ -369,9 +402,10 @@ This quiz is deliberately difficult. The human cast generally gets 5 answers rig
                     <div style={cardGridStyle}>
                         {characters.map((char) => (
                             <div key={char} style={characterCardStyle}>
-                                <img src={characterImages[char]} alt={char} style={imagePlaceholderStyle} />
+                                <img src={characterImages[char]} alt={char} style={imagePlaceholderStyle} className="character-image" />
                                 <button
                                     style={buttonPressed === char ? (feedback?.correct ? buttonPressedGreenStyle : buttonPressedRedStyle) : buttonStyle}
+                                    className="char-button"
                                     onClick={() => handleButtonClick(char)}
                                     disabled={selectedButton !== null}
                                 >
