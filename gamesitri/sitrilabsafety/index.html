@@ -1,1 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Safety Orientation | Deep Dream State</title>
+    <meta name="description" content="Lab Safety Orientation for Neuroplex staff. Test your knowledge of institutional protocols and cognitive hazard avoidance.">
+    <meta name="theme-color" content="#1a0a2e">
+    <link rel="icon" type="image/png" href="/deepdreamstate/assets/images/games/ellelawson.png">
+    <meta property="og:title" content="Lab Safety Orientation | Deep Dream State">
+    <meta property="og:description" content="Neuroplex Cognitohazard Avoidance Training">
+    <meta property="og:url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/gamesitri/sitrilabsafety/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Lab Safety Orientation | Deep Dream State">
+    <meta name="twitter:description" content="Staff attribution game for Neuroplex institutional knowledge.">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Neural Nets and Pretty Patterns",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/cast/neural-nets-and-pretty-patterns.html",
+        "sameAs": [
+            "https://www.imdb.com/name/nm17755189/",
+            "https://www.patreon.com/minderaser",
+            "https://twitter.com/MCNeuralNets"
+        ]
+    }
+    </script>
 
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Deep Dream State",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+        "inLanguage": "en"
+    }
+    </script>
+
+    <!-- JSON-LD: CreativeWork (Game) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "Lab Safety Orientation",
+        "headline": "Lab Safety Orientation | Deep Dream State",
+        "description": "Neuroplex staff attribution game for institutional protocol recognition and cognitive hazard avoidance.",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/gamesitri/sitrilabsafety/",
+        "inLanguage": "en",
+        "creator": {
+            "@type": "Person",
+            "name": "Neural Nets and Pretty Patterns"
+        },
+        "isPartOf": {
+            "@type": "CreativeWork",
+            "name": "Deep Dream State"
+        }
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Deep Dream State",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sitri Center",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/sitri/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Lab Safety Orientation",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/gamesitri/sitrilabsafety/"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        body {
+            font-family: 'IM Fell DW Pica', serif;
+            background-image: linear-gradient(rgba(26, 10, 46, 0.75), rgba(22, 33, 62, 0.75)), url('/deepdreamstate/assets/images/games/dds-sitrigame-background.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #e8e8e8;
+            min-height: 100vh;
+        }
+        #root {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* MOBILE RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            .character-image {
+                width: 120px !important;
+                height: 120px !important;
+            }
+            
+            .char-button {
+                width: 55px !important;
+                height: 55px !important;
+                font-size: 0.65rem !important;
+            }
+
+            h1 { font-size: 1.8rem !important; }
+            h2 { font-size: 1rem !important; }
+        }
+
+        @media (max-width: 480px) {
+            .character-image {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            .char-button {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 0.6rem !important;
+            }
+
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 0.9rem !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const LabSafetyGame = () => {
+            const characters = ['TESSA', 'MEG', 'JUNE', 'ELLE'];
+            
+            const characterImages = {
+                TESSA: '/deepdreamstate/assets/images/games/tessafinn.png',
+                MEG: '/deepdreamstate/assets/images/games/megaerin.png',
+                JUNE: '/deepdreamstate/assets/images/games/junelowell.png',
+                ELLE: '/deepdreamstate/assets/images/games/ellelawson.png'
+            };
+
+            const lines = {
+                TESSA: [
+                    "Tonight we deploy Construct thirty-seven - our mastery prototype.",
+                    "Everyone sees. Good. Then they'll see exactly what I can do.",
+                    "I think they know.",
+                    "I started camming at night. Dancing. Putting myself on display.",
+                    "This center is my dream.",
+                    "I had to override the feed. I thought you'd sprain your hips.",
+                    "Some nights, I can't remember when I'm dreaming. But I never panic. Not anymore. I just wait for instructions.",
+                    "Kneel on the intake mat. Plug in the cable.",
+                    "I say my line: I'm ready to forget. Say it 'til my voice isn't mine anymore.",
+                    "She said puppet string last night. That's good, right?",
+                    "I'll lace you in.",
+                    "Mm hmm. I'm good at reflex.",
+                    "You made the pattern.",
+                    "I like the dreams where we kneel together.",
+                    "Wasn't she SMARTER?",
+                    "She's entered the party row.",
+                    "They're a crossroads. And the things that keep repeating? Those are the signposts.",
+                    "We don't release.",
+                    "Sixteen patterns - one result.",
+                    "She's DROOLING.",
+                    "I KNOW those places. They're maps. REAL maps.",
+                    "That's not just depravity. That's leverage.",
+                    "Ur is next. We need Ur.",
+                    "It doesn't matter as long as they're inside.",
+                    "I'm easy access. Do you wanna?",
+                    "The only thing you're curing here is free will.",
+                    "Sometimes she says good pet and I FEEL it. I'm not the same.",
+                    "She's entered the party row.",
+                    "I KNOW those places. They're maps. REAL maps.",
+                    "That's not just depravity. That's leverage.",
+                    "I need 18 more lines for full 50 count.",
+                    "Pending additional script lines from source material.",
+                    "TBD",
+                    "TBD",
+                    "TBD"
+                ],
+                MEG: [
+                    "Data isn't discreet here, dear.",
+                    "We OvErWrItE wITh SyNErGy.",
+                    "You're about to learn the difference between branding and scholarship.",
+                    "We PROMISE results.",
+                    "Your subconscious mind isn't a simple machine.",
+                    "You think it isn't obvious? She's reckless. Buttons unbuttoned. Lipstick smeared.",
+                    "Hardly. I like competition.",
+                    "I know exactly what she offers you. But we both know I'm better. I've TRAINED for this.",
+                    "This isn't a dead end. It's DEGENERATING.",
+                    "You thought you were saving her. But you were training her. One night at a time.",
+                    "We used to treat those figures as hallucinations. Incubi, succubi, old gods in hospital gowns.",
+                    "This is clinical theory based on convergent myth structures.",
+                    "You don't have to be ashamed of your wiring.",
+                    "The dream isn't an enemy; it's a story. And if we can find the grammar, we can edit it.",
+                    "So when something strange happens, you'll recognize the absurdity.",
+                    "Your mind's handing you the script already. We're just adding stage directions.",
+                    "Your body writes beautifully. You just transcribe.",
+                    "I have to. Z says it's part of being a good girl. And a good employee.",
+                    "He wants the truth I hide with euphemisms. With citations.",
+                    "You're syncing early tonight.",
+                    "He made me wait outside the door. No passcode, no shoes.",
+                    "The best kind of obedience it's predictive.",
+                    "Calibration's just clinical for edging.",
+                    "I need the loop.",
+                    "They need my body. My data. Everything else is noise.",
+                    "You want me to enter the chamber. As a subject.",
+                    "Of course you will.",
+                    "I told myself to come back here. I repeated it.",
+                    "You're CHANGING it!",
+                    "This isn't analysis. This is punishment.",
+                    "I began taking liberties with the subjects.",
+                    "Please. Let me stay.",
+                    "Betwixt and between.",
+                    "We're on restriction protocols.",
+                    "Dreams get louder when our bodies can't work it out.",
+                    "Here be dragons.",
+                    "She's stuck in between.",
+                    "It ROBBED her. Poor girl.",
+                    "Elevator shaft. I kneel at the brake panel. There's only one way on. It goes inside.",
+                    "That's not random. That's RITUAL.",
+                    "My temple sister. I had to. I had to or they'd punish us.",
+                    "Deep in the tunnels.",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD"
+                ],
+                JUNE: [
+                    "In here, feelings have to yield to facts.",
+                    "Competition does clarify experimental rigor.",
+                    "Clearly, you've become far too invested in Tessa's fantasy games.",
+                    "But make no mistake, this institute won't entertain failure indefinitely.",
+                    "This is YOUR deviation.",
+                    "The Sitri Center doesn't fund sermons.",
+                    "Our funders are not peers. They are predators. And they're losing patience.",
+                    "You'd be the customer service queen. IF we had customers.",
+                    "And if I hear the word succubus again, I swear to God, I'll rescind your clearance mid-cycle.",
+                    "She's quite the echo chamber, isn't she?",
+                    "You know what we create here.",
+                    "This is a scientific debrief, not a poetry slam.",
+                    "Stupid. Stupid, stupid, stupid!",
+                    "I wanna taste it to be sure.",
+                    "SMILE for your sister.",
+                    "I don't FLOAT. I steer the current.",
+                    "I'm so sorry, you deserve better gaslighting than this.",
+                    "A corner is the place where two walls of a room meet.",
+                    "See, she IS the smart one.",
+                    "Free will's the disease, and we're making the cure.",
+                    "Nyra. Cognitolol dependence.",
+                    "They don't need choices, they need containment. And caretakers.",
+                    "Power. Not just control. Actual real power.",
+                    "It's what the servers need. They need a dream world built to keep us under control in order to change a human being into this.",
+                    "She told you exactly what you needed to hear.",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD"
+                ],
+                ELLE: [
+                    "I think this is my house.",
+                    "Oh, oh my gawd. Was I talking?",
+                    "I knew I was dreaming. But it still felt real. I didn't want to stop.",
+                    "Puppet dream.",
+                    "Now I lay me down to sleep.",
+                    "I'm a duh duh!",
+                    "I'm your new um Lead Transformer?",
+                    "Oopsies!",
+                    "Is it this button?",
+                    "Ohhh, hitchhiking! That's so 70s.",
+                    "It goes PING!",
+                    "It's like, I don't know ANYTHING.",
+                    "They call them treatsticks.",
+                    "I TOLD you. This whole row STAYS smiling.",
+                    "Evening ladies! This vehicle registered as a hospitality unit?",
+                    "Let's SEE if she's fresh.",
+                    "I mean, didn't you get like, orientated?",
+                    "She's like science wow.",
+                    "I'm gonna get the special science award for her.",
+                    "Oh yeah. I was a total whip queen. Leather, latex, obedience charts. So many rules.",
+                    "I am the realest fantasy you've ever imagined.",
+                    "I can definitely understand why that would feel disorienting.",
+                    "Would you like me to organize their fantasies as a spreadsheet?",
+                    "That's really valid. Thank you for calling me out on that.",
+                    "I'll tell you as soon as I finish the spreadsheet!",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD"
+                ]
+            };
+
+            const correctMessages = ["You passed.", "Compliant.", "Registered.", "Logged.", "Acceptable."];
+            const incorrectMessages = ["Citation needed.", "Deviation noted.", "Breach protocol.", "Unacceptable.", "Review required."];
+
+            const difficultyStatement = `Welcome to Neuroplex Lab Safety Orientation.
+
+This institute runs on institutional memory. Know your staff. Know their protocols. Know what they sound like when they speak.
+
+You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. These are your colleagues. Your authority figures. Your liability.
+
+A score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.
+
+If you score 0 to 2: Stop, drop, and roll. You're burned out.
+If you score 3 to 4: You're borderline functional.
+If you score 5: You're at acceptable competency.
+If you score 6 to 7: You're observant. Watch yourself.
+If you score 8 to 9: You understand the hierarchy.
+If you score 10: You're too close to this place.`;
+
+            const disclaimer = "All participants acknowledge they have read this orientation and understood the protocols herein. By proceeding, you accept liability for all subsequent incidents.";
+
+            const getResultMessage = (finalScore) => {
+                if (finalScore <= 2) {
+                    return "Stop, drop, and roll. You're burned out.";
+                }
+                if (finalScore <= 4) {
+                    return "You're borderline functional.";
+                }
+                if (finalScore === 5) {
+                    return "You're at acceptable competency. This is very good.";
+                }
+                if (finalScore <= 7) {
+                    return "You're observant. Watch yourself.";
+                }
+                if (finalScore <= 9) {
+                    return "You understand the hierarchy.";
+                }
+                if (finalScore === 10) {
+                    return "You're too close to this place.";
+                }
+            };
+
+            const [gameStarted, setGameStarted] = React.useState(false);
+            const [score, setScore] = React.useState(0);
+            const [questionCount, setQuestionCount] = React.useState(1);
+            const [currentLine, setCurrentLine] = React.useState(null);
+            const [correctCharacter, setCorrectCharacter] = React.useState(null);
+            const [usedLineIndices, setUsedLineIndices] = React.useState(new Set());
+            const [feedback, setFeedback] = React.useState(null);
+            const [gameOver, setGameOver] = React.useState(false);
+            const [selectedButton, setSelectedButton] = React.useState(null);
+            const [buttonPressed, setButtonPressed] = React.useState(null);
+
+            React.useEffect(() => {
+                if (gameStarted && questionCount <= 10) {
+                    generateNewQuestion();
+                }
+            }, [gameStarted]);
+
+            const generateNewQuestion = () => {
+                const randomChar = characters[Math.floor(Math.random() * characters.length)];
+                const charLines = lines[randomChar];
+                
+                let randomIndex;
+                let attempts = 0;
+                do {
+                    randomIndex = Math.floor(Math.random() * charLines.length);
+                    attempts++;
+                } while ((usedLineIndices.has(`${randomChar}-${randomIndex}`) || charLines[randomIndex] === "TBD") && attempts < 100);
+
+                const lineKey = `${randomChar}-${randomIndex}`;
+                const newUsedIndices = new Set(usedLineIndices);
+                newUsedIndices.add(lineKey);
+                setUsedLineIndices(newUsedIndices);
+
+                setCurrentLine(charLines[randomIndex]);
+                setCorrectCharacter(randomChar);
+                setSelectedButton(null);
+                setButtonPressed(null);
+                setFeedback(null);
+            };
+
+            const handleButtonClick = (character) => {
+                setButtonPressed(character);
+                setSelectedButton(character);
+                const isCorrect = character === correctCharacter;
+
+                if (isCorrect) {
+                    setScore(score + 1);
+                    setFeedback({
+                        message: correctMessages[Math.floor(Math.random() * correctMessages.length)],
+                        correct: true
+                    });
+                } else {
+                    setFeedback({
+                        message: incorrectMessages[Math.floor(Math.random() * incorrectMessages.length)],
+                        correct: false
+                    });
+                }
+
+                setTimeout(() => {
+                    const nextQuestion = questionCount + 1;
+                    if (nextQuestion > 10) {
+                        setGameOver(true);
+                    } else {
+                        setQuestionCount(nextQuestion);
+                        generateNewQuestion();
+                    }
+                }, 3000);
+            };
+
+            const handleReset = () => {
+                setScore(0);
+                setQuestionCount(1);
+                setUsedLineIndices(new Set());
+                setFeedback(null);
+                setGameOver(false);
+                setSelectedButton(null);
+                setButtonPressed(null);
+                setGameStarted(true);
+            };
+
+            const handleBackToCenter = () => {
+                window.location.href = 'https://neuralnetsandprettypatterns.github.io/deepdreamstate/';
+            };
+
+            const handleStartGame = () => {
+                setGameStarted(true);
+            };
+
+            const containerStyle = {
+                fontFamily: "'IM Fell DW Pica', serif",
+                color: '#e8e8e8',
+                minHeight: '100vh',
+                padding: '0',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: '100%'
+            };
+
+            const breadcrumbStyle = {
+                width: '100%',
+                padding: '1rem 2rem',
+                fontSize: '0.9rem',
+                textAlign: 'center',
+                opacity: '0.8',
+                borderBottom: '1px solid rgba(232, 232, 232, 0.1)'
+            };
+
+            const titleStyle = { fontSize: '2.5rem', textAlign: 'center', letterSpacing: '0.1em', fontWeight: 'normal', fontFamily: "'IM Fell DW Pica', serif", margin: '2rem 0 0.5rem 0', padding: '0 1rem' };
+            const subtitleStyle = { fontSize: '1.3rem', textAlign: 'center', letterSpacing: '0.05em', fontWeight: 'normal', fontFamily: "'IM Fell DW Pica', serif", opacity: '0.9', margin: '0 0 2rem 0' };
+            const dividerStyle = { width: '80%', maxWidth: '900px', height: '1px', backgroundColor: 'rgba(232, 232, 232, 0.3)', margin: '1rem 0', borderRadius: '1px' };
+            const cardGridStyle = { display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap', width: '100%', padding: '0 1rem', maxWidth: '800px', margin: '0 auto 1rem auto' };
+            const characterCardStyle = { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' };
+            const imagePlaceholderStyle = { width: '150px', height: '150px', borderRadius: '8px', boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)', objectFit: 'contain', backgroundColor: 'transparent' };
+            const buttonStyle = { width: '65px', height: '65px', borderRadius: '50%', border: 'none', backgroundColor: '#e8e8e8', color: '#1a0a2e', fontSize: '0.75rem', fontWeight: 'bold', cursor: 'pointer', transition: 'all 0.1s ease', fontFamily: "'IM Fell DW Pica', serif", boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)', outline: 'none' };
+            const buttonPressedGreenStyle = { ...buttonStyle, backgroundColor: '#00FF00', color: '#000000', boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #00FF00', transform: 'scale(0.98)' };
+            const buttonPressedRedStyle = { ...buttonStyle, backgroundColor: '#FF0000', color: '#FFFFFF', boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #FF0000', transform: 'scale(0.98)' };
+            const lineTextStyle = { fontSize: '1.2rem', lineHeight: '1.6', fontStyle: 'italic', margin: '0', maxWidth: '800px', textAlign: 'center', fontFamily: "'IM Fell DW Pica', serif", padding: '0 1rem' };
+            const questionCounterStyle = { fontSize: '0.8rem', margin: '0', fontFamily: "'IM Fell DW Pica', serif", opacity: '0.7' };
+            const feedbackStyle = { fontSize: '1.2rem', fontWeight: 'bold', padding: '1rem 2rem', textAlign: 'center', fontFamily: "'IM Fell DW Pica', serif", minHeight: '60px', display: 'flex', alignItems: 'center', justifyContent: 'center' };
+            const modalContainerStyle = { maxWidth: '900px', padding: '0 2rem 2rem 2rem', lineHeight: '1.8', width: '100%', textAlign: 'center' };
+            const startButtonStyle = { marginBottom: '2rem', padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#8B4789', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
+            const footerStyle = { marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid rgba(232, 232, 232, 0.2)', fontSize: '0.9rem', opacity: '0.8', textAlign: 'center', fontFamily: "'IM Fell DW Pica', serif", margin: '2rem 0 0 0', width: '100%', padding: '2rem' };
+            const scoreScreenStyle = { textAlign: 'center', marginTop: '4rem', paddingBottom: '4rem' };
+            const scoreTitleStyle = { fontSize: '2rem', marginBottom: '1rem', fontFamily: "'IM Fell DW Pica', serif" };
+            const scoreTextStyle = { fontSize: '3rem', fontWeight: 'bold', color: '#e8e8e8', marginBottom: '2rem', fontFamily: "'IM Fell DW Pica', serif" };
+            const resultMessageStyle = { fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '2rem', maxWidth: '800px', fontFamily: "'IM Fell DW Pica', serif", margin: '0 auto 2rem auto', padding: '0 1rem' };
+            const buttonGroupStyle = { display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' };
+            const resetButtonStyle = { padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#8B4789', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
+            const backButtonStyle = { padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#6B6B6B', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
+            const difficultyStyle = { fontSize: '1rem', lineHeight: '1.8', marginBottom: '2rem', fontFamily: "'IM Fell DW Pica', serif", padding: '1rem', margin: '1rem 0 2rem 0', textAlign: 'left', whiteSpace: 'pre-wrap' };
+            const disclaimerStyle = { fontSize: '0.75rem', opacity: '0.6', marginTop: '1.5rem', lineHeight: '1.4', fontStyle: 'italic', textAlign: 'left' };
+
+            const Breadcrumbs = () => (
+                <nav style={breadcrumbStyle}>
+                    <a href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/" style={{color: '#e8e8e8', textDecoration: 'none', borderBottom: '1px solid rgba(232, 232, 232, 0.3)'}}>Deep Dream State</a>
+                    <span style={{opacity: 0.6}}>/</span>
+                    <a href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/sitri/" style={{color: '#e8e8e8', textDecoration: 'none', borderBottom: '1px solid rgba(232, 232, 232, 0.3)'}}>Sitri Center</a>
+                    <span style={{opacity: 0.6}}>/</span>
+                    <span>Lab Safety Orientation</span>
+                </nav>
+            );
+
+            // Initial explanation screen
+            if (!gameStarted) {
+                return (
+                    <div style={containerStyle}>
+                        <Breadcrumbs />
+                        <h1 style={titleStyle}>Lab Safety Orientation</h1>
+                        <h2 style={subtitleStyle}>Neuroplex Cognitohazard Avoidance</h2>
+                        <div style={modalContainerStyle}>
+                            <div style={difficultyStyle}>
+                                {difficultyStatement.split('\n\n').map((paragraph, i) => (
+                                    <p key={i} style={{margin: '1rem 0'}}>{paragraph}</p>
+                                ))}
+                                <p style={disclaimerStyle}>{disclaimer}</p>
+                            </div>
+                            <button style={startButtonStyle} onClick={handleStartGame}>Begin Assessment</button>
+                        </div>
+                        <footer style={footerStyle}>Never lose the thread.</footer>
+                    </div>
+                );
+            }
+
+            // Game over screen
+            if (gameOver) {
+                return (
+                    <div style={containerStyle}>
+                        <Breadcrumbs />
+                        <h1 style={titleStyle}>Lab Safety Orientation</h1>
+                        <h2 style={subtitleStyle}>Assessment Results</h2>
+                        <div style={scoreScreenStyle}>
+                            <p style={scoreTextStyle}>{score} / 10</p>
+                            <p style={resultMessageStyle}>{getResultMessage(score)}</p>
+                            <div style={buttonGroupStyle}>
+                                <button style={resetButtonStyle} onClick={handleReset}>RETAKE ASSESSMENT</button>
+                                <button style={backButtonStyle} onClick={handleBackToCenter}>EXIT TO MAIN</button>
+                            </div>
+                        </div>
+                        <footer style={footerStyle}>Never lose the thread.</footer>
+                    </div>
+                );
+            }
+
+            // Main game screen
+            return (
+                <div style={containerStyle}>
+                    <Breadcrumbs />
+                    <h1 style={titleStyle}>Lab Safety Orientation</h1>
+                    <h2 style={subtitleStyle}>Who Said This?</h2>
+
+                    <div style={cardGridStyle} className="game-cards">
+                        {characters.map((char) => (
+                            <div key={char} style={characterCardStyle}>
+                                <img src={characterImages[char]} alt={char} style={imagePlaceholderStyle} className="character-image" />
+                                <button
+                                    style={buttonPressed === char ? (feedback?.correct ? buttonPressedGreenStyle : buttonPressedRedStyle) : buttonStyle}
+                                    className="char-button"
+                                    onClick={() => handleButtonClick(char)}
+                                    disabled={selectedButton !== null}
+                                >
+                                    {char}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div style={dividerStyle} />
+                    {currentLine && <p style={lineTextStyle}>"{currentLine}"</p>}
+                    <div style={dividerStyle} />
+
+                    <p style={questionCounterStyle}>Question {questionCount} of 10.</p>
+                    <div style={dividerStyle} />
+
+                    {feedback && (
+                        <div style={{...feedbackStyle, color: feedback.correct ? '#00FF00' : '#FF0000'}}>
+                            {feedback.message}
+                        </div>
+                    )}
+
+                    <div style={{height: '12rem'}} />
+                    <footer style={footerStyle}>Never lose the thread.</footer>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<LabSafetyGame />, document.getElementById('root'));
+    </script>
+</body>
+</html>
