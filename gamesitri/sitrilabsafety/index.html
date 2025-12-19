@@ -370,37 +370,28 @@
 
 This institute runs on institutional memory. Know your staff. Know their protocols. Know what they sound like when they speak.
 
-You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. These are your colleagues. Your authority figures. Your liability.
-
-A score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.
-
-If you score 0 to 2: Stop, drop, and roll. You're burned out.
-If you score 3 to 4: You're borderline functional.
-If you score 5: You're at acceptable competency.
-If you score 6 to 7: You're observant. Watch yourself.
-If you score 8 to 9: You understand the hierarchy.
-If you score 10: You're too close to this place.`;
+You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. These are your colleagues. Your authority figures. Your liability.`;
 
             const disclaimer = "All participants acknowledge they have read this orientation and understood the protocols herein. By proceeding, you accept liability for all subsequent incidents.";
 
             const getResultMessage = (finalScore) => {
                 if (finalScore <= 2) {
-                    return "Stop, drop, and roll. You're burned out.";
+                    return "Stop, drop, and roll. You're burned out.\n\nA score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.\n\nIf you score 0 to 2: Stop, drop, and roll. You're burned out.\nIf you score 3 to 4: You're borderline functional.\nIf you score 5: You're at acceptable competency.\nIf you score 6 to 7: You're observant. Watch yourself.\nIf you score 8 to 9: You understand the hierarchy.\nIf you score 10: You're too close to this place.";
                 }
                 if (finalScore <= 4) {
-                    return "You're borderline functional.";
+                    return "You're borderline functional.\n\nA score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.\n\nIf you score 0 to 2: Stop, drop, and roll. You're burned out.\nIf you score 3 to 4: You're borderline functional.\nIf you score 5: You're at acceptable competency.\nIf you score 6 to 7: You're observant. Watch yourself.\nIf you score 8 to 9: You understand the hierarchy.\nIf you score 10: You're too close to this place.";
                 }
                 if (finalScore === 5) {
-                    return "You're at acceptable competency. This is very good.";
+                    return "You're at acceptable competency. This is very good.\n\nA score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.\n\nIf you score 0 to 2: Stop, drop, and roll. You're burned out.\nIf you score 3 to 4: You're borderline functional.\nIf you score 5: You're at acceptable competency.\nIf you score 6 to 7: You're observant. Watch yourself.\nIf you score 8 to 9: You understand the hierarchy.\nIf you score 10: You're too close to this place.";
                 }
                 if (finalScore <= 7) {
-                    return "You're observant. Watch yourself.";
+                    return "You're observant. Watch yourself.\n\nA score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.\n\nIf you score 0 to 2: Stop, drop, and roll. You're burned out.\nIf you score 3 to 4: You're borderline functional.\nIf you score 5: You're at acceptable competency.\nIf you score 6 to 7: You're observant. Watch yourself.\nIf you score 8 to 9: You understand the hierarchy.\nIf you score 10: You're too close to this place.";
                 }
                 if (finalScore <= 9) {
-                    return "You understand the hierarchy.";
+                    return "You understand the hierarchy.\n\nA score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.\n\nIf you score 0 to 2: Stop, drop, and roll. You're burned out.\nIf you score 3 to 4: You're borderline functional.\nIf you score 5: You're at acceptable competency.\nIf you score 6 to 7: You're observant. Watch yourself.\nIf you score 8 to 9: You understand the hierarchy.\nIf you score 10: You're too close to this place.";
                 }
                 if (finalScore === 10) {
-                    return "You're too close to this place.";
+                    return "You're too close to this place.\n\nA score of 5 out of 10 is very good. Anything above that means you weren't paying attention before.\n\nIf you score 0 to 2: Stop, drop, and roll. You're burned out.\nIf you score 3 to 4: You're borderline functional.\nIf you score 5: You're at acceptable competency.\nIf you score 6 to 7: You're observant. Watch yourself.\nIf you score 8 to 9: You understand the hierarchy.\nIf you score 10: You're too close to this place.";
                 }
             };
 
@@ -593,7 +584,7 @@ If you score 10: You're too close to this place.`;
                 <div style={containerStyle}>
                     <Breadcrumbs />
                     <h1 style={titleStyle}>Lab Safety Orientation</h1>
-                    <h2 style={subtitleStyle}>Who Said This?</h2>
+                    <h2 style={subtitleStyle}>Match The Researcher With Her Line</h2>
 
                     <div style={cardGridStyle} className="game-cards">
                         {characters.map((char) => (
