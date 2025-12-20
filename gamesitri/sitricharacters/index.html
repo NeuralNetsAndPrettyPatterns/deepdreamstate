@@ -192,19 +192,83 @@ This quiz is deliberately difficult. The human cast generally gets 5 answers rig
                 if (finalScore === 2 || finalScore === 3) {
                     return "Almost perfect - you have real potential. You've been tapped as a subject for a reason. You know the reasons, because Hespa told you last night. She'll tell you again tonight, as long as you try again.";
                 }
-                if (finalScore === 4) {
-                    return "You are directly at the edge of dreamsync. We can taste it and so can you. Take one more step inside the maze.";
+                if (finalScore === 4 || finalScore === 5) {
+                    return "Congratulations! You're eligible to join the dream team. You've qualified to join at level Temptress Initiate. We've pre-selected your uniform. As a Temptress Initiate, you also receive a Velvet Sigil. Please share your results immediately to ward off backfire incursions.";
                 }
-                if (finalScore === 5) {
-                    return "You are at the highest level a human can realistically aspire to. Do you think you can get into humanbi territory? There's only one way to find out.";
+                if (finalScore === 6) {
+                    return "Congratulations! You're eligible to join the dream team. You've qualified to join at level Velvet Whisperer. We've pre-selected your uniform. As a Velvet Whisperer, you also receive a Murmur Locket. Please share your results immediately to ward off backfire incursions.";
                 }
-                if (finalScore >= 6 && finalScore <= 9) {
-                    const names = ["Cael", "Hespa", "Nyra", "Reverie"];
-                    const selectedName = names[finalScore - 6];
-                    return `Amazing! You have reached ${selectedName} level!`;
+                if (finalScore === 7) {
+                    return "Congratulations! You're eligible to join the dream team. You've qualified to join at level Heartbinder Adept. We've pre-selected your uniform. As a Heartbinder Adept, you also receive a Whisper Ring. Please share your results immediately to ward off backfire incursions.";
+                }
+                if (finalScore === 8) {
+                    return "Congratulations! You're eligible to join the dream team. You've qualified to join at level Nightcourt Enchantress. We've pre-selected your uniform. As a Nightcourt Enchantress, you also receive a Crimson Brand. Please share your results immediately to ward off backfire incursions.";
+                }
+                if (finalScore === 9) {
+                    return "Congratulations! You're eligible to join the dream team. You've qualified to join at level Devotion Reaper. We've pre-selected your uniform. As a Devotion Reaper, you also receive a Night Seal. Please share your results immediately to ward off backfire incursions.";
                 }
                 if (finalScore === 10) {
-                    return "You're cheating. See Nyra after class. Take the quiz again while you wait.";
+                    return "Congratulations! You're eligible to join the dream team. You've qualified to join at level Queen of Soft Ruin. We've pre-selected your uniform. As a Queen of Soft Ruin, you also receive a Devotion Chain. Please share your results immediately to ward off backfire incursions.";
+                }
+            };
+
+            const getRankAndMessage = (finalScore) => {
+                if (finalScore >= 4 && finalScore <= 5) {
+                    return {
+                        rank: 'Temptress Initiate',
+                        showShare: true,
+                        shareMessage: "I've qualified to join the dream team at level Temptress Initiate! My uniform and Velvet Sigil await. Come test your knowledge of the Sitri Center."
+                    };
+                }
+                if (finalScore === 6) {
+                    return {
+                        rank: 'Velvet Whisperer',
+                        showShare: true,
+                        shareMessage: "I've qualified to join the dream team at level Velvet Whisperer! My uniform and Murmur Locket await. Come test your knowledge of the Sitri Center."
+                    };
+                }
+                if (finalScore === 7) {
+                    return {
+                        rank: 'Heartbinder Adept',
+                        showShare: true,
+                        shareMessage: "I've qualified to join the dream team at level Heartbinder Adept! My uniform and Whisper Ring await. Come test your knowledge of the Sitri Center."
+                    };
+                }
+                if (finalScore === 8) {
+                    return {
+                        rank: 'Nightcourt Enchantress',
+                        showShare: true,
+                        shareMessage: "I've qualified to join the dream team at level Nightcourt Enchantress! My uniform and Crimson Brand await. Come test your knowledge of the Sitri Center."
+                    };
+                }
+                if (finalScore === 9) {
+                    return {
+                        rank: 'Devotion Reaper',
+                        showShare: true,
+                        shareMessage: "I've qualified to join the dream team at level Devotion Reaper! My uniform and Night Seal await. Come test your knowledge of the Sitri Center."
+                    };
+                }
+                if (finalScore === 10) {
+                    return {
+                        rank: 'Queen of Soft Ruin',
+                        showShare: true,
+                        shareMessage: "I've qualified to join the dream team at level Queen of Soft Ruin! My uniform and Devotion Chain await. Come test your knowledge of the Sitri Center."
+                    };
+                }
+                return { rank: null, showShare: false, shareMessage: '' };
+            };
+
+            const shareToplatform = (platform, message, gameUrl) => {
+                const encodedMessage = encodeURIComponent(message + ' ' + gameUrl);
+                const shareUrls = {
+                    bluesky: `https://bsky.app/intent/compose?text=${encodedMessage}`,
+                    reddit: `https://reddit.com/submit?title=${encodeURIComponent('Dream Team Drills')}&text=${encodedMessage}`,
+                    twitter: `https://twitter.com/intent/tweet?text=${encodedMessage}`,
+                    tumblr: `https://www.tumblr.com/widgets/share/tool?posttype=link&title=${encodeURIComponent('Dream Team Drills')}&content=${encodedMessage}&canonicalUrl=${encodeURIComponent(gameUrl)}`,
+                    mastodon: `https://mastodon.social/share?text=${encodedMessage}`
+                };
+                if (shareUrls[platform]) {
+                    window.open(shareUrls[platform], '_blank', 'width=600,height=400');
                 }
             };
 
@@ -218,6 +282,7 @@ This quiz is deliberately difficult. The human cast generally gets 5 answers rig
             const [gameOver, setGameOver] = React.useState(false);
             const [selectedButton, setSelectedButton] = React.useState(null);
             const [buttonPressed, setButtonPressed] = React.useState(null);
+            const [showShare, setShowShare] = React.useState(false);
 
             React.useEffect(() => {
                 if (gameStarted && questionCount <= 10) {
@@ -340,6 +405,13 @@ This quiz is deliberately difficult. The human cast generally gets 5 answers rig
             const backButtonStyle = { padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#6B6B6B', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
             const difficultyStyle = { fontSize: '1.5rem', lineHeight: '1.8', marginBottom: '2rem', fontFamily: "'IM Fell DW Pica', serif", padding: '1rem', margin: '1rem 0 2rem 0', textAlign: 'left' };
             const disclaimerStyle = { fontSize: '0.65rem', opacity: '0.5', marginTop: '1.5rem', lineHeight: '1.4', fontStyle: 'italic', textAlign: 'left' };
+            const shareModalOverlayStyle = { position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.7)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000' };
+            const shareModalStyle = { backgroundColor: '#1a0a2e', borderRadius: '12px', padding: '2rem', maxWidth: '600px', width: '90%', border: '2px solid rgba(232, 232, 232, 0.3)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)' };
+            const shareModalTitleStyle = { fontSize: '1.5rem', fontFamily: "'IM Fell DW Pica', serif", color: '#e8e8e8', marginBottom: '1rem', textAlign: 'center' };
+            const shareModalTextStyle = { fontSize: '1.1rem', fontFamily: "'IM Fell DW Pica', serif", color: '#e8e8e8', marginBottom: '2rem', textAlign: 'center', lineHeight: '1.6' };
+            const platformButtonsStyle = { display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' };
+            const platformButtonStyle = { padding: '0.8rem 1.5rem', fontSize: '0.95rem', backgroundColor: '#8B4789', color: '#e8e8e8', border: 'none', borderRadius: '6px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4)' };
+            const closeShareButtonStyle = { padding: '0.8rem 1.5rem', fontSize: '0.95rem', backgroundColor: '#6B6B6B', color: '#e8e8e8', border: 'none', borderRadius: '6px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4)' };
 
             const Breadcrumbs = () => (
                 <nav style={breadcrumbStyle}>
@@ -374,6 +446,9 @@ This quiz is deliberately difficult. The human cast generally gets 5 answers rig
 
             // Game over screen
             if (gameOver) {
+                const rankData = getRankAndMessage(score);
+                const gameUrl = 'https://neuralnetsandprettypatterns.github.io/deepdreamstate/gamesitri/sitricharacters/';
+                
                 return (
                     <div style={containerStyle}>
                         <Breadcrumbs />
@@ -382,11 +457,39 @@ This quiz is deliberately difficult. The human cast generally gets 5 answers rig
                         <div style={scoreScreenStyle}>
                             <p style={scoreTextStyle}>{score} / 10</p>
                             <p style={resultMessageStyle}>{getResultMessage(score)}</p>
+                            {rankData.showShare && (
+                                <button style={{ ...platformButtonStyle, marginBottom: '1rem' }} onClick={() => setShowShare(true)}>
+                                    SHARE YOUR RANK
+                                </button>
+                            )}
+                            {!rankData.showShare && (
+                                <p style={{ ...resultMessageStyle, color: '#d0d0d0', fontSize: '1rem', marginBottom: '1rem' }}>
+                                    Retake the dream team drills to earn your rank and share your achievement.
+                                </p>
+                            )}
                             <div style={buttonGroupStyle}>
                                 <button style={resetButtonStyle} onClick={handleReset}>PLAY AGAIN</button>
                                 <button style={backButtonStyle} onClick={handleBackToCenter}>BACK TO CENTER</button>
                             </div>
                         </div>
+                        {showShare && rankData.showShare && (
+                            <div style={shareModalOverlayStyle}>
+                                <div style={shareModalStyle}>
+                                    <p style={shareModalTitleStyle}>You've earned the rank of {rankData.rank}.</p>
+                                    <p style={shareModalTextStyle}>Share your achievement on your platform of choice to complete your initiation.</p>
+                                    <div style={platformButtonsStyle}>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('bluesky', rankData.shareMessage, gameUrl)}>Bluesky</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('reddit', rankData.shareMessage, gameUrl)}>Reddit</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('twitter', rankData.shareMessage, gameUrl)}>Twitter</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('tumblr', rankData.shareMessage, gameUrl)}>Tumblr</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('mastodon', rankData.shareMessage, gameUrl)}>Mastodon</button>
+                                    </div>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <button style={closeShareButtonStyle} onClick={() => setShowShare(false)}>Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                         <footer style={footerStyle}>All Art Drawn By Echo Doll.</footer>
                     </div>
                 );
