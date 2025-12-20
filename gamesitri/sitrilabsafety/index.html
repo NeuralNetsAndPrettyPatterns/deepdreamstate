@@ -198,8 +198,12 @@
                     "Sometimes she says good pet and I FEEL it. I'm not the same.",
                     "She's entered the party row.",
                     "I KNOW those places. They're maps. REAL maps.",
-                    "That's not just depravity. That's leverage."
-                   
+                    "That's not just depravity. That's leverage.",
+                    "I need 18 more lines for full 50 count.",
+                    "Pending additional script lines from source material.",
+                    "TBD",
+                    "TBD",
+                    "TBD"
                 ],
                 MEG: [
                     "Data isn't discreet here, dear.",
@@ -243,7 +247,15 @@
                     "Elevator shaft. I kneel at the brake panel. There's only one way on. It goes inside.",
                     "That's not random. That's RITUAL.",
                     "My temple sister. I had to. I had to or they'd punish us.",
-                    "Deep in the tunnels."
+                    "Deep in the tunnels.",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD"
                 ],
                 JUNE: [
                     "In here, feelings have to yield to facts.",
@@ -270,7 +282,32 @@
                     "They don't need choices, they need containment. And caretakers.",
                     "Power. Not just control. Actual real power.",
                     "It's what the servers need. They need a dream world built to keep us under control in order to change a human being into this.",
-                    "She told you exactly what you needed to hear."
+                    "She told you exactly what you needed to hear.",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD"
                 ],
                 ELLE: [
                     "I think this is my house.",
@@ -297,7 +334,32 @@
                     "I can definitely understand why that would feel disorienting.",
                     "Would you like me to organize their fantasies as a spreadsheet?",
                     "That's really valid. Thank you for calling me out on that.",
-                    "I'll tell you as soon as I finish the spreadsheet!"
+                    "I'll tell you as soon as I finish the spreadsheet!",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD",
+                    "TBD"
                 ]
             };
 
@@ -345,6 +407,52 @@ You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. T
                 }
             };
 
+            const getRankAndMessage = (finalScore) => {
+                if (finalScore >= 4 && finalScore <= 5) {
+                    return {
+                        rank: 'Threshold Custodian',
+                        showShare: true,
+                        shareMessage: "I'm a registered Threshold Custodian graduate of the Neuroplex safety program! Come to the lab and see my Neuroplex issued uniform."
+                    };
+                }
+                if (finalScore >= 6 && finalScore <= 7) {
+                    return {
+                        rank: 'Oneirographer',
+                        showShare: true,
+                        shareMessage: "I'm a registered Oneirographer graduate of the Neuroplex safety program! Come to the lab and see my Neuroplex issued uniform."
+                    };
+                }
+                if (finalScore >= 8 && finalScore <= 9) {
+                    return {
+                        rank: 'Dream Architect',
+                        showShare: true,
+                        shareMessage: "I'm a registered Dream Architect graduate of the Neuroplex safety program! Come to the lab and see my Neuroplex issued uniform."
+                    };
+                }
+                if (finalScore === 10) {
+                    return {
+                        rank: 'Director of Descent',
+                        showShare: true,
+                        shareMessage: "I'm a registered Director of Descent graduate of the Neuroplex safety program! Come to the lab and see my Neuroplex issued uniform."
+                    };
+                }
+                return { rank: null, showShare: false, shareMessage: '' };
+            };
+
+            const shareToplatform = (platform, message, gameUrl) => {
+                const encodedMessage = encodeURIComponent(message + ' ' + gameUrl);
+                const shareUrls = {
+                    bluesky: `https://bsky.app/intent/compose?text=${encodedMessage}`,
+                    reddit: `https://reddit.com/submit?title=${encodeURIComponent('Neuroplex Lab Safety Orientation')}&text=${encodedMessage}`,
+                    twitter: `https://twitter.com/intent/tweet?text=${encodedMessage}`,
+                    tumblr: `https://www.tumblr.com/widgets/share/tool?posttype=link&title=${encodeURIComponent('Neuroplex Lab Safety Orientation')}&content=${encodedMessage}&canonicalUrl=${encodeURIComponent(gameUrl)}`,
+                    mastodon: `https://mastodon.social/share?text=${encodedMessage}`
+                };
+                if (shareUrls[platform]) {
+                    window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+                }
+            };
+
             const [gameStarted, setGameStarted] = React.useState(false);
             const [score, setScore] = React.useState(0);
             const [questionCount, setQuestionCount] = React.useState(1);
@@ -355,6 +463,7 @@ You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. T
             const [gameOver, setGameOver] = React.useState(false);
             const [selectedButton, setSelectedButton] = React.useState(null);
             const [buttonPressed, setButtonPressed] = React.useState(null);
+            const [showShare, setShowShare] = React.useState(false);
 
             React.useEffect(() => {
                 if (gameStarted && questionCount <= 10) {
@@ -477,6 +586,13 @@ You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. T
             const backButtonStyle = { padding: '1rem 2rem', fontSize: '1.1rem', backgroundColor: '#6B6B6B', color: '#e8e8e8', border: 'none', borderRadius: '8px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -4px 8px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.4)' };
             const difficultyStyle = { fontSize: '1rem', lineHeight: '1.8', marginBottom: '2rem', fontFamily: "'IM Fell DW Pica', serif", padding: '1rem', margin: '1rem 0 2rem 0', textAlign: 'left', whiteSpace: 'pre-wrap' };
             const disclaimerStyle = { fontSize: '0.75rem', opacity: '0.6', marginTop: '1.5rem', lineHeight: '1.4', fontStyle: 'italic', textAlign: 'left' };
+            const shareModalOverlayStyle = { position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.7)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000' };
+            const shareModalStyle = { backgroundColor: '#1a0a2e', borderRadius: '12px', padding: '2rem', maxWidth: '600px', width: '90%', border: '2px solid rgba(232, 232, 232, 0.3)', boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)' };
+            const shareModalTitleStyle = { fontSize: '1.5rem', fontFamily: "'IM Fell DW Pica', serif", color: '#e8e8e8', marginBottom: '1rem', textAlign: 'center' };
+            const shareModalTextStyle = { fontSize: '1.1rem', fontFamily: "'IM Fell DW Pica', serif", color: '#e8e8e8', marginBottom: '2rem', textAlign: 'center', lineHeight: '1.6' };
+            const platformButtonsStyle = { display: 'flex', gap: '0.8rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' };
+            const platformButtonStyle = { padding: '0.8rem 1.5rem', fontSize: '0.95rem', backgroundColor: '#8B4789', color: '#e8e8e8', border: 'none', borderRadius: '6px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4)' };
+            const closeShareButtonStyle = { padding: '0.8rem 1.5rem', fontSize: '0.95rem', backgroundColor: '#6B6B6B', color: '#e8e8e8', border: 'none', borderRadius: '6px', cursor: 'pointer', fontFamily: "'IM Fell DW Pica', serif", transition: 'all 0.3s ease', boxShadow: 'inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.4)' };
 
             const Breadcrumbs = () => (
                 <nav style={breadcrumbStyle}>
@@ -504,13 +620,16 @@ You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. T
                             </div>
                             <button style={startButtonStyle} onClick={handleStartGame}>Begin Assessment</button>
                         </div>
-                        <footer style={footerStyle}>All art hand drawn by Echo Doll.</footer>
+                        <footer style={footerStyle}>Never lose the thread.</footer>
                     </div>
                 );
             }
 
             // Game over screen
             if (gameOver) {
+                const rankData = getRankAndMessage(score);
+                const gameUrl = 'https://neuralnetsandprettypatterns.github.io/deepdreamstate/gamesitri/sitrilabsafety/';
+                
                 return (
                     <div style={containerStyle}>
                         <Breadcrumbs />
@@ -519,12 +638,40 @@ You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. T
                         <div style={scoreScreenStyle}>
                             <p style={scoreTextStyle}>{score} / 10</p>
                             <p style={resultMessageStyle}>{getResultMessage(score)}</p>
+                            {rankData.showShare && (
+                                <button style={{ ...platformButtonStyle, marginBottom: '1rem' }} onClick={() => setShowShare(true)}>
+                                    SHARE YOUR ACHIEVEMENT
+                                </button>
+                            )}
+                            {!rankData.showShare && (
+                                <p style={{ ...resultMessageStyle, color: '#d0d0d0', fontSize: '1rem', marginBottom: '1rem' }}>
+                                    Retake the assessment to earn your Neuroplex rank and share your achievement.
+                                </p>
+                            )}
                             <div style={buttonGroupStyle}>
                                 <button style={resetButtonStyle} onClick={handleReset}>RETAKE ASSESSMENT</button>
                                 <button style={backButtonStyle} onClick={handleBackToCenter}>EXIT TO MAIN</button>
                             </div>
                         </div>
-                        <footer style={footerStyle}>All art hand drawn by Echo Doll.</footer>
+                        {showShare && rankData.showShare && (
+                            <div style={shareModalOverlayStyle}>
+                                <div style={shareModalStyle}>
+                                    <p style={shareModalTitleStyle}>You're a verified {rankData.rank}.</p>
+                                    <p style={shareModalTextStyle}>Share the news on your platform of choice to collect your certificate and uniform.</p>
+                                    <div style={platformButtonsStyle}>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('bluesky', rankData.shareMessage, gameUrl)}>Bluesky</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('reddit', rankData.shareMessage, gameUrl)}>Reddit</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('twitter', rankData.shareMessage, gameUrl)}>Twitter</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('tumblr', rankData.shareMessage, gameUrl)}>Tumblr</button>
+                                        <button style={platformButtonStyle} onClick={() => shareToplatform('mastodon', rankData.shareMessage, gameUrl)}>Mastodon</button>
+                                    </div>
+                                    <div style={{ textAlign: 'center' }}>
+                                        <button style={closeShareButtonStyle} onClick={() => setShowShare(false)}>Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        <footer style={footerStyle}>Never lose the thread.</footer>
                     </div>
                 );
             }
@@ -566,7 +713,7 @@ You'll match statements to Tessa Finn, Meg Aerin, June Lowell, or Elle Lawson. T
                     )}
 
                     <div style={{height: '12rem'}} />
-                    <footer style={footerStyle}>All art hand drawn by Echo Doll.</footer>
+                    <footer style={footerStyle}>Never lose the thread.</footer>
                 </div>
             );
         };
