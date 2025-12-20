@@ -1,1 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="application-name" content="Deep Dream State">
+    <meta name="apple-mobile-web-app-title" content="Deep Dream State">
+    <title>Neuralverse Games | Deep Dream State</title>
+    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateiconpink.svg">
+    <link rel="canonical" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/games/">
+    <meta name="description" content="Neuralverse Games: Interactive character attribution quizzes and psychological assessments extending the Deep Dream State narrative. Test your knowledge of the dream spirits.">
+    <meta name="theme-color" content="#1a0a2e">
+    <meta name="color-scheme" content="dark light">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Neuralverse Games | Deep Dream State">
+    <meta property="og:description" content="Interactive games extending the Deep Dream State narrative. Character attribution quizzes and psychological assessments.">
+    <meta property="og:url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/games/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Deep Dream State">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-card-games.webp">
+    <meta property="og:image:alt" content="Deep Dream State — Neuralverse Games">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Neuralverse Games | Deep Dream State">
+    <meta name="twitter:description" content="Interactive games extending the Deep Dream State narrative.">
+    <meta name="twitter:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-card-games.webp">
+    <meta name="twitter:image:alt" content="Deep Dream State — Neuralverse Games">
+    <meta name="twitter:creator" content="@MCNeuralNets">
+    <meta name="twitter:site" content="@MCNeuralNets">
+
+    <!-- Google Fonts: IM Fell DW Pica -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            width: 100%;
+            font-family: 'IM Fell DW Pica', serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e8e8e8;
+            overflow-x: hidden;
+        }
+        
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 1;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            font-weight: normal;
+        }
+        
+        .episode-number {
+            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: nowrap;
+        }
+        
+        .nav-button {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #e8e8e8;
+            border-radius: 50%;
+            background: transparent;
+            color: #e8e8e8;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: 'IM Fell DW Pica', serif;
+            flex-shrink: 0;
+        }
+        
+        .nav-button:hover {
+            background: #e8e8e8;
+            color: #1a0a2e;
+            transform: scale(1.1);
+        }
+        
+        .nav-button:active {
+            transform: scale(0.95);
+        }
+        
+        .nav-button svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .nav-button.prev::before {
+            content: "‹";
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        
+        .nav-button.next::before {
+            content: "›";
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        
+        .nav-button.home::before {
+            content: "⌂";
+            font-size: 1.5rem;
+        }
+        
+        .carousel-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+        
+        .card {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            display: block;
+            cursor: default;
+            transition: all 0.6s ease;
+        }
+        
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .content-block {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: left;
+            line-height: 1.8;
+        }
+        
+        .content-block h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+        
+        .content-block h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .content-block p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-block p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .game-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .game-link {
+            display: block;
+            padding: 1.5rem;
+            border: 2px solid rgba(232, 232, 232, 0.3);
+            border-radius: 8px;
+            text-decoration: none;
+            color: #e8e8e8;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .game-link:hover {
+            background: rgba(232, 232, 232, 0.1);
+            border-color: #e8e8e8;
+            box-shadow: 0 4px 15px rgba(232, 232, 232, 0.2);
+        }
+        
+        .game-link:active {
+            transform: scale(0.98);
+        }
+        
+        .footer-credit {
+            display: flex;
+            justify-content: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(232, 232, 232, 0.2);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .carousel-container {
+                max-width: 320px;
+            }
+            
+            .nav-button {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            
+            .content-block {
+                padding: 0 1rem;
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                padding: 1.5rem 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-container {
+                max-width: 280px;
+            }
+            
+            .nav-buttons {
+                gap: 0.3rem;
+            }
+            
+            .nav-button {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+            
+            .content-block {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Neural Nets and Pretty Patterns",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+      "sameAs": [
+        "https://deepdreamstate.blubrry.net/",
+        "https://www.imdb.com/name/nm17755189/",
+        "https://www.patreon.com/minderaser",
+        "https://x.com/MCNeuralNets"
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Deep Dream State",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+      "inLanguage": "en"
+    }
+    </script>
+
+    <!-- JSON-LD: Games Page -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Neuralverse Games",
+      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/games/",
+      "inLanguage": "en",
+      "description": "Interactive games extending the Deep Dream State narrative. Character attribution quizzes and psychological assessments from the Sitri Center.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Deep Dream State",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/dds-carousel-card-games.webp"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Deep Dream State",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Games",
+          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/games/"
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+    <div id="background-container"></div>
+    
+    <main>
+        <h1 class="page-title">Neuralverse Games</h1>
+        <p class="episode-number">Plug and Play and Play</p>
+        
+        <div class="nav-buttons">
+            <button class="nav-button prev" aria-label="Previous" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button next" aria-label="Next" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
+            <button class="nav-button cast" aria-label="Cast and Crew" onclick="window.location.href='/deepdreamstate/cast/index.html'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" width="24" height="24" fill="currentColor">
+                    <polygon style="fill:currentColor;" points="425.177,237.412 425.177,453.339 468.044,453.339 468.044,173.905 444.229,208.305 "/>
+                    <path style="fill:currentColor;" d="M379.383,116.184c11.563-14.757,27.265-38.768,26.148-59.241c0,0-20.463,35.664-75.42,26.893c-49.702-7.931-54.932,10.438-55.478,19.212c-0.003-0.001-0.006,0.01-0.01,0.031c-1.296,8.314-7.931,14.725-16.346,14.725h-4.552c-8.416,0-15.05-6.41-16.349-14.725c-0.003-0.021-0.006-0.032-0.01-0.031c-0.546-8.775-5.776-27.143-55.478-19.212c-54.958,8.769-75.42-26.893-75.42-26.893c-1.117,20.472,14.586,44.483,26.147,59.241c-42.648-4.675-85.738-22.182-122.03-57.877c14.631,52.779,31.448,96.008,48.513,134.313c13.25,29.741,41.51,50.038,73.918,53.161c2.028,0.196,4.056,0.39,6.083,0.581c47.654,4.508,89.536-17.993,97.681-63.365c1.674-9.325,9.745-16.134,19.22-16.134s17.545,6.809,19.22,16.134c8.146,45.372,50.027,67.873,97.681,63.365c1.996-0.188,3.994-0.38,5.991-0.572c32.441-3.126,60.745-23.398,74.009-53.169c17.066-38.306,33.883-81.535,48.514-134.314C465.121,94.002,422.031,111.509,379.383,116.184z M143.678,195.692c-22.301-4.74-36.197-28.254-36.197-28.254s22.259-15.828,44.559-11.088c22.301,4.74,36.197,28.254,36.197,28.254S165.978,200.433,143.678,195.692z M368.32,195.692c-22.3,4.74-44.559-11.088-44.559-11.088s13.897-23.514,36.196-28.254c22.3-4.74,44.559,11.088,44.559,11.088S390.621,190.952,368.32,195.692z"/>
+                </svg>
+            </button>
+            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
+                    <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="carousel-container">
+            <div class="card">
+                <img src="/deepdreamstate/assets/images/dds-carousel-card-games.webp" alt="Neuralverse Games">
+            </div>
+        </div>
+        
+        <div class="content-block">
+            <h2>Plug into the Deep Dream State</h2>
+            
+            <p>Gamification is a staple of the Neural Nets and Pretty Patterns imaginary. You can find the audio catalogue for those tracks here: <a href="https://deepdreamstate.blubrry.net/neuralpedia-the-nnpp-file-catalogue/neuralpedia-xxboxx/" style="color: #e8e8e8; text-decoration: underline;">Neuralpedia - The NNPP File Catalogue</a>. As the Neuralverse expands into full narrative, the games should expand too - and become increasingly real. This is a test setup as the creator learns some of the code.</p>
+            
+            <h2>Sample the Deep Dream State Quizzes</h2>
+            
+            <div class="game-links">
+                <a href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/gamesitri/sitrilabsafety/" class="game-link">
+                    Sitri Lab Safety Orientation
+                </a>
+                <a href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/gamesitri/sitricharacters/" class="game-link">
+                    Sitri Dream Team Drills
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-credit">
+            by Neural Nets And Pretty Patterns
+        </div>
+    </main>
+    
+    <script>
+        const bgContainer = document.getElementById('background-container');
+        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/dds-carousel-background.webp)';
+    </script>
+</body>
+</html>
