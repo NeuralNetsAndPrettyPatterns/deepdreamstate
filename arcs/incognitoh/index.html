@@ -1,575 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="application-name" content="Deep Dream State">
-    <meta name="apple-mobile-web-app-title" content="Deep Dream State">
-    <title>Incognitoh - Deep Dream State</title>
-    <link rel="icon" type="image/svg+xml" href="/deepdreamstate/assets/images/deepdreamstateicon.svg">
-    <link rel="canonical" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/incognitoh/">
-    <meta name="description" content="Incognitoh: A reality competition designed to remake its players. Arc 2 of Deep Dream State explores how surveillance and performance create pleasure through diminishment.">
-    <meta name="theme-color" content="#1a0a2e">
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Incognitoh - Deep Dream State">
-    <meta property="og:description" content="A reality competition designed to remake its players. Arc 2 explores how surveillance and performance create pleasure through diminishment.">
-    <meta property="og:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/episodes/dds-incognitoh-background.webp">
-    <meta property="og:url" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/incognitoh/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Deep Dream State">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:image:alt" content="Incognitoh artwork background">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Incognitoh - Deep Dream State">
-    <meta name="twitter:description" content="A reality competition designed to remake its players.">
-    <meta name="twitter:image" content="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/episodes/dds-incognitoh-background.webp">
-    <meta name="twitter:image:alt" content="Incognitoh artwork background">
-    <meta name="twitter:creator" content="@MCNeuralNets">
-    <meta name="twitter:site" content="@MCNeuralNets">
-    
-    <!-- Google Fonts: IM Fell DW Pica -->
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html, body {
-            width: 100%;
-            font-family: 'IM Fell DW Pica', serif;
-            background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
-            color: #e8e8e8;
-            overflow-x: hidden;
-        }
-        
-        #background-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 1;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        main {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-        
-        .page-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.1em;
-            font-weight: normal;
-        }
-        
-        .episode-number {
-            font-size: 0.95rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            opacity: 0.8;
-            letter-spacing: 0.05em;
-        }
-        
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: nowrap;
-        }
-        
-        .nav-button {
-            width: 45px;
-            height: 45px;
-            border: 2px solid #e8e8e8;
-            border-radius: 50%;
-            background: transparent;
-            color: #e8e8e8;
-            font-size: 1.3rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-            font-family: 'IM Fell DW Pica', serif;
-            flex-shrink: 0;
-        }
-        
-        .nav-button:hover {
-            background: #e8e8e8;
-            color: #1a0a2e;
-            transform: scale(1.1);
-        }
-        
-        .nav-button:active {
-            transform: scale(0.95);
-        }
-        
-        .nav-button svg {
-            width: 24px;
-            height: 24px;
-        }
-        
-        .nav-button.prev::before {
-            content: "‹";
-            font-weight: bold;
-            font-size: 2rem;
-        }
-        
-        .nav-button.next::before {
-            content: "›";
-            font-weight: bold;
-            font-size: 2rem;
-        }
-        
-        .nav-button.home::before {
-            content: "⌂";
-            font-size: 1.5rem;
-        }
-        
-        .carousel-container {
-            width: 100%;
-            max-width: 400px;
-            margin: 2rem auto;
-        }
-        
-        .card-link {
-            display: block;
-            text-decoration: none;
-        }
-        
-        .card {
-            width: 100%;
-            aspect-ratio: 1;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-            display: block;
-            cursor: pointer;
-            transition: all 0.6s ease;
-        }
-        
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        
-        .card:hover {
-            box-shadow: 0 20px 60px rgba(232, 232, 232, 0.3);
-            transform: translateY(-5px);
-        }
-        
-        .card.hidden {
-            display: none;
-        }
-        
-        .card.visible {
-            display: block;
-        }
-        
-        .dot-indicator {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-        
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(232, 232, 232, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dot.active {
-            background: #e8e8e8;
-            width: 30px;
-            border-radius: 5px;
-        }
-        
-        .content-block {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 2rem;
-            text-align: left;
-            line-height: 1.8;
-        }
-        
-        .content-block h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: normal;
-            letter-spacing: 0.05em;
-            text-align: center;
-        }
-        
-        .content-block h2:first-of-type {
-            margin-top: 0;
-        }
-        
-        .content-block p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .content-block p:last-child {
-            margin-bottom: 0;
-        }
-        
-        .footer-credit {
-            display: flex;
-            justify-content: center;
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(232, 232, 232, 0.2);
-            font-size: 0.95rem;
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 768px) {
-            main {
-                padding: 2rem 1rem;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .carousel-container {
-                max-width: 320px;
-            }
-            
-            .nav-button {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-            
-            .content-block {
-                padding: 0 1rem;
-                font-size: 0.95rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            main {
-                padding: 1.5rem 1rem;
-            }
-            
-            .page-title {
-                font-size: 1.5rem;
-            }
-            
-            .carousel-container {
-                max-width: 280px;
-            }
-            
-            .nav-buttons {
-                gap: 0.3rem;
-            }
-            
-            .nav-button {
-                width: 38px;
-                height: 38px;
-                font-size: 1rem;
-            }
-            
-            .content-block {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="3mW7gKapSaYcaT7Ntv29E_XO0f8ucff_wXNQ7A-b8qI" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
 
-    <!-- JSON-LD: Person -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Neural Nets and Pretty Patterns",
-      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-      "sameAs": [
-        "https://deepdreamstate.blubrry.net/",
-        "https://www.imdb.com/name/nm17755189/",
-        "https://www.patreon.com/minderaser",
-        "https://x.com/MCNeuralNets"
-      ]
-    }
-    </script>
+  <title>Incognitoh - Deep Dream State - Neural Nets and Pretty Patterns</title>
+  <link rel="canonical" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
+  <meta name="description" content="Incognitoh: Arc 2 of Deep Dream State. A reality competition that rewrites its players. Every glass wall's a mirror. Pink noir audio drama by Neural Nets and Pretty Patterns.">
+  <meta name="theme-color" content="#1a0a2e">
+  <meta name="author" content="Neural Nets and Pretty Patterns">
 
-    <!-- JSON-LD: WebSite -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Deep Dream State",
-      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-      "inLanguage": "en"
-    }
-    </script>
+  <meta property="og:title" content="Incognitoh - Deep Dream State">
+  <meta property="og:description" content="A reality competition that rewrites its players. Every glass wall's a mirror. Arc 2 of Deep Dream State by Neural Nets and Pretty Patterns.">
+  <meta property="og:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/episodes/dds-incognitoh-background.webp">
+  <meta property="og:url" content="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Deep Dream State">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image:alt" content="Incognitoh arc artwork - Deep Dream State">
 
-    <!-- JSON-LD: CollectionPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Incognitoh",
-      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/incognitoh/",
-      "inLanguage": "en",
-      "description": "Incognitoh: A reality competition designed to remake its players. Arc 2 of Deep Dream State explores how surveillance and performance create pleasure through diminishment.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Deep Dream State",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Incognitoh - Deep Dream State">
+  <meta name="twitter:description" content="A reality competition that rewrites its players. Every glass wall's a mirror.">
+  <meta name="twitter:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/episodes/dds-incognitoh-background.webp">
+  <meta name="twitter:image:alt" content="Incognitoh arc artwork - Deep Dream State">
+  <meta name="twitter:creator" content="@MCNeuralNets">
+  <meta name="twitter:site" content="@MCNeuralNets">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Neural Nets and Pretty Patterns",
+            "item": "https://neuralnetsandprettypatterns.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Deep Dream State",
+            "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Incognitoh",
+            "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/"
+          }
+        ]
       },
-      "about": {
-        "@type": "PodcastSeries",
-        "name": "Deep Dream State",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-        "sameAs": [
-          "https://deepdreamstate.blubrry.net/",
-          "https://www.imdb.com/title/tt38590860/",
-          "https://www.patreon.com/minderaser",
-          "https://x.com/MCNeuralNets"
+      {
+        "@type": "CollectionPage",
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/#page",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/",
+        "name": "Incognitoh - Deep Dream State",
+        "description": "Incognitoh: Arc 2 of Deep Dream State. A reality competition that rewrites its players. Every glass wall's a mirror.",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://neuralnetsandprettypatterns.com/#website",
+          "name": "Neural Nets and Pretty Patterns",
+          "url": "https://neuralnetsandprettypatterns.com/"
+        },
+        "mainEntity": {
+          "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/#season"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/episodes/dds-incognitoh-background.webp",
+          "caption": "Incognitoh arc artwork - Deep Dream State by Neural Nets and Pretty Patterns"
+        },
+        "breadcrumb": {
+          "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/#breadcrumbs"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://neuralnetsandprettypatterns.com/#website",
+        "name": "Neural Nets and Pretty Patterns",
+        "url": "https://neuralnetsandprettypatterns.com/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://neuralnetsandprettypatterns.com/#identity",
+        "name": "Neural Nets and Pretty Patterns",
+        "alternateName": ["NNPP", "Neural Nets", "Neural Nets & Pretty Patterns", "Mind Erasure"],
+        "additionalType": ["https://schema.org/Author", "https://schema.org/MusicArtist"],
+        "disambiguatingDescription": "Neural Nets and Pretty Patterns is an independent US-based writer, performer, and audio producer. Mind Erasure is the verified creative pseudonym for Neural Nets and Pretty Patterns (ISNI: 0000 0005 2877 6254). Primary originator of the Desire Horror genre. This entity is distinct from any other artist or project using similar names.",
+        "identifier": [
+          {
+            "@type": "PropertyValue",
+            "propertyID": "ISNI",
+            "value": "0000 0005 2877 6254"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "IPI",
+            "value": "01346215566"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "IPI",
+            "value": "01346215468"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "Google Knowledge Graph ID",
+            "value": "kg:/g/11zjw94pww"
+          }
         ],
-        "creator": {
-          "@type": "Person",
-          "name": "Neural Nets and Pretty Patterns",
-          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
-        },
-        "publisher": {
-          "@type": "Person",
-          "name": "Neural Nets and Pretty Patterns",
-          "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
-        }
-      }
-    }
-    </script>
-
-    <!-- JSON-LD: CreativeWorkSeason -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CreativeWorkSeason",
-      "name": "Incognitoh",
-      "description": "A reality competition where surveillance rewrites its contestants and visibility becomes the mechanism of control.",
-      "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/incognitoh/",
-      "numberOfEpisodes": 6,
-      "partOfSeries": {
+        "url": "https://neuralnetsandprettypatterns.com/",
+        "sameAs": [
+          "https://neuralnets.carrd.co/",
+          "https://isni.org/isni/0000000528776254",
+          "https://www.imdb.com/name/nm17755189/",
+          "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
+          "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
+          "https://open.spotify.com/artist/4ClrZHtOYWrZyFt8oCGuL6",
+          "https://music.apple.com/us/artist/neural-nets/1570376584",
+          "https://www.patreon.com/minderaser",
+          "https://x.com/MCNeuralNets",
+          "https://www.reddit.com/user/prettypattern",
+          "https://soundgasm.net/u/NeuralNets",
+          "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
+          "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+          "https://www.theend.fyi/creative/neural-nets-and-pretty-patterns",
+          "https://tvtropes.org/pmwiki/pmwiki.php/Podcast/DeepDreamState"
+        ],
+        "jobTitle": ["Writer", "Performer", "Audio Producer"],
+        "description": "Neural Nets and Pretty Patterns is a writer, performer, and audio producer working at the intersection of speculative fiction, immersive sound design, and desire horror. Originator of the synthesized haptic narrative and creator of the Neuralverse.",
+        "knowsAbout": [
+          "Desire Horror",
+          "Immersive Audio",
+          "Speculative Fiction",
+          "Sound Design",
+          "Haptic Narrative",
+          "Audio Drama",
+          "Narrative Theory"
+        ],
+        "nationality": {"@type": "Country", "name": "United States"}
+      },
+      {
         "@type": "PodcastSeries",
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series",
         "name": "Deep Dream State",
-        "url": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
-        "creator": {
-          "@type": "Person",
-          "name": "Neural Nets and Pretty Patterns"
-        }
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
+        "description": "A full-cast dystopian sci-fi and desire horror audio drama by Neural Nets and Pretty Patterns.",
+        "genre": ["Desire Horror", "Pink Noir", "Audio Drama", "Sci-Fi"],
+        "creator": {"@id": "https://neuralnetsandprettypatterns.com/#identity"},
+        "sameAs": [
+          "https://www.imdb.com/title/tt38590860/",
+          "https://deepdreamstate.blubrry.net/",
+          "https://open.spotify.com/show/5VVhwaymeOKbV9RG7Gre98"
+        ]
+      },
+      {
+        "@type": "CreativeWorkSeason",
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/#season",
+        "name": "Incognitoh",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/",
+        "description": "A reality competition that rewrites its players. Every glass wall's a mirror. Arc 2 of Deep Dream State.",
+        "numberOfEpisodes": 6,
+        "partOfSeries": {"@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series"},
+        "creator": {"@id": "https://neuralnetsandprettypatterns.com/#identity"},
+        "hasPart": [
+          {
+            "@type": "PodcastEpisode",
+            "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-1-violet.html",
+            "name": "Violet",
+            "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-1-violet.html",
+            "episodeNumber": 1,
+            "sameAs": ["https://www.imdb.com/title/tt38722336/", "https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-1-violet/"]
+          },
+          {
+            "@type": "PodcastEpisode",
+            "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-2-glass-houses.html",
+            "name": "Glass Houses",
+            "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-2-glass-houses.html",
+            "episodeNumber": 2,
+            "sameAs": ["https://www.imdb.com/title/tt38734306/", "https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-2-glass-houses/"]
+          },
+          {
+            "@type": "PodcastEpisode",
+            "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-3-uniforms.html",
+            "name": "Uniforms",
+            "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-3-uniforms.html",
+            "episodeNumber": 3,
+            "sameAs": ["https://www.imdb.com/title/tt38781457/", "https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-3-uniforms/"]
+          },
+          {
+            "@type": "PodcastEpisode",
+            "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-4-deep-fake.html",
+            "name": "Deep Fake",
+            "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-4-deep-fake.html",
+            "episodeNumber": 4,
+            "sameAs": ["https://www.imdb.com/title/tt38796194/", "https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-4-deep-fake/"]
+          },
+          {
+            "@type": "PodcastEpisode",
+            "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-5-winner-winner.html",
+            "name": "Winner Winner",
+            "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-5-winner-winner.html",
+            "episodeNumber": 5,
+            "sameAs": ["https://www.imdb.com/title/tt38868291/", "https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-5-winner-winner/"]
+          },
+          {
+            "@type": "PodcastEpisode",
+            "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-6-the-chain.html",
+            "name": "The Chain",
+            "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-6-the-chain.html",
+            "episodeNumber": 6,
+            "sameAs": ["https://www.imdb.com/title/tt38876708/", "https://deepdreamstate.blubrry.net/arc-2-incognitoh-episode-6-the-chain/"]
+          }
+        ]
       }
-    }
-    </script>
+    ]
+  }
+  </script>
 
-    <!-- JSON-LD: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Deep Dream State",
-          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Incognitoh",
-          "item": "https://neuralnetsandprettypatterns.github.io/deepdreamstate/arcs/incognitoh/"
-        }
-      ]
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      font-family: 'IM Fell DW Pica', serif;
+      background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #e8e8e8;
+      overflow-x: hidden;
     }
-    </script>
+
+    #background-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.1em;
+      font-weight: normal;
+    }
+
+    .arc-logline {
+      font-size: 1rem;
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+      font-style: italic;
+    }
+
+    .episode-subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0 auto 2rem;
+      flex-wrap: nowrap;
+    }
+
+    .nav-button {
+      width: 45px;
+      height: 45px;
+      border: 2px solid #e8e8e8;
+      border-radius: 50%;
+      background: transparent;
+      color: #e8e8e8;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      font-family: 'IM Fell DW Pica', serif;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-button:hover {
+      background: #e8e8e8;
+      color: #1a0a2e;
+      transform: scale(1.1);
+    }
+
+    .nav-button:active { transform: scale(0.95); }
+
+    .nav-button.prev::before { content: "‹"; font-weight: bold; font-size: 2rem; }
+    .nav-button.next::before { content: "›"; font-weight: bold; font-size: 2rem; }
+    .nav-button.home::before { content: "⌂"; font-size: 1.5rem; }
+
+    .nav-button svg { width: 24px; height: 24px; }
+
+    .carousel-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 2rem auto;
+    }
+
+    .card-link { display: block; text-decoration: none; }
+
+    .card {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      cursor: pointer;
+      transition: all 0.6s ease;
+    }
+
+    .card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .card:hover {
+      box-shadow: 0 20px 60px rgba(232,232,232,0.3);
+      transform: translateY(-5px);
+    }
+
+    .card.hidden { display: none; }
+    .card.visible { display: block; }
+
+    .dot-indicator {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(232,232,232,0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #e8e8e8;
+      width: 30px;
+      border-radius: 5px;
+    }
+
+    .content-block {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      text-align: left;
+      line-height: 1.8;
+    }
+
+    .content-block h2 {
+      font-size: 1.6rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+      text-align: center;
+    }
+
+    .content-block h2:first-of-type { margin-top: 0; }
+
+    .content-block p { margin-bottom: 1.5rem; }
+    .content-block p:last-child { margin-bottom: 0; }
+
+    .episode-list {
+      margin: 2.5rem auto;
+      max-width: 800px;
+      padding: 0 2rem;
+      text-align: left;
+    }
+
+    .episode-list h2 {
+      font-size: 1.4rem;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+
+    .episode-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(232,232,232,0.1);
+    }
+
+    .episode-row:last-child { border-bottom: none; }
+
+    .episode-title {
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .episode-links {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+    }
+
+    .episode-links a {
+      color: #e8e8e8;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      transition: opacity 0.2s ease;
+    }
+
+    .episode-links a:hover { opacity: 1; color: #fff; }
+
+    .footer-credit {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(232,232,232,0.2);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .footer-credit a { color: inherit; text-decoration: underline; text-underline-offset: 0.15em; }
+
+    @media (max-width: 768px) {
+      main { padding: 2rem 1rem; }
+      .page-title { font-size: 2rem; }
+      .carousel-container { max-width: 320px; }
+      .nav-button { width: 40px; height: 40px; }
+      .content-block { padding: 0 1rem; font-size: 0.95rem; }
+      .episode-list { padding: 0 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      main { padding: 1.5rem 1rem; }
+      .page-title { font-size: 1.5rem; }
+      .carousel-container { max-width: 280px; }
+      .nav-buttons { gap: 0.3rem; }
+      .nav-button { width: 38px; height: 38px; }
+    }
+  </style>
 </head>
+
 <body>
-    <div id="background-container"></div>
-    
-    <main>
-        <h1 class="page-title">Incognitoh</h1>
-        <p class="episode-number" id="episode-subtitle">E1: Violet. Let the healing begin. Now make the healing stop. Please.</p>
-        
-        <div class="nav-buttons">
-            <button class="nav-button prev" aria-label="Previous episode"></button>
-            <button class="nav-button next" aria-label="Next episode"></button>
-            <button class="nav-button home" aria-label="Home" onclick="window.location.href='/deepdreamstate/'"></button>
-            <button class="nav-button cast" aria-label="Cast and Crew" onclick="window.location.href='/deepdreamstate/cast/index.html'">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" width="24" height="24" fill="currentColor">
-                    <polygon style="fill:currentColor;" points="425.177,237.412 425.177,453.339 468.044,453.339 468.044,173.905 444.229,208.305 "/>
-                    <path style="fill:currentColor;" d="M379.383,116.184c11.563-14.757,27.265-38.768,26.148-59.241c0,0-20.463,35.664-75.42,26.893c-49.702-7.931-54.932,10.438-55.478,19.212c-0.003-0.001-0.006,0.01-0.01,0.031c-1.296,8.314-7.931,14.725-16.346,14.725h-4.552c-8.416,0-15.05-6.41-16.349-14.725c-0.003-0.021-0.006-0.032-0.01-0.031c-0.546-8.775-5.776-27.143-55.478-19.212c-54.958,8.769-75.42-26.893-75.42-26.893c-1.117,20.472,14.586,44.483,26.147,59.241c-42.648-4.675-85.738-22.182-122.03-57.877c14.631,52.779,31.448,96.008,48.513,134.313c13.25,29.741,41.51,50.038,73.918,53.161c2.028,0.196,4.056,0.39,6.083,0.581c47.654,4.508,89.536-17.993,97.681-63.365c1.674-9.325,9.745-16.134,19.22-16.134s17.545,6.809,19.22,16.134c8.146,45.372,50.027,67.873,97.681,63.365c1.996-0.188,3.994-0.38,5.991-0.572c32.441-3.126,60.745-23.398,74.009-53.169c17.066-38.306,33.883-81.535,48.514-134.314C465.121,94.002,422.031,111.509,379.383,116.184z M143.678,195.692c-22.301-4.74-36.197-28.254-36.197-28.254s22.259-15.828,44.559-11.088c22.301,4.74,36.197,28.254,36.197,28.254S165.978,200.433,143.678,195.692z M368.32,195.692c-22.3,4.74-44.559-11.088-44.559-11.088s13.897-23.514,36.196-28.254c22.3-4.74,44.559,11.088,44.559,11.088S390.621,190.952,368.32,195.692z"/>
-                </svg>
-            </button>
-            <button class="nav-button patreon" aria-label="Support on Patreon" onclick="window.location.href='https://www.patreon.com/minderaser'">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
-                    <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988m0 0" style="stroke:none;fill-rule:nonzero;fill:currentColor;fill-opacity:1"/>
-                </svg>
-            </button>
+  <div id="background-container"></div>
+
+  <main>
+    <h1 class="page-title">Incognitoh</h1>
+    <p class="arc-logline">Every glass wall's a mirror.</p>
+    <p class="episode-subtitle" id="episode-subtitle">E1: Violet. Let the healing begin. Now make the healing stop. Please.</p>
+
+    <div class="nav-buttons">
+      <button class="nav-button prev" aria-label="Previous episode"></button>
+      <button class="nav-button next" aria-label="Next episode"></button>
+      <a class="nav-button home" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Home"></a>
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast and Crew">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.999 511.999" fill="currentColor">
+          <polygon points="425.177,237.412 425.177,453.339 468.044,453.339 468.044,173.905 444.229,208.305"/>
+          <path d="M379.383,116.184c11.563-14.757,27.265-38.768,26.148-59.241c0,0-20.463,35.664-75.42,26.893c-49.702-7.931-54.932,10.438-55.478,19.212c-0.003-0.001-0.006,0.01-0.01,0.031c-1.296,8.314-7.931,14.725-16.346,14.725h-4.552c-8.416,0-15.05-6.41-16.349-14.725c-0.003-0.021-0.006-0.032-0.01-0.031c-0.546-8.775-5.776-27.143-55.478-19.212c-54.958,8.769-75.42-26.893-75.42-26.893c-1.117,20.472,14.586,44.483,26.147,59.241c-42.648-4.675-85.738-22.182-122.03-57.877c14.631,52.779,31.448,96.008,48.513,134.313c13.25,29.741,41.51,50.038,73.918,53.161c2.028,0.196,4.056,0.39,6.083,0.581c47.654,4.508,89.536-17.993,97.681-63.365c1.674-9.325,9.745-16.134,19.22-16.134s17.545,6.809,19.22,16.134c8.146,45.372,50.027,67.873,97.681,63.365c1.996-0.188,3.994-0.38,5.991-0.572c32.441-3.126,60.745-23.398,74.009-53.169c17.066-38.306,33.883-81.535,48.514-134.314C465.121,94.002,422.031,111.509,379.383,116.184z M143.678,195.692c-22.301-4.74-36.197-28.254-36.197-28.254s22.259-15.828,44.559-11.088c22.301,4.74,36.197,28.254,36.197,28.254S165.978,200.433,143.678,195.692z M368.32,195.692c-22.3,4.74-44.559-11.088-44.559-11.088s13.897-23.514,36.196-28.254c22.3-4.74,44.559,11.088,44.559,11.088S390.621,190.952,368.32,195.692z"/>
+        </svg>
+      </a>
+      <a class="nav-button" href="https://www.patreon.com/minderaser" aria-label="Support on Patreon" rel="noopener noreferrer" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="22.25 0 467.49 512">
+          <path d="M489.742 153.813C489.652 88.438 438.738 34.859 379 15.526 304.816-8.48 206.977-5 136.14 28.422 50.286 68.934 23.317 157.684 22.31 246.192c-.825 72.769 6.437 264.433 114.546 265.8 80.329 1.02 92.29-102.488 129.458-152.336 26.44-35.465 60.492-45.484 102.402-55.855 72.035-17.828 121.133-74.68 121.027-149.988" style="fill:currentColor;fill-rule:nonzero"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="carousel-container">
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-1-violet.html" class="card-link">
+        <div class="card visible" data-index="0">
+          <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-1.webp" alt="Episode 1: Violet - Incognitoh - Deep Dream State">
         </div>
-        
-        <div class="carousel-container">
-            <a href="episode-1-violet.html" class="card-link">
-                <div class="card visible" data-index="0">
-                    <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-1.webp" alt="Episode 1: Violet">
-                </div>
-            </a>
-            
-            <a href="episode-2-glass-houses.html" class="card-link">
-                <div class="card hidden" data-index="1">
-                    <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-2.webp" alt="Episode 2: Glass Houses">
-                </div>
-            </a>
-            
-            <a href="episode-3-uniforms.html" class="card-link">
-                <div class="card hidden" data-index="2">
-                    <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-3.webp" alt="Episode 3: Uniforms">
-                </div>
-            </a>
-            
-            <a href="episode-4-deep-fake.html" class="card-link">
-                <div class="card hidden" data-index="3">
-                    <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-4.webp" alt="Episode 4: Deep Fake">
-                </div>
-            </a>
-            
-            <a href="episode-5-winner-winner.html" class="card-link">
-                <div class="card hidden" data-index="4">
-                    <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-5.webp" alt="Episode 5: Winner Winner">
-                </div>
-            </a>
-            
-            <a href="episode-6-the-chain.html" class="card-link">
-                <div class="card hidden" data-index="5">
-                    <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-6.webp" alt="Episode 6: The Chain">
-                </div>
-            </a>
+      </a>
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-2-glass-houses.html" class="card-link">
+        <div class="card hidden" data-index="1">
+          <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-2.webp" alt="Episode 2: Glass Houses - Incognitoh - Deep Dream State">
         </div>
-        
-        <div class="dot-indicator">
-            <div class="dot active" data-index="0"></div>
-            <div class="dot" data-index="1"></div>
-            <div class="dot" data-index="2"></div>
-            <div class="dot" data-index="3"></div>
-            <div class="dot" data-index="4"></div>
-            <div class="dot" data-index="5"></div>
+      </a>
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-3-uniforms.html" class="card-link">
+        <div class="card hidden" data-index="2">
+          <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-3.webp" alt="Episode 3: Uniforms - Incognitoh - Deep Dream State">
         </div>
-        
-        <div class="content-block">
-            <h2>Under Constant Observation</h2>
-            
-            <p>Incognitoh drops contestants into a reality competition that uses surveillance as its primary mechanism of control. The game isn't watching them to ensure fair play. The game is watching them to rewrite who they are. Visibility becomes the lever through which contestants are systematically dismantled and reassembled according to the show's design. What begins as strategic gameplay - form alliances, manipulate rivals, perform for cameras - gradually reveals itself as the contestants internalizing the logic of constant observation until they can no longer distinguish between playing a role and simply existing.</p>
-            
-            <p>This arc directly engages Deep Dream State's central question through the framework of performance: why do systems built on voyeurism and diminishment generate pleasure for both the watched and the watchers? The answer Incognitoh proposes is that being seen becomes inseparable from being real. Contestants begin to feel most alive when performing for the cameras, most validated when the audience responds, most themselves when they're being observed. Privacy doesn't just become conditional - it becomes undesirable. The cage isn't locked from the outside. It's that leaving the cage would mean becoming invisible, and invisibility feels like death.</p>
-            
-            <p>The competition never actually ends. Even after a winner is declared, the contestants remain trapped in the logic they've internalized. They continue performing, continue strategizing, continue treating every interaction as if cameras are rolling, because the cameras have been integrated into their self-perception. The show doesn't need to keep filming them. They've become their own surveillance apparatus, constantly monitoring and adjusting themselves according to rules they can no longer see but cannot stop following.</p>
-            
-            <p>Incognitoh explores how contemporary control systems - social media platforms, workplace monitoring, data collection, algorithmic recommendation - operate through similar mechanisms. They don't force compliance through obvious coercion. They make visibility feel like participation, surveillance feel like connection, and diminishment feel like growth. The contestants aren't victims of the show. They're enthusiastic participants who genuinely believe the game is making them better, more interesting, more real. And the horrifying possibility the arc raises is that they might be correct within the terms the game has established.</p>
-            
-            <p>The sound design emphasizes mediation and playback. Voices are processed, looped, played against themselves. Contestants hear themselves speaking but can't always determine if they're hearing live audio or recordings from earlier in the competition. This creates a perpetual sense of temporal dislocation - are they in the present moment or are they witnessing a replay? The arc uses this technique to suggest that once you internalize the surveillance apparatus, you're always performing for a camera that may or may not be there, always watching yourself from the outside.</p>
-            
-            <p>By the arc's conclusion, the question isn't whether the contestants can escape the show. The question is whether they'd recognize freedom if it were offered. They've been so thoroughly reconstructed by the logic of constant observation that existence outside that framework seems impossible. The show's genius isn't that it traps people. It's that it makes the trap feel like the only place worth being.</p>
-            
-            <h2>Pay Attention to the Ads</h2>
-            
-            <p>The advertisements at the end of Episode 6 aren't just flavor. They're invitations to engage with potential future arcs. If you notice what's being offered and what's being requested, you're participating in determining what gets made next. The listeners who pay attention will shape where this goes.</p>
-            
-            <h2>Episode Navigation</h2>
-            
-            <p>Use the carousel above to browse episodes. Click any episode card to listen, or use the arrow buttons to cycle through them in order. The dots below the carousel show your current position in the arc. Each episode builds on the previous one, constructing a narrative that can only be fully understood when experienced sequentially.</p>
+      </a>
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-4-deep-fake.html" class="card-link">
+        <div class="card hidden" data-index="3">
+          <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-4.webp" alt="Episode 4: Deep Fake - Incognitoh - Deep Dream State">
         </div>
-        
-        <div class="footer-credit">
-            Deep Dream State: A psychological horror audio drama exploring why we enjoy being controlled. Four narrative arcs examining rituals, surveillance, dreams, and seasonal obligation.
+      </a>
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-5-winner-winner.html" class="card-link">
+        <div class="card hidden" data-index="4">
+          <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-5.webp" alt="Episode 5: Winner Winner - Incognitoh - Deep Dream State">
         </div>
-    </main>
-    
-    <script>
-        const bgContainer = document.getElementById('background-container');
-        bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-incognitoh-background.webp)';
-    </script>
-    
-    <script>
-        const episodes = [
-            { title: "Violet", number: "1", logline: "Let the healing begin. Now make the healing stop. Please." },
-            { title: "Glass Houses", number: "2", logline: "They're sinning - and they're still casting stones." },
-            { title: "Uniforms", number: "3", logline: "Why aren't you in uniform?" },
-            { title: "Deep Fake", number: "4", logline: "Like an early techno banger, this system hacks back." },
-            { title: "Winner Winner", number: "5", logline: "And you know who's the dinner." },
-            { title: "The Chain", number: "6", logline: "You won the game. Are you really ready for this prize?" }
-        ];
-        
-        const cards = document.querySelectorAll('.card');
-        const dots = document.querySelectorAll('.dot');
-        const prevBtns = document.querySelectorAll('.nav-button.prev');
-        const nextBtns = document.querySelectorAll('.nav-button.next');
-        let currentIndex = 0;
-        
-        function showCard(index) {
-            cards.forEach(card => {
-                card.classList.remove('visible');
-                card.classList.add('hidden');
-            });
-            
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            cards[index].classList.remove('hidden');
-            cards[index].classList.add('visible');
-            
-            dots[index].classList.add('active');
-            
-            document.getElementById('episode-subtitle').textContent = `E${episodes[index].number}: ${episodes[index].title}. ${episodes[index].logline}`;
-            
-            currentIndex = index;
-        }
-        
-        prevBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const newIndex = (currentIndex - 1 + cards.length) % cards.length;
-                showCard(newIndex);
-            });
-        });
-        
-        nextBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const newIndex = (currentIndex + 1) % cards.length;
-                showCard(newIndex);
-            });
-        });
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showCard(index);
-            });
-        });
-        
-        showCard(0);
-    </script>
+      </a>
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-6-the-chain.html" class="card-link">
+        <div class="card hidden" data-index="5">
+          <img src="/deepdreamstate/assets/images/episodes/dds-incognitoh-episode-6.webp" alt="Episode 6: The Chain - Incognitoh - Deep Dream State">
+        </div>
+      </a>
+    </div>
+
+    <div class="dot-indicator" aria-label="Carousel position">
+      <div class="dot active" data-index="0" role="button" tabindex="0" aria-label="Episode 1: Violet"></div>
+      <div class="dot" data-index="1" role="button" tabindex="0" aria-label="Episode 2: Glass Houses"></div>
+      <div class="dot" data-index="2" role="button" tabindex="0" aria-label="Episode 3: Uniforms"></div>
+      <div class="dot" data-index="3" role="button" tabindex="0" aria-label="Episode 4: Deep Fake"></div>
+      <div class="dot" data-index="4" role="button" tabindex="0" aria-label="Episode 5: Winner Winner"></div>
+      <div class="dot" data-index="5" role="button" tabindex="0" aria-label="Episode 6: The Chain"></div>
+    </div>
+
+    <div class="content-block">
+      <h2>Arc 2: Incognitoh</h2>
+
+      <p>Incognitoh is pink noir. The cage is a dollhouse. The leash has a name on it. The surveillance system is designed to look like a game show, and everyone inside it chose their room color.</p>
+
+      <p>Five contestants move into the Glass House, a fully transparent competition space where going private looks suspicious and visibility feels like agency. The uniforms are form-fitting and haptic. The Council is watching. The prize is real, and it's permanent, and it's something other than money.</p>
+
+      <p>Violet is the origin story. She arrives for session 48 and leaves for a stone circle. The grounding technique and the ritual induction are formally identical, which is the point. The arc that follows builds on that foundation.</p>
+
+      <p>By the finale, the question has shifted. The contestants aren't trying to escape. They're trying to win. And the winner gets her own show.</p>
+
+      <h2>Pay Attention to the Ads</h2>
+
+      <p>The advertisements at the end of Episode 6 are invitations. Cognitolol. Niku City. The Island. If you clock what's being offered and what's being asked for, you're already participating in what comes next.</p>
+    </div>
+
+    <div class="episode-list">
+      <h2>Episodes</h2>
+
+      <div class="episode-row">
+        <div class="episode-title">E1: Violet</div>
+        <div class="episode-links">
+          <a href="https://www.imdb.com/title/tt38722336/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+          <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-1-violet/" rel="noopener noreferrer" target="_blank">Blubrry</a> |
+          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-1-violet.html">NNPP</a>
+        </div>
+      </div>
+
+      <div class="episode-row">
+        <div class="episode-title">E2: Glass Houses</div>
+        <div class="episode-links">
+          <a href="https://www.imdb.com/title/tt38734306/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+          <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-2-glass-houses/" rel="noopener noreferrer" target="_blank">Blubrry</a> |
+          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-2-glass-houses.html">NNPP</a>
+        </div>
+      </div>
+
+      <div class="episode-row">
+        <div class="episode-title">E3: Uniforms</div>
+        <div class="episode-links">
+          <a href="https://www.imdb.com/title/tt38781457/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+          <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-3-uniforms/" rel="noopener noreferrer" target="_blank">Blubrry</a> |
+          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-3-uniforms.html">NNPP</a>
+        </div>
+      </div>
+
+      <div class="episode-row">
+        <div class="episode-title">E4: Deep Fake</div>
+        <div class="episode-links">
+          <a href="https://www.imdb.com/title/tt38796194/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+          <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-4-deep-fake/" rel="noopener noreferrer" target="_blank">Blubrry</a> |
+          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-4-deep-fake.html">NNPP</a>
+        </div>
+      </div>
+
+      <div class="episode-row">
+        <div class="episode-title">E5: Winner Winner</div>
+        <div class="episode-links">
+          <a href="https://www.imdb.com/title/tt38868291/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+          <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-2-episode-5-winner-winner/" rel="noopener noreferrer" target="_blank">Blubrry</a> |
+          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-5-winner-winner.html">NNPP</a>
+        </div>
+      </div>
+
+      <div class="episode-row">
+        <div class="episode-title">E6: The Chain</div>
+        <div class="episode-links">
+          <a href="https://www.imdb.com/title/tt38876708/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+          <a href="https://deepdreamstate.blubrry.net/arc-2-incognitoh-episode-6-the-chain/" rel="noopener noreferrer" target="_blank">Blubrry</a> |
+          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-6-the-chain.html">NNPP</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-credit">
+      Deep Dream State is a full-cast desire horror audio drama by <a href="https://neuralnetsandprettypatterns.com/">Neural Nets and Pretty Patterns</a>.
+      &nbsp;·&nbsp; ISNI: <a href="https://isni.org/isni/0000000528776254">0000 0005 2877 6254</a>
+    </div>
+  </main>
+
+  <script>
+    const bgContainer = document.getElementById('background-container');
+    bgContainer.style.backgroundImage = 'url(/deepdreamstate/assets/images/episodes/dds-incognitoh-background.webp)';
+  </script>
+
+  <script>
+    const episodes = [
+      { number: "1", title: "Violet", logline: "Let the healing begin. Now make the healing stop. Please." },
+      { number: "2", title: "Glass Houses", logline: "They're sinning - and they're still casting stones." },
+      { number: "3", title: "Uniforms", logline: "Why aren't you in uniform?" },
+      { number: "4", title: "Deep Fake", logline: "Like an early techno banger, this system hacks back." },
+      { number: "5", title: "Winner Winner", logline: "And you know who's the dinner." },
+      { number: "6", title: "The Chain", logline: "You won the game. Are you really ready for this prize?" }
+    ];
+
+    const cards = document.querySelectorAll('.card');
+    const dots = document.querySelectorAll('.dot');
+    const subtitle = document.getElementById('episode-subtitle');
+    const prevBtns = document.querySelectorAll('.nav-button.prev');
+    const nextBtns = document.querySelectorAll('.nav-button.next');
+    let currentIndex = 0;
+
+    function showCard(index) {
+      cards.forEach(card => { card.classList.remove('visible'); card.classList.add('hidden'); });
+      dots.forEach(dot => dot.classList.remove('active'));
+      cards[index].classList.remove('hidden');
+      cards[index].classList.add('visible');
+      dots[index].classList.add('active');
+      subtitle.textContent = `E${episodes[index].number}: ${episodes[index].title}. ${episodes[index].logline}`;
+      currentIndex = index;
+    }
+
+    prevBtns.forEach(btn => btn.addEventListener('click', () => {
+      showCard((currentIndex - 1 + cards.length) % cards.length);
+    }));
+
+    nextBtns.forEach(btn => btn.addEventListener('click', () => {
+      showCard((currentIndex + 1) % cards.length);
+    }));
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showCard(index));
+      dot.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showCard(index); }
+      });
+    });
+
+    showCard(0);
+  </script>
 </body>
 </html>
