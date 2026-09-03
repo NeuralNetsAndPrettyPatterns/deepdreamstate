@@ -1,0 +1,1996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>After After CYOA | Monster Romance | Deep Dream State</title>
+
+  <meta
+    name="description"
+    content="Choose your faction in After After, the monster romance fifth season of Deep Dream State, with desire horror elements. Vote on the posthuman future of the story."
+  >
+
+  <meta
+    name="keywords"
+    content="After After, Deep Dream State, monster romance, desire horror, CYOA, choose your own adventure, interactive audio drama, Neural Nets And Pretty Patterns, NNPP"
+  >
+
+  <meta name="author" content="Neural Nets And Pretty Patterns">
+  <meta name="creator" content="Neural Nets And Pretty Patterns">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#090909">
+
+  <link
+    rel="canonical"
+    href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/"
+  >
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Neural Nets And Pretty Patterns">
+
+  <meta
+    property="og:title"
+    content="After After CYOA | Deep Dream State"
+  >
+
+  <meta
+    property="og:description"
+    content="Choose your faction in After After, the monster romance fifth season of Deep Dream State, with desire horror elements."
+  >
+
+  <meta
+    property="og:url"
+    content="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/"
+  >
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="After After CYOA | Deep Dream State"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Choose your faction in After After, the monster romance fifth season of Deep Dream State, with desire horror elements."
+  >
+
+  <!--
+    Structured data:
+    Monster romance deliberately appears before desire horror.
+    NNPP creator identity uses the existing canonical Person @id and ISNI.
+  -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://neuralnetsandprettypatterns.com/#nnpp",
+        "name": "Neural Nets And Pretty Patterns",
+        "alternateName": [
+          "NNPP",
+          "Neural Nets & Pretty Patterns"
+        ],
+        "url": "https://neuralnetsandprettypatterns.com/",
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "ISNI",
+          "value": "0000 0005 2877 6254"
+        },
+        "sameAs": [
+          "https://isni.org/isni/0000000528776254"
+        ]
+      },
+      {
+        "@type": "PodcastSeries",
+        "name": "Deep Dream State",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
+        "creator": {
+          "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
+        },
+        "sameAs": [
+          "https://www.wikidata.org/wiki/Q139568834",
+          "https://podcasts.apple.com/us/podcast/deep-dream-state/id1822405042",
+          "https://open.spotify.com/show/5VVhwaymeOKbV9RG7Gre98"
+        ]
+      },
+      {
+        "@type": "CreativeWork",
+        "name": "After After",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/",
+        "genre": [
+          "Monster romance",
+          "Desire horror",
+          "Audio drama",
+          "Interactive fiction"
+        ],
+        "creator": {
+          "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
+        },
+        "isPartOf": {
+          "@type": "PodcastSeries",
+          "name": "Deep Dream State",
+          "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/#webpage",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/",
+        "name": "After After CYOA",
+        "description": "Vote for your favorite faction in After After, the monster romance fifth season of Deep Dream State, with desire horror elements.",
+        "inLanguage": "en-US",
+        "genre": [
+          "Monster romance",
+          "Desire horror",
+          "Interactive fiction"
+        ],
+        "creator": {
+          "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
+        },
+        "about": {
+          "@type": "CreativeWork",
+          "name": "After After",
+          "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/"
+        },
+        "isPartOf": {
+          "@type": "PodcastSeries",
+          "name": "Deep Dream State",
+          "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #090909;
+      --panel: #121212;
+      --panel-hover: #191919;
+      --text: #ffffff;
+      --muted: #bbbbbb;
+      --accent: #ff5cad;
+      --accent-light: #ff9dce;
+      --line: #383838;
+      --line-strong: #686868;
+      --success: #b9ffd7;
+      --error: #ffaaaa;
+
+      --max: 1280px;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(
+          circle at top,
+          #1b1018 0,
+          #090909 34rem
+        );
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent-light);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: #ffffff;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page-shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    /* -----------------------------
+       SIMPLE LOCAL NAV
+       The shared DDS button system
+       can replace this later.
+       ----------------------------- */
+
+    .local-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px 0 8px;
+    }
+
+    .local-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 8px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.42);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .local-nav a:hover,
+    .local-nav a:focus-visible {
+      border-color: var(--accent);
+      color: var(--accent-light);
+    }
+
+    /* -----------------------------
+       INTRO
+       ----------------------------- */
+
+    .hero {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 58px 0 30px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent-light);
+      font-size: 0.83rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 10vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      margin: 20px auto 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 700;
+    }
+
+    .genre-line {
+      margin-top: 10px;
+      color: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .genre-line span + span::before {
+      content: "  •  ";
+      color: var(--accent);
+    }
+
+    .intro {
+      max-width: 860px;
+      margin: 14px auto 56px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(15, 15, 15, 0.88);
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.28);
+      font-size: 1.05rem;
+    }
+
+    .intro p {
+      margin: 0 0 1.15em;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro .big-line {
+      margin: 1.4em 0;
+      text-align: center;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 950;
+      letter-spacing: -0.03em;
+    }
+
+    /* -----------------------------
+       SPOILERS
+       ----------------------------- */
+
+    .spoiler {
+      padding: 0.06em 0.2em;
+      border-radius: 4px;
+      background: #ffffff;
+      color: transparent;
+      cursor: pointer;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      transition:
+        background 150ms ease,
+        color 150ms ease;
+    }
+
+    .spoiler a {
+      color: transparent;
+    }
+
+    .spoiler:hover,
+    .spoiler:focus,
+    .spoiler.revealed {
+      background: #272727;
+      color: #ffffff;
+      outline: none;
+    }
+
+    .spoiler:hover a,
+    .spoiler:focus a,
+    .spoiler.revealed a {
+      color: var(--accent-light);
+    }
+
+    /* -----------------------------
+       VOTING AREA
+       ----------------------------- */
+
+    .voting-header {
+      max-width: 800px;
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+
+    .voting-header h2 {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+    }
+
+    .voting-header p {
+      margin: 14px 0 0;
+      color: var(--muted);
+    }
+
+    .faction-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .faction-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      transition:
+        transform 150ms ease,
+        border-color 150ms ease,
+        background 150ms ease,
+        box-shadow 150ms ease;
+    }
+
+    .faction-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      background: var(--panel-hover);
+    }
+
+    .faction-card:has(.faction-radio:checked) {
+      border-color: var(--accent);
+      box-shadow:
+        0 0 0 2px rgba(255, 92, 173, 0.2),
+        0 20px 60px rgba(0, 0, 0, 0.36);
+    }
+
+    .faction-image-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #000000;
+      cursor: pointer;
+    }
+
+    .faction-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition:
+        transform 250ms ease,
+        opacity 250ms ease;
+    }
+
+    .faction-card:hover .faction-image {
+      transform: scale(1.018);
+    }
+
+    .faction-card:has(.faction-radio:checked)
+    .faction-image {
+      opacity: 0.9;
+    }
+
+    .selected-mark {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #000000;
+      font-size: 1.15rem;
+      font-weight: 950;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    }
+
+    .faction-card:has(.faction-radio:checked)
+    .selected-mark {
+      display: flex;
+    }
+
+    .faction-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 21px;
+    }
+
+    .faction-name {
+      margin: 0;
+      font-size: 1.6rem;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+    }
+
+    .faction-copy {
+      margin: 11px 0 0;
+      color: #ffffff;
+      font-weight: 650;
+    }
+
+    .faction-members {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .faction-members strong {
+      color: #ffffff;
+    }
+
+    .vote-total {
+      margin-top: auto;
+      padding-top: 22px;
+      color: var(--accent-light);
+      font-size: 0.96rem;
+      font-weight: 900;
+      letter-spacing: 0.025em;
+    }
+
+    .vote-count {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .choose-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+    }
+
+    .faction-radio {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .choose-row label {
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    /* -----------------------------
+       SUBMIT
+       ----------------------------- */
+
+    .vote-controls {
+      max-width: 700px;
+      margin: 34px auto 0;
+      text-align: center;
+    }
+
+    .vote-button {
+      width: min(100%, 500px);
+      min-height: 58px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #090909;
+      font-weight: 950;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition:
+        transform 150ms ease,
+        background 150ms ease;
+    }
+
+    .vote-button:hover,
+    .vote-button:focus-visible {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .vote-button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+      transform: none;
+    }
+
+    .vote-status {
+      min-height: 28px;
+      margin: 14px 0 0;
+      font-weight: 750;
+    }
+
+    .vote-status.success {
+      color: var(--success);
+    }
+
+    .vote-status.error {
+      color: var(--error);
+    }
+
+    .vote-note {
+      margin: 7px auto 0;
+      color: #888888;
+      font-size: 0.8rem;
+    }
+
+    /* -----------------------------
+       POST VOTE RATING CTA
+       ----------------------------- */
+
+    .rating-cta {
+      display: none;
+      max-width: 720px;
+      margin: 38px auto 0;
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #101010;
+      text-align: center;
+    }
+
+    .rating-cta.visible {
+      display: block;
+    }
+
+    .rating-cta h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .rating-cta p {
+      margin: 8px 0 20px;
+      color: var(--muted);
+    }
+
+    .rating-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .rating-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 180px;
+      min-height: 46px;
+      padding: 10px 18px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      color: #ffffff;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .rating-links a:hover,
+    .rating-links a:focus-visible {
+      background: var(--accent);
+      color: #090909;
+    }
+
+    /* -----------------------------
+       FOOTER
+       ----------------------------- */
+
+    footer {
+      max-width: 850px;
+      margin: 70px auto 0;
+      padding: 34px 0 46px;
+      border-top: 1px solid var(--line);
+      color: #8f8f8f;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    footer strong {
+      color: #ffffff;
+    }
+
+    /* -----------------------------
+       RESPONSIVE
+       ----------------------------- */
+
+    @media (max-width: 980px) {
+      .faction-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page-shell {
+        width: min(calc(100% - 20px), var(--max));
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+
+      .intro {
+        padding: 22px;
+      }
+
+      .faction-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faction-content {
+        padding: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-shell">
+
+    <!--
+      Temporary local navigation.
+      We can swap this for the final shared After After / DDS button row
+      once we do the button architecture.
+    -->
+    <nav class="local-nav" aria-label="Deep Dream State navigation">
+      <a href="https://neuralnetsandprettypatterns.com/">
+        NNPP
+      </a>
+
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">
+        Deep Dream State
+      </a>
+
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/">
+        After After
+      </a>
+
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/">
+        Lore
+      </a>
+
+      <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/">
+        Cast
+      </a>
+    </nav>
+
+
+    <header class="hero">
+
+      <p class="eyebrow">
+        Deep Dream State • Season Five
+      </p>
+
+      <h1>
+        After After
+      </h1>
+
+      <p class="hero-subtitle">
+        Choose Your Faction
+      </p>
+
+      <p class="genre-line">
+        <span>Monster Romance</span>
+        <span>Desire Horror</span>
+      </p>
+
+    </header>
+
+
+    <main>
+
+      <!-- INTRODUCTION -->
+
+      <section class="intro" aria-label="About After After">
+
+        <p>
+          After After is a big evolution in Deep Dream State, and just a big evolution.
+        </p>
+
+        <p>
+          <span class="spoiler" tabindex="0">
+            At the end of S4,
+            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#naia-anderson">
+              Naia
+            </a>
+            is firmly in control of
+            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/">
+              Vale Four
+            </a>'s assets and IP.
+          </span>
+
+          What started as a lovers' quarrel
+
+          <span class="spoiler" tabindex="0">
+            between
+            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#june-lowell">
+              June
+            </a>
+            and
+            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#z-dr-zev-talcott">
+              Z
+            </a>
+          </span>
+
+          ends with humanity's fate subject to one decisionmaker.
+          Her declared decision opens the season.
+        </p>
+
+        <p class="big-line">
+          <span class="spoiler" tabindex="0">
+            Humanity is over.
+          </span>
+        </p>
+
+        <p>
+          That isn't doomsaying or villainy. It's a statement of fact,
+          maybe even an optimistic one. Saying it out loud is the first
+          step to somewhere else. "Somewhere else" might be a collective
+          happily ever after.
+        </p>
+
+        <p>
+          Seasons 1-4 of Deep Dream State tend toward the bleak.
+          Season Five doesn't. Each
+          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#cycle">
+            story set
+          </a>
+          is a romance. There's chemistry, stakes, and romantic resolution
+          on the species level.
+        </p>
+
+        <p>
+          The show is still very much about desire. Whether queer posthuman
+          kinds of desire are horror or HEA is up to you.
+        </p>
+
+        <p>
+          <strong>The plot's up to you as well!</strong>
+        </p>
+
+        <p>
+          Different post/extra/superhuman entities populate the first four
+          seasons. After After puts names to those entities, and then you
+          vote. The season's written, but the last chapter choice depends
+          on you.
+        </p>
+
+        <p>
+          Choose your favorite faction. They'll tell their stories and hope
+          that sways your vote. The vote tallies reflect on the page in real
+          time. They'll decide what comes After After.
+        </p>
+
+      </section>
+
+
+      <!-- VOTING -->
+
+      <section aria-labelledby="choose-faction-title">
+
+        <div class="voting-header">
+
+          <h2 id="choose-faction-title">
+            Choose Your Faction
+          </h2>
+
+          <p>
+            Pick one. You can change your vote later.
+          </p>
+
+        </div>
+
+
+        <form id="faction-vote-form">
+
+          <div class="faction-grid">
+
+
+            <!-- ORPHICS -->
+
+            <article class="faction-card" data-faction-card="orphics">
+
+              <div
+                class="faction-image-wrap"
+                data-select-faction="orphics"
+              >
+
+                <img
+                  class="faction-image"
+                  src="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/orphics-afteraftercyoa.jpg"
+                  alt="Orphics faction artwork for After After"
+                >
+
+                <div class="selected-mark" aria-hidden="true">
+                  ✓
+                </div>
+
+              </div>
+
+              <div class="faction-content">
+
+                <h3 class="faction-name">
+                  Orphics
+                </h3>
+
+                <p class="faction-copy">
+                  Mythic beings. Keeping the O in Olympus.
+                </p>
+
+                <p class="faction-members">
+                  <strong>Faction:</strong>
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#z-dr-zev-talcott">
+                    Z
+                  </a>,
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#juno">
+                    Juno
+                  </a>,
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#iris">
+                    Iris
+                  </a>
+                </p>
+
+                <div class="vote-total">
+                  <span
+                    class="vote-count"
+                    data-vote-count="orphics"
+                  ><!--AFTERAFTER:ORPHICS-->0<!--/AFTERAFTER:ORPHICS--></span>
+                  votes
+                </div>
+
+                <div class="choose-row">
+
+                  <input
+                    class="faction-radio"
+                    type="radio"
+                    id="vote-orphics"
+                    name="faction"
+                    value="orphics"
+                  >
+
+                  <label for="vote-orphics">
+                    Choose Orphics
+                  </label>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- TRIPLINGS -->
+
+            <article class="faction-card" data-faction-card="triplings">
+
+              <div
+                class="faction-image-wrap"
+                data-select-faction="triplings"
+              >
+
+                <img
+                  class="faction-image"
+                  src="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/triplings-afteraftercyoa.jpg"
+                  alt="Triplings faction artwork for After After"
+                  loading="lazy"
+                >
+
+                <div class="selected-mark" aria-hidden="true">
+                  ✓
+                </div>
+
+              </div>
+
+              <div class="faction-content">
+
+                <h3 class="faction-name">
+                  Triplings
+                </h3>
+
+                <p class="faction-copy">
+                  Covenated. Witchy, switchy, potentially bitchy.
+                </p>
+
+                <p class="faction-members">
+                  <strong>Faction:</strong>
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#hespa-apate">
+                    Hespa
+                  </a>,
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#emma">
+                    Emma
+                  </a>
+                </p>
+
+                <div class="vote-total">
+                  <span
+                    class="vote-count"
+                    data-vote-count="triplings"
+                  ><!--AFTERAFTER:TRIPLINGS-->0<!--/AFTERAFTER:TRIPLINGS--></span>
+                  votes
+                </div>
+
+                <div class="choose-row">
+
+                  <input
+                    class="faction-radio"
+                    type="radio"
+                    id="vote-triplings"
+                    name="faction"
+                    value="triplings"
+                  >
+
+                  <label for="vote-triplings">
+                    Choose Triplings
+                  </label>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- PANDO -->
+
+            <article class="faction-card" data-faction-card="pando">
+
+              <div
+                class="faction-image-wrap"
+                data-select-faction="pando"
+              >
+
+                <img
+                  class="faction-image"
+                  src="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/pando-afteraftercyoa.jpg"
+                  alt="Pando faction artwork for After After"
+                  loading="lazy"
+                >
+
+                <div class="selected-mark" aria-hidden="true">
+                  ✓
+                </div>
+
+              </div>
+
+              <div class="faction-content">
+
+                <h3 class="faction-name">
+                  Pando
+                </h3>
+
+                <p class="faction-copy">
+                  Dryad bouquet. The girlsquad keeps growing.
+                </p>
+
+                <p class="faction-members">
+                  <strong>Faction:</strong>
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#naia-anderson">
+                    Naia
+                  </a>
+                </p>
+
+                <div class="vote-total">
+                  <span
+                    class="vote-count"
+                    data-vote-count="pando"
+                  ><!--AFTERAFTER:PANDO-->0<!--/AFTERAFTER:PANDO--></span>
+                  votes
+                </div>
+
+                <div class="choose-row">
+
+                  <input
+                    class="faction-radio"
+                    type="radio"
+                    id="vote-pando"
+                    name="faction"
+                    value="pando"
+                  >
+
+                  <label for="vote-pando">
+                    Choose Pando
+                  </label>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- LILIES -->
+
+            <article class="faction-card" data-faction-card="lilies">
+
+              <div
+                class="faction-image-wrap"
+                data-select-faction="lilies"
+              >
+
+                <img
+                  class="faction-image"
+                  src="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/lilies-afteraftercyoa.jpg"
+                  alt="Lilies faction artwork for After After"
+                  loading="lazy"
+                >
+
+                <div class="selected-mark" aria-hidden="true">
+                  ✓
+                </div>
+
+              </div>
+
+              <div class="faction-content">
+
+                <h3 class="faction-name">
+                  Lilies
+                </h3>
+
+                <p class="faction-copy">
+                  Succubus vibes. Baddest of the bitches.
+                </p>
+
+                <p class="faction-members">
+                  <strong>Faction:</strong>
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#tessa-finn">
+                    Tessa
+                  </a>
+                </p>
+
+                <div class="vote-total">
+                  <span
+                    class="vote-count"
+                    data-vote-count="lilies"
+                  ><!--AFTERAFTER:LILIES-->0<!--/AFTERAFTER:LILIES--></span>
+                  votes
+                </div>
+
+                <div class="choose-row">
+
+                  <input
+                    class="faction-radio"
+                    type="radio"
+                    id="vote-lilies"
+                    name="faction"
+                    value="lilies"
+                  >
+
+                  <label for="vote-lilies">
+                    Choose Lilies
+                  </label>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- LIMINITES -->
+
+            <article class="faction-card" data-faction-card="liminites">
+
+              <div
+                class="faction-image-wrap"
+                data-select-faction="liminites"
+              >
+
+                <img
+                  class="faction-image"
+                  src="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/liminites-afteraftercyoa.jpg"
+                  alt="Liminites faction artwork for After After"
+                  loading="lazy"
+                >
+
+                <div class="selected-mark" aria-hidden="true">
+                  ✓
+                </div>
+
+              </div>
+
+              <div class="faction-content">
+
+                <h3 class="faction-name">
+                  Liminites
+                </h3>
+
+                <p class="faction-copy">
+                  Cryptid patrol. Always on the hunt for hunters.
+                </p>
+
+                <p class="faction-members">
+                  <strong>Faction:</strong>
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#elle-lawson">
+                    Elle
+                  </a>
+                </p>
+
+                <div class="vote-total">
+                  <span
+                    class="vote-count"
+                    data-vote-count="liminites"
+                  ><!--AFTERAFTER:LIMINITES-->0<!--/AFTERAFTER:LIMINITES--></span>
+                  votes
+                </div>
+
+                <div class="choose-row">
+
+                  <input
+                    class="faction-radio"
+                    type="radio"
+                    id="vote-liminites"
+                    name="faction"
+                    value="liminites"
+                  >
+
+                  <label for="vote-liminites">
+                    Choose Liminites
+                  </label>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- SYNTHSERVS -->
+
+            <article class="faction-card" data-faction-card="synthservs">
+
+              <div
+                class="faction-image-wrap"
+                data-select-faction="synthservs"
+              >
+
+                <img
+                  class="faction-image"
+                  src="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/synthservs-afteraftercyoa.jpg"
+                  alt="Synthservs faction artwork for After After"
+                  loading="lazy"
+                >
+
+                <div class="selected-mark" aria-hidden="true">
+                  ✓
+                </div>
+
+              </div>
+
+              <div class="faction-content">
+
+                <h3 class="faction-name">
+                  Synthservs
+                </h3>
+
+                <p class="faction-copy">
+                  Cyborged. Beep her boop.
+                </p>
+
+                <p class="faction-members">
+                  <strong>Faction:</strong>
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#meg-aerin">
+                    Meg
+                  </a>
+                </p>
+
+                <div class="vote-total">
+                  <span
+                    class="vote-count"
+                    data-vote-count="synthservs"
+                  ><!--AFTERAFTER:SYNTHSERVS-->0<!--/AFTERAFTER:SYNTHSERVS--></span>
+                  votes
+                </div>
+
+                <div class="choose-row">
+
+                  <input
+                    class="faction-radio"
+                    type="radio"
+                    id="vote-synthservs"
+                    name="faction"
+                    value="synthservs"
+                  >
+
+                  <label for="vote-synthservs">
+                    Choose Synthservs
+                  </label>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- THE PACK -->
+
+            <article class="faction-card" data-faction-card="the-pack">
+
+              <div
+                class="faction-image-wrap"
+                data-select-faction="the-pack"
+              >
+
+                <img
+                  class="faction-image"
+                  src="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/the-pack-afteraftercyoa.jpg"
+                  alt="The Pack faction artwork for After After"
+                  loading="lazy"
+                >
+
+                <div class="selected-mark" aria-hidden="true">
+                  ✓
+                </div>
+
+              </div>
+
+              <div class="faction-content">
+
+                <h3 class="faction-name">
+                  The Pack
+                </h3>
+
+                <p class="faction-copy">
+                  Definitely feral; possibly shifter. Oooo to the awooo.
+                </p>
+
+                <p class="faction-members">
+                  <strong>Faction:</strong>
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#celeste">
+                    Celeste
+                  </a>,
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#gia">
+                    Gia
+                  </a>,
+
+                  <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#clara">
+                    Clara
+                  </a>
+                </p>
+
+                <div class="vote-total">
+                  <span
+                    class="vote-count"
+                    data-vote-count="the-pack"
+                  ><!--AFTERAFTER:THE-PACK-->0<!--/AFTERAFTER:THE-PACK--></span>
+                  votes
+                </div>
+
+                <div class="choose-row">
+
+                  <input
+                    class="faction-radio"
+                    type="radio"
+                    id="vote-the-pack"
+                    name="faction"
+                    value="the-pack"
+                  >
+
+                  <label for="vote-the-pack">
+                    Choose The Pack
+                  </label>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+          </div>
+
+
+          <div class="vote-controls">
+
+            <button
+              class="vote-button"
+              id="vote-button"
+              type="submit"
+            >
+              Cast My Vote
+            </button>
+
+            <p
+              class="vote-status"
+              id="vote-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+            <p class="vote-note">
+              One active choice per browser. You can change your faction later.
+            </p>
+
+          </div>
+
+        </form>
+
+
+        <!-- POST-VOTE CTA -->
+
+        <aside
+          class="rating-cta"
+          id="rating-cta"
+          aria-labelledby="rating-title"
+        >
+
+          <h3 id="rating-title">
+            Enjoying Deep Dream State?
+          </h3>
+
+          <p>
+            Leaving a rating helps more listeners find the show.
+          </p>
+
+          <div class="rating-links">
+
+            <a
+              href="https://podcasts.apple.com/us/podcast/deep-dream-state/id1822405042"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Rate on Apple Podcasts
+            </a>
+
+            <a
+              href="https://open.spotify.com/show/5VVhwaymeOKbV9RG7Gre98"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Rate on Spotify
+            </a>
+
+          </div>
+
+        </aside>
+
+      </section>
+
+    </main>
+
+
+    <footer>
+
+      <p>
+        <strong>After After</strong> is part of
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">
+          Deep Dream State
+        </a>.
+      </p>
+
+      <p>
+        Created by
+        <a href="https://neuralnetsandprettypatterns.com/">
+          Neural Nets And Pretty Patterns
+        </a>.
+      </p>
+
+      <p>
+        Creator ISNI:
+        <a
+          href="https://isni.org/isni/0000000528776254"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          0000 0005 2877 6254
+        </a>
+      </p>
+
+    </footer>
+
+  </div>
+
+
+  <script>
+    (() => {
+
+      /*
+        EXPECTED WORKER API
+
+        GET:
+        /api/afterafter/votes
+
+        Response:
+        {
+          "ok": true,
+          "counts": {
+            "orphics": 100,
+            "triplings": 100,
+            "pando": 100,
+            "lilies": 100,
+            "liminites": 100,
+            "synthservs": 100,
+            "the-pack": 100
+          }
+        }
+
+        POST:
+        /api/afterafter/vote
+
+        Body:
+        {
+          "token": "...",
+          "faction": "pando"
+        }
+
+        Response:
+        {
+          "ok": true,
+          "selectedFaction": "pando",
+          "counts": {
+            ...
+          }
+        }
+
+        The Worker will ALSO replace the AFTERAFTER SSR markers
+        in the HTML before serving this page, so the initial
+        public totals are server-side rendered.
+
+        External/manual vote batches are combined server-side.
+        This page does not need to know their source.
+      */
+
+      const COUNTS_ENDPOINT =
+        "/api/afterafter/votes";
+
+      const VOTE_ENDPOINT =
+        "/api/afterafter/vote";
+
+      const TOKEN_KEY =
+        "afterafter-voter-token-v1";
+
+      const CHOICE_KEY =
+        "afterafter-faction-choice-v1";
+
+
+      const form =
+        document.getElementById("faction-vote-form");
+
+      const voteButton =
+        document.getElementById("vote-button");
+
+      const voteStatus =
+        document.getElementById("vote-status");
+
+      const ratingCTA =
+        document.getElementById("rating-cta");
+
+
+      /*
+        --------------------------------
+        ANONYMOUS VOTER TOKEN
+        --------------------------------
+      */
+
+      function getVoterToken() {
+
+        let token =
+          localStorage.getItem(TOKEN_KEY);
+
+        if (token) {
+          return token;
+        }
+
+        if (
+          window.crypto &&
+          typeof window.crypto.randomUUID === "function"
+        ) {
+          token = window.crypto.randomUUID();
+        } else {
+          token =
+            "afterafter-" +
+            Date.now().toString(36) +
+            "-" +
+            Math.random().toString(36).slice(2) +
+            Math.random().toString(36).slice(2);
+        }
+
+        localStorage.setItem(
+          TOKEN_KEY,
+          token
+        );
+
+        return token;
+      }
+
+
+      /*
+        --------------------------------
+        SPOILERS
+        --------------------------------
+      */
+
+      document
+        .querySelectorAll(".spoiler")
+        .forEach((spoiler) => {
+
+          spoiler.addEventListener(
+            "click",
+            (event) => {
+
+              /*
+                Once revealed, links inside the spoiler
+                should behave normally.
+              */
+
+              if (
+                spoiler.classList.contains("revealed") &&
+                event.target.closest("a")
+              ) {
+                return;
+              }
+
+              spoiler.classList.toggle(
+                "revealed"
+              );
+
+            }
+          );
+
+          spoiler.addEventListener(
+            "keydown",
+            (event) => {
+
+              if (
+                event.key === "Enter" ||
+                event.key === " "
+              ) {
+
+                event.preventDefault();
+
+                spoiler.classList.toggle(
+                  "revealed"
+                );
+
+              }
+
+            }
+          );
+
+        });
+
+
+      /*
+        --------------------------------
+        CLICK IMAGE TO SELECT CARD
+        --------------------------------
+      */
+
+      document
+        .querySelectorAll("[data-select-faction]")
+        .forEach((selectArea) => {
+
+          selectArea.addEventListener(
+            "click",
+            () => {
+
+              const faction =
+                selectArea.dataset.selectFaction;
+
+              const radio =
+                document.querySelector(
+                  `input[name="faction"][value="${faction}"]`
+                );
+
+              if (radio) {
+                radio.checked = true;
+              }
+
+            }
+          );
+
+        });
+
+
+      /*
+        --------------------------------
+        RESTORE LOCAL CHOICE
+        --------------------------------
+      */
+
+      const storedChoice =
+        localStorage.getItem(CHOICE_KEY);
+
+      if (storedChoice) {
+
+        const storedRadio =
+          document.querySelector(
+            `input[name="faction"][value="${storedChoice}"]`
+          );
+
+        if (storedRadio) {
+
+          storedRadio.checked = true;
+
+          voteButton.textContent =
+            "Change My Vote";
+
+        }
+
+      }
+
+
+      /*
+        --------------------------------
+        UPDATE COUNTS
+        --------------------------------
+      */
+
+      function renderCounts(counts) {
+
+        if (!counts) {
+          return;
+        }
+
+        Object.entries(counts)
+          .forEach(([faction, count]) => {
+
+            const target =
+              document.querySelector(
+                `[data-vote-count="${faction}"]`
+              );
+
+            if (!target) {
+              return;
+            }
+
+            const numericCount =
+              Number(count);
+
+            if (
+              !Number.isFinite(numericCount)
+            ) {
+              return;
+            }
+
+            target.textContent =
+              numericCount.toLocaleString();
+
+          });
+
+      }
+
+
+      /*
+        --------------------------------
+        GET LATEST TOTALS
+
+        Initial HTML is SSR.
+        This simply keeps open pages fresh.
+        --------------------------------
+      */
+
+      async function refreshCounts() {
+
+        try {
+
+          const response =
+            await fetch(
+              COUNTS_ENDPOINT,
+              {
+                method: "GET",
+                headers: {
+                  "Accept": "application/json"
+                },
+                cache: "no-store"
+              }
+            );
+
+          if (!response.ok) {
+            return;
+          }
+
+          const data =
+            await response.json();
+
+          if (
+            data &&
+            data.ok &&
+            data.counts
+          ) {
+            renderCounts(data.counts);
+          }
+
+        } catch (error) {
+
+          /*
+            Silent by design.
+            The SSR totals remain visible if
+            the refresh endpoint is unavailable.
+          */
+
+        }
+
+      }
+
+
+      /*
+        Keep open pages reasonably current.
+        Voting itself updates immediately.
+      */
+
+      window.setInterval(
+        refreshCounts,
+        20000
+      );
+
+
+      /*
+        --------------------------------
+        SUBMIT VOTE
+        --------------------------------
+      */
+
+      form.addEventListener(
+        "submit",
+        async (event) => {
+
+          event.preventDefault();
+
+          voteStatus.className =
+            "vote-status";
+
+          voteStatus.textContent =
+            "";
+
+          const selected =
+            form.querySelector(
+              'input[name="faction"]:checked'
+            );
+
+          if (!selected) {
+
+            voteStatus.classList.add(
+              "error"
+            );
+
+            voteStatus.textContent =
+              "Choose a faction first.";
+
+            return;
+          }
+
+
+          const faction =
+            selected.value;
+
+          const token =
+            getVoterToken();
+
+
+          voteButton.disabled = true;
+
+          voteButton.textContent =
+            "Casting Vote...";
+
+
+          try {
+
+            const response =
+              await fetch(
+                VOTE_ENDPOINT,
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type":
+                      "application/json",
+
+                    "Accept":
+                      "application/json"
+                  },
+                  body: JSON.stringify({
+                    token,
+                    faction
+                  })
+                }
+              );
+
+
+            const data =
+              await response.json();
+
+
+            if (
+              !response.ok ||
+              !data ||
+              !data.ok
+            ) {
+
+              throw new Error(
+                data?.error ||
+                "Vote could not be recorded."
+              );
+
+            }
+
+
+            if (data.counts) {
+              renderCounts(data.counts);
+            }
+
+
+            const chosenFaction =
+              data.selectedFaction ||
+              faction;
+
+
+            localStorage.setItem(
+              CHOICE_KEY,
+              chosenFaction
+            );
+
+
+            voteStatus.classList.add(
+              "success"
+            );
+
+            voteStatus.textContent =
+              "Vote counted. Your faction is " +
+              formatFactionName(
+                chosenFaction
+              ) +
+              ".";
+
+
+            voteButton.textContent =
+              "Change My Vote";
+
+
+            ratingCTA.classList.add(
+              "visible"
+            );
+
+
+          } catch (error) {
+
+            voteStatus.classList.add(
+              "error"
+            );
+
+            voteStatus.textContent =
+              error.message ||
+              "Something went wrong. Try again.";
+
+            voteButton.textContent =
+              storedChoice
+                ? "Change My Vote"
+                : "Cast My Vote";
+
+
+          } finally {
+
+            voteButton.disabled = false;
+
+          }
+
+        }
+      );
+
+
+      /*
+        --------------------------------
+        DISPLAY NAMES
+        --------------------------------
+      */
+
+      function formatFactionName(faction) {
+
+        const names = {
+          "orphics": "ORPHICS",
+          "triplings": "TRIPLINGS",
+          "pando": "PANDO",
+          "lilies": "LILIES",
+          "liminites": "LIMINITES",
+          "synthservs": "SYNTHSERVS",
+          "the-pack": "THE PACK"
+        };
+
+        return names[faction] || faction;
+
+      }
+
+    })();
+  </script>
+
+</body>
+</html>
